@@ -1,0 +1,32 @@
+/* Header styles */
+.site-header {
+	background: transparent;
+	/* header should use Noto Serif Display per request */
+	font-family: "Noto Serif Display", serif;
+}
+
+.site-header .nav-link {
+	color: rgba(0,0,0,0.8);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.site-header .nav-link:hover {
+	color: #E50914;
+	text-decoration: underline;
+}
+
+/* Right-side links styling: make contact link bold and provide spacing */
+.right-nav .nav-link {
+	color: rgba(0,0,0,0.8);
+	padding: 0.25rem 0.5rem;
+}
+
+.right-nav .nav-link.contact-link {
+	font-weight: 700;
+}
+
+@media (max-width: 576px) {
+	.site-header { padding: 0.25rem 0.5rem; }
+}
+

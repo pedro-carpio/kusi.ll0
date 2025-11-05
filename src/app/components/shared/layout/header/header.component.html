@@ -1,0 +1,19 @@
+<nav class="site-header py-2">
+	<div class="container-fluid d-flex align-items-center justify-content-between">
+			<!-- Left section: hidden on xs -->
+			<div class="left-nav d-none d-sm-flex gap-3 align-items-center">
+				<a class="nav-link px-2" href="#love" (click)="onNavClick('love', $event)">{{ t('header.nav.love') }}</a>
+				<a class="nav-link px-2" href="#design" (click)="onNavClick('design', $event)">{{ t('header.nav.design') }}</a>
+				<a class="nav-link px-2" href="#art" (click)="onNavClick('art', $event)">{{ t('header.nav.art') }}</a>
+			</div>
+
+		<!-- Right section: creations (hidden on xs), contact (always), hamburger (always visible on xs) -->
+		<div class="right-nav d-flex gap-2 align-items-center">
+			<a class="nav-link px-2 d-none d-sm-inline-block" href="#creations" (click)="$event.preventDefault()">{{ t('header.nav.creations') }}</a>
+			<a class="nav-link px-2 contact-link" href="#contact">{{ t('header.nav.contact') }}</a>
+			<!-- hamburger: keep visible on all sizes but styled small on desktop -->
+			<a class="btn btn-light btn-sm ms-2" href="#" aria-label="menu">☰</a>
+		</div>
+	</div>
+</nav>
+

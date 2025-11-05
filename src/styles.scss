@@ -1,4 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
-* {
+/* Global styles and Bootstrap customization */
+/* Fonts are loaded in index.html: Inconsolata and Noto Serif Display */
+
+@import "bootstrap/scss/functions";
+
+/* Primary color requested by user */
+$primary: #E50914;
+
+/* Make other theme colors grayscale */
+$theme-colors: (
+    "primary": $primary,
+    "secondary": #6c757d,
+    "success": #6c757d,
+    "info": #6c757d,
+    "warning": #6c757d,
+    "danger": #6c757d,
+    "light": #f8f9fa,
+    "dark": #212529
+);
+
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/bootstrap";
+
+/* Global base font: keep Inconsolata as body font (monospace aesthetic) */
+body {
     font-family: "Inconsolata", monospace;
+    background-color: #fff;
+    color: #111;
+}
+
+/* Small utility: ensure headings have readable fallback */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Serif Display", serif;
 }
