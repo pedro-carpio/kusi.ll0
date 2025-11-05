@@ -1,10 +1,8 @@
 
 .under-construction-bg {
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #e6f7ff 100%);
 	padding: 2rem;
 }
 
@@ -15,6 +13,13 @@
 
 .display-1 {
 	font-size: 3rem;
+}
+
+app-footer {
+    text-align: center;
+    padding: 1rem;
+    display: block;
+    margin: auto;
 }
 
 @media (max-width: 576px) {
