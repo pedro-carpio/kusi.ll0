@@ -1,0 +1,32 @@
+<div class="content-text">
+	<ng-container *ngIf="link; else noLink">
+		<a [href]="link" class="content-link">
+			<h4 *ngIf="title">{{ title }}</h4>
+			<span *ngIf="subtitle" class="subtitle">{{ subtitle }}</span>
+			<div class="content-body">
+				<ng-content></ng-content>
+			</div>
+		</a>
+	</ng-container>
+	<ng-template #noLink>
+		<div class="content-inner">
+			<h4 *ngIf="title">{{ title }}</h4>
+			<span *ngIf="subtitle" class="subtitle">{{ subtitle }}</span>
+			<div class="content-body">
+				<ng-content></ng-content>
+			</div>
+		</div>
+	</ng-template>
+
+	<!-- Floating media shown on hover (image if provided, otherwise floating title).
+			 It's positioned fixed so it doesn't affect layout. Pointer-events:none so it doesn't
+			 capture the mouse. Visible only on non-mobile via CSS media queries. -->
+	<div class="floating-media" [style.width]="image ? imgWidthStyle : null">
+		<ng-container *ngIf="image; else floatTitle">
+			<img [src]="image" loading="lazy" alt="{{ title || 'floating image' }}" />
+		</ng-container>
+			<ng-template #floatTitle>
+				<h1 class="floating-title">{{ title }}</h1>
+			</ng-template>
+	</div>
+</div>

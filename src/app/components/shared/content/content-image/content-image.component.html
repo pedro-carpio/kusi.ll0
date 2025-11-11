@@ -1,0 +1,10 @@
+<div class="content-image">
+    <ng-container *ngIf="link; else noLink">
+        <a [href]="link">
+            <img [src]="file" [alt]="imgAlt || 'content image'" class="img-fluid" [title]="imgAlt || 'content image'" />
+        </a>
+    </ng-container>
+    <ng-template #noLink>
+        <img [src]="file" [alt]="imgAlt || 'content image'" class="img-fluid" [title]="imgAlt || 'content image'" />
+    </ng-template>
+</div>
