@@ -1,32 +1,35 @@
-<div class="content-text">
+<article class="content-text" aria-label="content item">
 	<ng-container *ngIf="link; else noLink">
-		<a [href]="link" class="content-link">
-			<h4 *ngIf="title">{{ title }}</h4>
-			<span *ngIf="subtitle" class="subtitle">{{ subtitle }}</span>
-			<div class="content-body">
+		<a [href]="link" class="content-link" [attr.aria-label]="title || 'content link'">
+			<header class="content-header">
+				<h3 *ngIf="title">{{ title }}</h3>
+				<p *ngIf="subtitle" class="subtitle">{{ subtitle }}</p>
+			</header>
+			<section class="content-body" role="region">
 				<ng-content></ng-content>
-			</div>
+			</section>
 		</a>
 	</ng-container>
+
 	<ng-template #noLink>
-		<div class="content-inner">
-			<h4 *ngIf="title">{{ title }}</h4>
-			<span *ngIf="subtitle" class="subtitle">{{ subtitle }}</span>
-			<div class="content-body">
-				<ng-content></ng-content>
-			</div>
-		</div>
+		<header class="content-header">
+			<h3 *ngIf="title">{{ title }}</h3>
+			<p *ngIf="subtitle" class="subtitle">{{ subtitle }}</p>
+		</header>
+		<section class="content-body" role="region">
+			<ng-content></ng-content>
+		</section>
 	</ng-template>
 
-	<!-- Floating media shown on hover (image if provided, otherwise floating title).
-			 It's positioned fixed so it doesn't affect layout. Pointer-events:none so it doesn't
-			 capture the mouse. Visible only on non-mobile via CSS media queries. -->
-	<div class="floating-media" [style.width]="image ? imgWidthStyle : null">
+	<!-- Floating media (image or title) shown on hover; aria-hidden since decorative -->
+	<div class="floating-media" [style.width]="image ? imgWidthStyle : null" aria-hidden="true">
 		<ng-container *ngIf="image; else floatTitle">
-			<img [src]="image" loading="lazy" alt="{{ title || 'floating image' }}" />
+			<figure>
+				<img [src]="image" loading="lazy" decoding="async" alt="{{ title || 'floating image' }}" />
+			</figure>
 		</ng-container>
-			<ng-template #floatTitle>
-				<h1 class="floating-title">{{ title }}</h1>
-			</ng-template>
+		<ng-template #floatTitle>
+			<h1 class="floating-title">{{ title }}</h1>
+		</ng-template>
 	</div>
-</div>
+</article>

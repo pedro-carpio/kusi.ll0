@@ -1,10 +1,10 @@
-<div class="content-image">
+<figure class="content-image" role="group" aria-label="image content">
     <ng-container *ngIf="link; else noLink">
-        <a [href]="link">
-            <img [src]="file" [alt]="imgAlt || 'content image'" class="img-fluid" [title]="imgAlt || 'content image'" />
+        <a [href]="link" class="image-link">
+            <img [src]="file" [alt]="imgAlt || 'content image'" class="img-fluid" [title]="imgAlt || 'content image'" decoding="async" loading="lazy"/>
         </a>
     </ng-container>
     <ng-template #noLink>
-        <img [src]="file" [alt]="imgAlt || 'content image'" class="img-fluid" [title]="imgAlt || 'content image'" />
+        <img [src]="file" [alt]="imgAlt || 'content image'" class="img-fluid" [title]="imgAlt || 'content image'" decoding="async" loading="lazy"/>
     </ng-template>
-</div>
+</figure>
