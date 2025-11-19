@@ -16,6 +16,7 @@ export class ContentTextComponent {
   @Input() image?: string;
   /** Width of the floating image as percentage of viewport width (number, e.g. 40 -> 40%). */
   @Input('img-width') imgWidth?: number;
+  @Input('is-cta') isCta = false;
 
   get imgWidthStyle(): string {
     const w = this.imgWidth ?? 40; // default 40%

@@ -1,25 +1,18 @@
 /* Global styles and Bootstrap customization */
-/* Fonts are loaded in index.html: Inconsolata and Noto Serif Display */
 
-@import "bootstrap/scss/functions";
+@use "bootstrap";
 
 /* Primary color requested by user */
-$primary: #E50914;
-
-/* Make other theme colors grayscale */
-$theme-colors: (
-    "primary": $primary,
-    "secondary": #6c757d,
-    "success": #6c757d,
-    "info": #6c757d,
-    "warning": #6c757d,
-    "danger": #6c757d,
-    "light": #f8f9fa,
-    "dark": #212529
-);
-
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/bootstrap";
+:root {
+    --bs-primary: #E50914;
+    --bs-secondary: #6c757d;
+    --bs-success: #6c757d;
+    --bs-info: #6c757d;
+    --bs-warning: #6c757d;
+    --bs-danger: #6c757d;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+}
 
 /* Global base font: keep Inconsolata as body font (monospace aesthetic) */
 body {

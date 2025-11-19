@@ -2,7 +2,7 @@
 	<ng-container *ngIf="link; else noLink">
 		<a [href]="link" class="content-link" [attr.aria-label]="title || 'content link'">
 			<header class="content-header">
-				<h3 *ngIf="title">{{ title }}</h3>
+				<h3 *ngIf="title" [class.cta]="isCta">{{ title }}</h3>
 				<p *ngIf="subtitle" class="subtitle">{{ subtitle }}</p>
 			</header>
 			<section class="content-body" role="region">

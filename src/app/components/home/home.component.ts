@@ -6,7 +6,7 @@ import { ContentImageComponent } from '../shared/content/content-image/content-i
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ContentTextComponent, ContentImageComponent],
+  imports: [CommonModule, ContentTextComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
