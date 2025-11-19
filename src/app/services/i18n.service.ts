@@ -14,7 +14,7 @@ export class I18nService {
   private translations: Record<string, any> = {
     en: {
       header: {
-        brand: 'Pedro',
+        brand: 'Kusillo',
         nav: {
           love: 'Love',
           design: 'Design',
@@ -24,10 +24,17 @@ export class I18nService {
           menu: 'Menu'
         }
       }
+      ,
+      my: {
+        work: 'Works (Portfolio)',
+      },
+      portfolio: {
+        more: 'More works',
+      }
     },
     es: {
       header: {
-        brand: 'Pedro',
+        brand: 'Kusillo',
         nav: {
           love: 'Amor',
           design: 'Diseño',
@@ -36,6 +43,13 @@ export class I18nService {
           contact: 'Contacto',
           menu: 'Menú'
         }
+      }
+      ,
+      my: {
+        work: 'Trabajos (Portafolio)',
+      },
+      portfolio: {
+        more: 'Más trabajos',
       }
     }
   };

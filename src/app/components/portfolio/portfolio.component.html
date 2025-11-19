@@ -1,1 +1,60 @@
-<p>This is my portfolio</p>
+<section class="portfolio container-fluid" aria-labelledby="portfolio-heading">
+  <div class="row">
+    <aside class="col-12 col-md-4 col-lg-3 py-3 bg-light" aria-label="section navigation">
+      <!-- Mobile toggle: only visible on small screens -->
+      <button
+        class="btn btn-outline-secondary d-md-none w-100 mb-2"
+        (click)="toggleAside()"
+        [attr.aria-expanded]="asideOpen"
+        aria-controls="portfolio-nav">
+        {{ t('portfolio.more') }}
+      </button>
+
+      <!-- Navigation: shown on desktop, on mobile shown only when asideOpen is true -->
+      <nav id="portfolio-nav" *ngIf="!isMobile || asideOpen">
+        <h2 id="portfolio-heading" class="h5 visually-hidden">Secciones</h2>
+        <ul class="nav flex-column">
+          <!-- Top-level link to trabajos -->
+          <li class="nav-item">
+            <div class="d-flex align-items-center justify-content-between" (click)="toggleTrabajos()">
+              <a class="nav-link p-0" routerLinkActive="active">{{ t('my.work') }}</a>
+              <button class="btn btn-sm btn-link nav-toggle" [attr.aria-expanded]="trabajosOpen" aria-controls="trabajos-list">
+                <span aria-hidden="true">{{ trabajosOpen ? '▾' : '▸' }}</span>
+                <span class="visually-hidden">{{ trabajosOpen ? 'Cerrar' : 'Abrir' }}</span>
+              </button>
+            </div>
+
+            <!-- Nested dropdown for trabajos -->
+            <ul id="trabajos-list" class="nav flex-column ms-3 mt-2" *ngIf="trabajosOpen">
+              <li class="nav-item"><a class="nav-link" routerLink="/mis/trabajos/slug-1">Trabajo — Proyecto A</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="/mis/trabajos/slug-2">Trabajo — Proyecto B</a></li>
+
+              <!-- Another nested dropdown inside trabajos -->
+              <li class="nav-item mt-2">
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="nav-link p-0">Ejemplos</span>
+                  <button class="btn btn-sm btn-link nav-toggle" (click)="toggleExtra()" [attr.aria-expanded]="extraOpen" aria-controls="extra-list">
+                    <span aria-hidden="true">{{ extraOpen ? '▾' : '▸' }}</span>
+                    <span class="visually-hidden">{{ extraOpen ? 'Cerrar' : 'Abrir' }}</span>
+                  </button>
+                </div>
+                <ul id="extra-list" class="nav flex-column ms-3 mt-2" *ngIf="extraOpen">
+                  <li class="nav-item"><a class="nav-link" routerLink="/mis/extra/example-1">Ejemplo A</a></li>
+                  <li class="nav-item"><a class="nav-link" routerLink="/mis/extra/example-2">Ejemplo B</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Additional top-level nav items can be added here -->
+          <li class="nav-item mt-3"><a class="nav-link" routerLink="/mis/creaciones" routerLinkActive="active">Creaciones</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/mis/estudios" routerLinkActive="active">Estudios</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="col-12 col-md-8 col-lg-9 p-3" role="main">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</section>

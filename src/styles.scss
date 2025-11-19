@@ -5,11 +5,13 @@
 /* Primary color requested by user */
 :root {
     --bs-primary: #E50914;
+    --bs-primary-rgb: 229, 9, 20;
     --bs-secondary: #6c757d;
     --bs-success: #6c757d;
     --bs-info: #6c757d;
     --bs-warning: #6c757d;
     --bs-danger: #6c757d;
+    --bs-nav-link-color: #E50914;
     --bs-light: #f8f9fa;
     --bs-dark: #212529;
 }
