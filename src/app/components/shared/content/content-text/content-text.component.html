@@ -3,22 +3,14 @@
 		<a [href]="link" class="content-link" [attr.aria-label]="title || 'content link'">
 			<header class="content-header">
 				<h3 *ngIf="title" [class.cta]="isCta">{{ title }}</h3>
-				<p *ngIf="subtitle" class="subtitle">{{ subtitle }}</p>
 			</header>
-			<section class="content-body" role="region">
-				<ng-content></ng-content>
-			</section>
 		</a>
 	</ng-container>
 
 	<ng-template #noLink>
 		<header class="content-header">
 			<h3 *ngIf="title">{{ title }}</h3>
-			<p *ngIf="subtitle" class="subtitle">{{ subtitle }}</p>
 		</header>
-		<section class="content-body" role="region">
-			<ng-content></ng-content>
-		</section>
 	</ng-template>
 
 	<!-- Floating media (image or title) shown on hover; aria-hidden since decorative -->
@@ -32,4 +24,5 @@
 			<h1 class="floating-title">{{ title }}</h1>
 		</ng-template>
 	</div>
+	<ng-content></ng-content>
 </article>

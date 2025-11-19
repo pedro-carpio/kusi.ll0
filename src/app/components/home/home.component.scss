@@ -1,0 +1,20 @@
+/* Increase padding for each article so content breathes more. */
+.home-contents {
+	article {
+		padding: 1.25rem; /* base padding for mobile */
+		box-sizing: border-box;
+	}
+
+	@media (min-width: 768px) {
+		article {
+			padding: 1.5rem; /* tablet */
+		}
+	}
+
+	@media (min-width: 992px) {
+		article {
+			padding: 2rem; /* desktop */
+		}
+	}
+}
+
