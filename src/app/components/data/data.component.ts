@@ -3,6 +3,7 @@ import { Subscription, timer } from 'rxjs';
 import { I18nService } from '../../services/i18n.service';
 import { CopyService } from '../../services/copy/copy.service';
 import { SnackbarService } from '../../services/snackbar/snackbar.service';
+import { MetaTagsService } from '../../services/meta-tags/meta-tags.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -22,7 +23,8 @@ export class DataComponent implements OnInit, OnDestroy {
   constructor(
     private i18n: I18nService,
     private copySvc: CopyService,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    private metaTags: MetaTagsService
   ) {}
 
   t(key: string): any {
@@ -92,7 +94,33 @@ export class DataComponent implements OnInit, OnDestroy {
     // Restart rotation when language changes
     this.langSub = this.i18n.langChanges.subscribe(() => {
       this.loadRoles();
+      // update meta tags in case translated values changed
+      this.applyMetaTags();
     });
+
+    // initial meta tags
+    this.applyMetaTags();
+  }
+
+  private applyMetaTags() {
+    try {
+      const lang = this.i18n.getLang();
+      const name = this.i18n.t('data.name') || 'Profile';
+      const subtitle = this.i18n.t('data.subtitle') || '';
+      const shareText = (this.i18n.t('data.shareText') as string) || subtitle || '';
+      const image = '/kusillo.webp';
+      const url = typeof window !== 'undefined' ? window.location.href : '';
+      this.metaTags.setProfileTags({
+        title: `${name} — ${subtitle}`,
+        description: shareText,
+        image,
+        url,
+        lang,
+      });
+    } catch (e) {
+      // ignore meta tag errors
+      console.warn('meta tags update failed', e);
+    }
   }
 
   ngOnDestroy(): void {
