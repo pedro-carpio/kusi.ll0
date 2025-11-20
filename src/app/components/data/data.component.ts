@@ -32,7 +32,19 @@ export class DataComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Copy given text to clipboard. Uses navigator.clipboard when available,
+      this.metaTags.setProfileTags({ title: `${name} — ${subtitle}`, description: shareText, image, url, lang });
+      // Provide hreflang alternates (use a conservative query-parameter approach)
+      try {
+        const base = (typeof window !== 'undefined' ? window.location.href.split('?')[0] : url) || url;
+        const alternates: Record<string, string> = {
+          es: `${base}?lang=es`,
+          en: `${base}?lang=en`,
+        };
+        this.metaTags.setAlternateLinks(alternates);
+        this.metaTags.setOgLocaleAlternates(['es_ES', 'en_US']);
+      } catch (e) {
+        // ignore alternates errors
+      }
    * otherwise falls back to a hidden textarea + document.execCommand('copy').
    */
   async copy(value: string): Promise<void> {
@@ -111,7 +123,7 @@ export class DataComponent implements OnInit, OnDestroy {
       const image = '/kusillo.webp';
       const url = typeof window !== 'undefined' ? window.location.href : '';
       this.metaTags.setProfileTags({
-        title: `${name} — ${subtitle}`,
+        title: `${name} - ${subtitle}`,
         description: shareText,
         image,
         url,

@@ -29,6 +29,71 @@ export class MetaTagsService {
   }
 
   /**
+   * Set or replace a JSON-LD script node with id kusi-jsonld
+   */
+  setStructuredData(obj: object) {
+    try {
+      const id = 'kusi-jsonld';
+      let script = document.getElementById(id) as HTMLScriptElement | null;
+      if (!script) {
+        script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(obj);
+    } catch (e) {
+      // ignore JSON-LD errors
+      console.warn('setStructuredData failed', e);
+    }
+  }
+
+  /**
+   * Set alternate/hreflang links for multilingual pages. Accepts a map { lang: url }
+   */
+  setAlternateLinks(alternates: Record<string, string>) {
+    if (!alternates) { return; }
+    // remove any previous alternate links we manage
+    const prev = document.querySelectorAll("link[rel='alternate'][data-kusi]");
+    prev.forEach(n => n.parentElement?.removeChild(n));
+    for (const [lang, url] of Object.entries(alternates)) {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', lang);
+      link.setAttribute('href', url);
+      link.setAttribute('data-kusi', '1');
+      document.head.appendChild(link);
+    }
+  }
+
+  /**
+   * Add og:locale:alternate meta tags for other locales
+   */
+  setOgLocaleAlternates(locales: string[]) {
+    if (!locales || locales.length === 0) { return; }
+    // remove previous
+    const prev = document.querySelectorAll("meta[property='og:locale:alternate'][data-kusi]");
+    prev.forEach(n => n.parentElement?.removeChild(n));
+    for (const l of locales) {
+      const m = document.createElement('meta');
+      m.setAttribute('property', 'og:locale:alternate');
+      m.setAttribute('content', l);
+      m.setAttribute('data-kusi', '1');
+      document.head.appendChild(m);
+    }
+  }
+
+  /**
+   * Set html lang attribute for the document
+   */
+  setHtmlLang(lang: string) {
+    try {
+      if (document && document.documentElement) {
+        document.documentElement.lang = lang || 'en';
+      }
+    } catch (e) { /* ignore */ }
+  }
+  /**
    * Clear previously set social/meta tags that we manage
    */
   private clearManaged() {
@@ -97,5 +162,23 @@ export class MetaTagsService {
 
     // canonical
     this.setCanonical(url);
+    // Set html lang so robots and browsers know the page language
+    this.setHtmlLang(opts.lang || 'en');
+
+    // Add structured data for a Person (helps robots understand the page)
+    try {
+      const person: any = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: opts.title,
+        url,
+        description,
+        image,
+        inLanguage: opts.lang || 'en'
+      };
+      this.setStructuredData(person);
+    } catch (e) {
+      // ignore
+    }
   }
 }
