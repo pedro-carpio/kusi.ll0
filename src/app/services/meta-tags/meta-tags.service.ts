@@ -52,10 +52,12 @@ export class MetaTagsService {
    * Set alternate/hreflang links for multilingual pages. Accepts a map { lang: url }
    */
   setAlternateLinks(alternates: Record<string, string>) {
-    if (!alternates) { return; }
+    if (!alternates) {
+      return;
+    }
     // remove any previous alternate links we manage
     const prev = document.querySelectorAll("link[rel='alternate'][data-kusi]");
-    prev.forEach(n => n.parentElement?.removeChild(n));
+    prev.forEach((n) => n.parentElement?.removeChild(n));
     for (const [lang, url] of Object.entries(alternates)) {
       const link = document.createElement('link');
       link.setAttribute('rel', 'alternate');
@@ -70,10 +72,12 @@ export class MetaTagsService {
    * Add og:locale:alternate meta tags for other locales
    */
   setOgLocaleAlternates(locales: string[]) {
-    if (!locales || locales.length === 0) { return; }
+    if (!locales || locales.length === 0) {
+      return;
+    }
     // remove previous
     const prev = document.querySelectorAll("meta[property='og:locale:alternate'][data-kusi]");
-    prev.forEach(n => n.parentElement?.removeChild(n));
+    prev.forEach((n) => n.parentElement?.removeChild(n));
     for (const l of locales) {
       const m = document.createElement('meta');
       m.setAttribute('property', 'og:locale:alternate');
@@ -91,7 +95,9 @@ export class MetaTagsService {
       if (document && document.documentElement) {
         document.documentElement.lang = lang || 'en';
       }
-    } catch (e) { /* ignore */ }
+    } catch (e) {
+      /* ignore */
+    }
   }
   /**
    * Clear previously set social/meta tags that we manage
@@ -174,7 +180,7 @@ export class MetaTagsService {
         url,
         description,
         image,
-        inLanguage: opts.lang || 'en'
+        inLanguage: opts.lang || 'en',
       };
       this.setStructuredData(person);
     } catch (e) {
