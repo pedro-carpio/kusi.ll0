@@ -20,3 +20,21 @@
 </div>-->
 <router-outlet/>
 <app-footer></app-footer>
+
+<!-- User configuration modal (language selection) -->
+<div #userConfigModal class="modal fade" id="userConfigModal" tabindex="-1" aria-labelledby="userConfigModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm modal-dialog-centered">
+		<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="userConfigModalLabel"><i class="bi bi-globe me-2"></i> Hola! </h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" [attr.aria-label]="t('userConfig.button.close')"></button>
+			</div>
+			<div class="modal-body text-center">
+				<p class="lead">{{ t('userConfig.message') }}</p>
+				<p class="mb-3"><a href="#" (click)="$event.preventDefault(); toggleLang()">{{ t('userConfig.changeLink') }}</a></p>
+				<!-- mobile helper text -->
+				<p *ngIf="isMobile" class="small text-muted">Estás usando un dispositivo móvil, este sitio es perfecto para verlo en una pantalla grande, pero aun así funcionará sin problemas.</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-primary" (click)="saveUserConfig()">{{ t('userConfig.action') }}</button>
+			</div>

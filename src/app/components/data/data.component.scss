@@ -5,7 +5,7 @@
     text-transform: uppercase;
 }
 .big-text-subtitle {
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .rotating-role {
@@ -178,9 +178,10 @@
     .big-text {
         font-size: 4rem;
     }
+    
     .big-text-subtitle {
-    font-size: 1rem;
-}
+    font-size: 3rem;
+    }
 }
 
 @media (max-width: 767.98px) {
@@ -200,5 +201,9 @@
             flex: 0 0 calc(100% / 3);
             max-width: calc(100% / 3);
         }
+    }
+    
+    .big-text-subtitle {
+    font-size: 1.6rem;
     }
 }

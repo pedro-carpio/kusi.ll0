@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class I18nService {
 
-  private defaultLang = 'en';
+  private defaultLang = 'es';
   private lang$ = new BehaviorSubject<string>(this.loadLang());
   public langChanges = this.lang$.asObservable();
 
@@ -112,7 +112,22 @@ export class I18nService {
           'Organization, prioritization, autonomy and continuous learning'
         ],
         studiesTitle: 'Studies',
-        redesignNote: 'This is a redesign of the old "Gridus Personal" design.'
+        redesignNote: 'This is a redesign of the old "Gridus Personal" design.',
+        // Share modal texts
+        shareTitle: 'Share',
+        sharePrompt: 'Choose how to share this profile',
+        shareCopyLink: 'Copy link',
+        shareNative: 'Use native share',
+        shareText: 'Check out Pedro Carpio — portfolio and projects',
+        shareUnsupported: 'Sharing is not supported in this browser',
+        close: 'Close'
+      }
+      ,
+      // User configuration modal (minimal)
+      userConfig: {
+        message: 'Now it is in english, you can change it later if you want.',
+        changeLink: '¡Cambiar a español!',
+        action: 'Let\'s go pues!'
       }
     },
     es: {
@@ -215,7 +230,22 @@ export class I18nService {
           'Organización, priorización, autonomía y aprendizaje continuo'
         ],
         studiesTitle: 'Estudios',
-        redesignNote: 'Este es un rediseño del antiguo diseño "Gridus Personal".'
+        redesignNote: 'Este es un rediseño del antiguo diseño "Gridus Personal".',
+        // Share modal texts (ES)
+        shareTitle: 'Compartir',
+        sharePrompt: 'Elige cómo compartir este perfil',
+        shareCopyLink: 'Copiar enlace',
+        shareNative: 'Abrir compartir nativo',
+        shareText: 'Mira a Pedro Carpio — portafolio y proyectos',
+        shareUnsupported: 'Compartir no está soportado en este navegador',
+        close: 'Cerrar'
+      }
+      ,
+      // User configuration modal (ES minimal)
+      userConfig: {
+        message: 'El idioma por defecto es español.',
+        changeLink: 'Change to English please!',
+        action: '¡Vamos pues!'
       }
     }
   };

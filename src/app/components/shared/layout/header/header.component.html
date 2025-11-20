@@ -19,8 +19,9 @@
 					<li><a class="nav-link px-2 d-none d-sm-inline-block" href="#creations" (click)="$event.preventDefault()">{{ t('header.nav.creations') }}</a></li>
 					<li><a class="nav-link px-2 contact-link" href="#contact">{{ t('header.nav.contact') }}</a></li>
 					<li>
-						<a class="nav-link px-2 contact-link" href="#" (click)="toggleLang($event)" [attr.title]="'Switch language (current: ' + currentLang + ')'" [attr.aria-label]="'Switch language, current: ' + currentLang">
+						<a class="nav-link px-2 contact-link d-flex align-items-center" href="#" (click)="toggleLang($event)" [attr.title]="`Switch language (current: ${currentLang})`" [attr.aria-label]="`Switch language, current: ${currentLang}`">
 							<i class="bi bi-globe" aria-hidden="true"></i>
+							<span class="ms-1 language-label">{{ currentLang.toUpperCase() }}</span>
 						</a>
 					</li>
 				</ul>
