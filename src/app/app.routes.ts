@@ -12,6 +12,7 @@ import { UiEngineerComponent } from './components/careers/ui-engineer/ui-enginee
 import { SoftwareDeveloperComponent } from './components/careers/software-developer/software-developer.component';
 import { DataAnalystComponent } from './components/careers/data-analyst/data-analyst.component';
 import { CreationsComponent } from './components/creations/creations.component';
+import { DataComponent } from './components/data/data.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ export const routes: Routes = [
       { path: 'webadas', component: BlogComponent },
       { path: 'trabajos', component: PortfolioComponent },
       { path: 'estudios', component: StudiesComponent },
-      { path: 'creaciones', component: CreationsComponent}
+      { path: 'creaciones', component: CreationsComponent },
+      { path: 'datos', component: DataComponent }
     ]
   },
   {
