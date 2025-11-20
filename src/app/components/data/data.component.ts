@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { I18nService } from '../../services/i18n.service';
+import { CopyService } from '../../services/copy/copy.service';
+import { SnackbarService } from '../../services/snackbar/snackbar.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -17,7 +19,11 @@ export class DataComponent implements OnInit, OnDestroy {
   private intervalId: any;
   private langSub?: Subscription;
 
-  constructor(private i18n: I18nService) {}
+  constructor(
+    private i18n: I18nService,
+    private copySvc: CopyService,
+    private snackbar: SnackbarService
+  ) {}
 
   t(key: string): any {
     return this.i18n.t(key);
@@ -32,31 +38,21 @@ export class DataComponent implements OnInit, OnDestroy {
       return;
     }
     try {
-      if (navigator && (navigator as any).clipboard && (navigator as any).clipboard.writeText) {
-        await (navigator as any).clipboard.writeText(value);
-        // Small confirmation in console; UI feedback can be added later
-        console.log('Copied to clipboard:', value);
-        return;
+      const ok = await this.copySvc.copy(value);
+      if (ok) {
+        const lang = this.i18n.getLang();
+        const msg = lang === 'es' ? 'Copiado al portapapeles' : 'Copied to clipboard';
+        this.snackbar.show(msg);
+      } else {
+        const lang = this.i18n.getLang();
+        const msg = lang === 'es' ? 'No se pudo copiar' : 'Copy failed';
+        this.snackbar.show(msg);
       }
     } catch (err) {
-      // proceed to fallback
-      console.warn('navigator.clipboard failed, falling back to execCommand copy', err);
-    }
-
-    // Fallback method
-    try {
-      const textarea = document.createElement('textarea');
-      textarea.value = value;
-      // Move element out of screen
-      textarea.style.position = 'fixed';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      console.log('Copied to clipboard (fallback):', value);
-    } catch (err) {
-      console.error('Copy to clipboard failed', err);
+      console.error('copy failed', err);
+      const lang = this.i18n.getLang();
+      const msg = lang === 'es' ? 'No se pudo copiar' : 'Copy failed';
+      this.snackbar.show(msg);
     }
   }
 
@@ -81,7 +77,10 @@ export class DataComponent implements OnInit, OnDestroy {
         });
       } else {
         // fallback
-        alert(this.t('data.shareUnsupported') || 'Sharing not supported in this browser');
+        console.error(this.t('data.shareUnsupported') || 'Sharing not supported in this browser');
+        this.snackbar.show(
+          this.t('data.shareUnsupported') || 'Sharing not supported in this browser'
+        );
       }
     } catch (err) {
       console.error('Native share failed', err);
