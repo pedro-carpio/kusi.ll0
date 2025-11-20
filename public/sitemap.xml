@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- generated: 2025-11-20 -->
+
+  <url>
+    <loc>https://kusillo.studio/home</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kusillo.studio/home?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kusillo.studio/home?lang=en" />
+  </url>
+
+  <url>
+    <loc>https://kusillo.studio/mis/datos</loc>
+    <lastmod>2025-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://kusillo.studio/mis/datos?lang=es" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kusillo.studio/mis/datos?lang=en" />
+  </url>
+</urlset>
