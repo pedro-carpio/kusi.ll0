@@ -14,7 +14,7 @@ export class UserConfigService {
   getConfig(): UserConfig {
     try {
       const raw = localStorage.getItem(this.key);
-      return raw ? JSON.parse(raw) as UserConfig : {};
+      return raw ? (JSON.parse(raw) as UserConfig) : {};
     } catch (e) {
       return {};
     }

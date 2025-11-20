@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { I18nService } from '../../services/i18n.service';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
-  imports: [RouterModule]
+  imports: [RouterModule],
 })
 export class DataComponent implements OnInit, OnDestroy {
   roles: string[] = [];
@@ -28,7 +28,9 @@ export class DataComponent implements OnInit, OnDestroy {
    * otherwise falls back to a hidden textarea + document.execCommand('copy').
    */
   async copy(value: string): Promise<void> {
-    if (!value) { return; }
+    if (!value) {
+      return;
+    }
     try {
       if (navigator && (navigator as any).clipboard && (navigator as any).clipboard.writeText) {
         await (navigator as any).clipboard.writeText(value);
@@ -95,8 +97,12 @@ export class DataComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.intervalId) { clearInterval(this.intervalId); }
-    if (this.langSub) { this.langSub.unsubscribe(); }
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+    if (this.langSub) {
+      this.langSub.unsubscribe();
+    }
   }
 
   private loadRoles(): void {
@@ -109,7 +115,9 @@ export class DataComponent implements OnInit, OnDestroy {
     // initialise
     this.currentRole = this.roles[0];
     this.showRole = true;
-    if (this.intervalId) { clearInterval(this.intervalId); }
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
     let idx = 0;
     this.intervalId = setInterval(() => {
       // fade out
@@ -121,6 +129,4 @@ export class DataComponent implements OnInit, OnDestroy {
       }, 250); // match CSS transition duration
     }, this.rotationInterval);
   }
-
-
 }

@@ -18,25 +18,27 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {
-    path: 'mis', children: [
+    path: 'mis',
+    children: [
       { path: 'webadas', component: BlogComponent },
       { path: 'trabajos', component: PortfolioComponent },
       { path: 'estudios', component: StudiesComponent },
       { path: 'creaciones', component: CreationsComponent },
-      { path: 'datos', component: DataComponent }
-    ]
+      { path: 'datos', component: DataComponent },
+    ],
   },
   {
-    path: 'yo-como', children: [
+    path: 'yo-como',
+    children: [
       { path: 'persona', component: MeComponent },
       { path: 'kusillo', component: KusilloComponent },
       { path: 'ui-ux-designer', component: UiUxDesignComponent },
       { path: 'ui-engineer', component: UiEngineerComponent },
       { path: 'software-developer', component: SoftwareDeveloperComponent },
-      { path: 'data-analyst', component: DataAnalystComponent }
-    ]
+      { path: 'data-analyst', component: DataAnalystComponent },
+    ],
   },
   { path: 'error', component: ErrorComponent },
   // wildcard -> show 404 error page
-  { path: '**', component: NotfoundComponent }
+  { path: '**', component: NotfoundComponent },
 ];

@@ -1,273 +1,306 @@
 <section class="data container-fluid" aria-labelledby="data-heading">
-    <!-- Row 1: foto (hidden on mobile) + main area with three stacked rows -->
-    <div class="row align-items-start mt-3">
-        <!-- Photo column: 3 cols on md+, hidden on small screens -->
-        <figure class="col-12 col-md-4 d-none d-md-block mb-0">
-            <img src="/kusillo.webp" alt="{{ t('data.photoAlt') }}" class="img-fluid photo justify-content-end" />
-            <figcaption class="visually-hidden">{{ t('data.photoCaption') }}</figcaption>
-        </figure>
+  <!-- Row 1: foto (hidden on mobile) + main area with three stacked rows -->
+  <div class="row align-items-start mt-3">
+    <!-- Photo column: 3 cols on md+, hidden on small screens -->
+    <figure class="col-12 col-md-4 d-none d-md-block mb-0">
+      <img src="/kusillo.webp" alt="{{ t('data.photoAlt') }}" class="img-fluid photo justify-content-end" />
+      <figcaption class="visually-hidden">{{ t('data.photoCaption') }}</figcaption>
+    </figure>
 
-        <!-- Main column: occupies 9 on md+ and full width on mobile -->
-        <main class="col-12 col-md-8">
-            <!-- Row 1.1 -> floating text left, icon square right -->
-            <article class="row">
-                <div class="col-12">
-                    <div class="col-10">
-                        <span class="big-text col-8">{{ t('data.name') }}</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Row 1.2 -->
-            <article class="row mb-3">
-                <div class="col-12">
-                    <span class="big-text big-text-subtitle rotating-role" [attr.data-text]="currentRole" [class.glitch-active]="showRole">{{ currentRole }}</span>
-            </div>
-            </article>
-
-            <!-- Row 1.3: 6 icon squares occupying full width without gap on small screens -->
-            <article class="row mb-3">
-                <div class="col-12">
-                    <div class="icon-row d-flex flex-wrap justify-content-end">
-                        <a class="icon-cell" href="/PEDRO%20CARPIO%202025.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Pedro Carpio PDF">
-                            <i class="bi bi-filetype-pdf" aria-hidden="true"></i>
-                            <span class="ms-2">{{ t('data.iconCells.0') }}</span>
-                        </a>
-                        <a class="icon-cell" [routerLink]="['./']" fragment="studies"><i class="bi bi-book-half"></i>{{ t('data.iconCells.1') }}</a>
-                        <a class="icon-cell" href="https://www.linkedin.com/in/pedro-carpio" target="_blank" rel="noopener noreferrer" aria-label="Open Pedro Carpio LinkedIn profile"><i class="bi bi-linkedin"></i>{{ t('data.iconCells.2') }}</a>
-                        <a class="icon-cell" routerLink="/mis/trabajos"><i class="bi bi-collection-fill"></i>{{ t('data.iconCells.3') }}</a>
-                        <a class="icon-cell" routerLink="/mis/webadas"><i class="bi bi-pencil-square"></i>{{ t('data.iconCells.4') }}</a>
-                        <button type="button" class="icon-cell btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#shareModal" [attr.aria-label]="t('data.iconCells.5')">
-                            <i class="bi bi-share-fill"></i>{{ t('data.iconCells.5') }}
-                        </button>
-                    </div>
-                </div>
-            </article>
-        </main>
-    </div>
-
-    <!-- Row 2: left info blocks and right personal info -->
-    <div class="row mt-4">
-        <section class="col-12 col-md-8">
-            <h3 class="h4">{{ t('data.notable') }}</h3>
-            <div class="row justify-content-center">
-                <div class="col-6 col-md-4 text-center mb-3">
-                    <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
-                    <h4 class="h6">{{ t('data.notableItems.fullstack.title') }}</h4>
-                    <p class="small mb-0">{{ t('data.notableItems.fullstack.desc') }}</p>
-                </div>
-                <div class="col-6 col-md-4 text-center mb-3">
-                    <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
-                    <h4 class="h6">{{ t('data.notableItems.uiux.title') }}</h4>
-                    <p class="small mb-0">{{ t('data.notableItems.uiux.desc') }}</p>
-                </div>
-                <div class="col-6 col-md-4 text-center mb-3">
-                    <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
-                    <h4 class="h6">{{ t('data.notableItems.frontend.title') }}</h4>
-                    <p class="small mb-0">{{ t('data.notableItems.frontend.desc') }}</p>
-                </div>
-            </div>
-        </section>
-
-        <aside class="col-12 col-md-4">
-            <h3 class="h5">{{ t('data.personalInfoTitle') }}</h3>
-            
-            <!-- Personal details -->
-            <div class="mt-2 small">
-                <div class="row mb-1">
-                    <div class="col-5 text-end text-muted">{{ t('data.personal.nametag') }}:</div>
-                    <div class="col-7">{{ t('data.personal.name') }}</div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-5 text-end text-muted">{{ t('data.personal.dobTag') }}:</div>
-                    <div class="col-7">{{ t('data.personal.dob') }}</div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-5 text-end text-muted">{{ t('data.personal.residenceTag') }}:</div>
-                    <div class="col-7">{{ t('data.personal.residence') }}</div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-5 text-end text-muted">Tel:</div>
-                    <div class="col-7">
-                        <span class="d-inline-flex align-items-center">
-                            <span>{{ t('data.personal.phone') }}</span>
-                            <i class="bi bi-copy ms-2" role="button" tabindex="0" title="Copy phone" aria-label="Copy phone" (click)="copy(t('data.personal.phoneHref'))"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="row mb-1">
-                    <div class="col-5 text-end text-muted">Email:</div>
-                    <div class="col-7">
-                        <span class="d-inline-flex align-items-center">
-                            <span>{{ t('data.personal.email') }}</span>
-                            <i class="bi bi-copy ms-2" role="button" tabindex="0" title="Copy email" aria-label="Copy email" (click)="copy(t('data.personal.email'))"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-5 text-end text-muted">Roles:</div>
-                    <div class="col-7">
-                        <div class="small">{{ (t('data.personal.rolesList') || []).join(', ') }}</div>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
-
-    <!-- Row 4: Projects with timeline -->
-    <div class="row mt-4">
-        <section class="col-12 col-md-4">
-            <h3 class="h4">{{ t('data.hardSkillsTitle') }}</h3>
-            <div class="d-flex flex-column gap-3">
-                <article class="p-3 border rounded">
-                    <h4 class="h6">{{ t('data.hardSkills.developmentTitle') }}</h4>
-                    <ul class="mb-0">
-                        <li>{{ t('data.hardSkills.development.0') }}</li>
-                        <li>{{ t('data.hardSkills.development.1') }}</li>
-                        <li>{{ t('data.hardSkills.development.2') }}</li>
-                        <li>{{ t('data.hardSkills.development.3') }}</li>
-                        <li>{{ t('data.hardSkills.development.4') }}</li>
-                    </ul>
-                </article>
-
-                <article class="p-3 border rounded">
-                    <h4 class="h6">{{ t('data.hardSkills.designTitle') }}</h4>
-                    <ul class="mb-0">
-                        <li>{{ t('data.hardSkills.design.0') }}</li>
-                        <li>{{ t('data.hardSkills.design.1') }}</li>
-                        <li>{{ t('data.hardSkills.design.2') }}</li>
-                        <li>{{ t('data.hardSkills.design.3') }}</li>
-                    </ul>
-                </article>
-
-                <article class="p-3 border rounded">
-                    <h4 class="h6">{{ t('data.hardSkills.dataTitle') }}</h4>
-                    <ul class="mb-0">
-                        <li>{{ t('data.hardSkills.data.0') }}</li>
-                        <li>{{ t('data.hardSkills.data.1') }}</li>
-                        <li>{{ t('data.hardSkills.data.2') }}</li>
-                    </ul>
-                </article>
-
-                <article class="p-3 border rounded">
-                    <h4 class="h6">{{ t('data.hardSkills.productivityTitle') }}</h4>
-                    <ul class="mb-0">
-                        <li>{{ t('data.hardSkills.productivity.0') }}</li>
-                        <li>{{ t('data.hardSkills.productivity.1') }}</li>
-                        <li>{{ t('data.hardSkills.productivity.2') }}</li>
-                    </ul>
-                </article>
-
-                <article class="p-3 border rounded">
-                    <h4 class="h6">{{ t('data.hardSkills.humanitiesTitle') }}</h4>
-                    <ul class="mb-0">
-                        <li>{{ t('data.hardSkills.humanities.0') }}</li>
-                        <li>{{ t('data.hardSkills.humanities.1') }}</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-        <section class="col-12 col-md-8">
-            <h3 class="h4">{{ t('data.projectsTitle') }}</h3>
-            <div class="timeline">
-                <article class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="h6 mb-0">{{ t('data.projects.0.title') }}</h4>
-                            <time class="text-muted small">{{ t('data.projects.0.year') }}</time>
-                        </div>
-                        <div class="text-uppercase small text-muted">{{ t('data.projects.0.role') }}</div>
-                        <p class="mb-0 small">{{ t('data.projects.0.desc') }}</p>
-                    </div>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="h6 mb-0">{{ t('data.projects.1.title') }}</h4>
-                            <time class="text-muted small">{{ t('data.projects.1.year') }}</time>
-                        </div>
-                        <div class="text-uppercase small text-muted">{{ t('data.projects.1.role') }}</div>
-                        <p class="mb-0 small">{{ t('data.projects.1.desc') }}</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </div>
-    <div class="row mt-4">
-        <section class="col-12 col-md-4">
-            <h3 class="h4">{{ t('data.softSkillsTitle') }}</h3>
-            <div class="p-3 border rounded">
-                <h4 class="h6">{{ t('data.softSkillsSubtitle') }}</h4>
-                <ul>
-                    <li>{{ t('data.softSkills.0') }}</li>
-                    <li>{{ t('data.softSkills.1') }}</li>
-                    <li>{{ t('data.softSkills.2') }}</li>
-                    <li>{{ t('data.softSkills.3') }}</li>
-                    <li>{{ t('data.softSkills.4') }}</li>
-                </ul>
-            </div>
-        </section>
-        <section class="col-12 col-md-8" id="studies">
-            <h3 class="h4">{{ t('data.studiesTitle') }}</h3>
-            <div class="timeline">
-                <article class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="h6 mb-0">{{ t('data.projects.0.title') }}</h4>
-                            <time class="text-muted small">{{ t('data.projects.0.year') }}</time>
-                        </div>
-                        <div class="text-uppercase small text-muted">{{ t('data.projects.0.role') }}</div>
-                        <p class="mb-0 small">{{ t('data.projects.0.desc') }}</p>
-                    </div>
-                </article>
-
-                <article class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"></div>
-                    <div class="timeline-content">
-                        <div class="d-flex justify-content-between">
-                            <h4 class="h6 mb-0">{{ t('data.projects.1.title') }}</h4>
-                            <time class="text-muted small">{{ t('data.projects.1.year') }}</time>
-                        </div>
-                        <div class="text-uppercase small text-muted">{{ t('data.projects.1.role') }}</div>
-                        <p class="mb-0 small">{{ t('data.projects.1.desc') }}</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </div>
-
-<span class="text-center d-block mt-4 mb-4">{{ t('data.redesignNote') }}</span>
-
-<!-- Share modal -->
-<div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="shareModalLabel">{{ t('data.shareTitle') || 'Compartir' }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="small text-muted mb-2">{{ t('data.sharePrompt') || 'Elige cómo compartir este perfil' }}</p>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-outline-secondary" type="button" (click)="copyCurrentUrl()">
-                        <i class="bi bi-link-45deg me-2"></i>{{ t('data.shareCopyLink') || 'Copiar enlace' }}
-                    </button>
-                    <button class="btn btn-outline-primary" type="button" (click)="shareNative()">
-                        <i class="bi bi-send me-2"></i>{{ t('data.shareNative') || 'Abrir compartir nativo' }}
-                    </button>
-                    <div class="btn-group" role="group" aria-label="Social share">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{ t('data.close') || 'Cerrar' }}</button>
-            </div>
+    <!-- Main column: occupies 9 on md+ and full width on mobile -->
+    <main class="col-12 col-md-8">
+      <!-- Row 1.1 -> floating text left, icon square right -->
+      <article class="row">
+        <div class="col-12">
+          <div class="col-10">
+            <span class="big-text col-8">{{ t('data.name') }}</span>
+          </div>
         </div>
+      </article>
+
+      <!-- Row 1.2 -->
+      <article class="row mb-3">
+        <div class="col-12">
+          <span class="big-text big-text-subtitle rotating-role" [attr.data-text]="currentRole" [class.glitch-active]="showRole">{{
+            currentRole
+          }}</span>
+        </div>
+      </article>
+
+      <!-- Row 1.3: 6 icon squares occupying full width without gap on small screens -->
+      <article class="row mb-3">
+        <div class="col-12">
+          <div class="icon-row d-flex flex-wrap justify-content-end">
+            <a
+              class="icon-cell"
+              href="/PEDRO%20CARPIO%202025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Pedro Carpio PDF"
+            >
+              <i class="bi bi-filetype-pdf" aria-hidden="true"></i>
+              <span class="ms-2">{{ t('data.iconCells.0') }}</span>
+            </a>
+            <a class="icon-cell" [routerLink]="['./']" fragment="studies"><i class="bi bi-book-half"></i>{{ t('data.iconCells.1') }}</a>
+            <a
+              class="icon-cell"
+              href="https://www.linkedin.com/in/pedro-carpio"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Pedro Carpio LinkedIn profile"
+              ><i class="bi bi-linkedin"></i>{{ t('data.iconCells.2') }}</a
+            >
+            <a class="icon-cell" routerLink="/mis/trabajos"><i class="bi bi-collection-fill"></i>{{ t('data.iconCells.3') }}</a>
+            <a class="icon-cell" routerLink="/mis/webadas"><i class="bi bi-pencil-square"></i>{{ t('data.iconCells.4') }}</a>
+            <button
+              type="button"
+              class="icon-cell btn btn-link p-0"
+              data-bs-toggle="modal"
+              data-bs-target="#shareModal"
+              [attr.aria-label]="t('data.iconCells.5')"
+            >
+              <i class="bi bi-share-fill"></i>{{ t('data.iconCells.5') }}
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Row 2: left info blocks and right personal info -->
+  <div class="row mt-4">
+    <section class="col-12 col-md-8">
+      <h3 class="h4">{{ t('data.notable') }}</h3>
+      <div class="row justify-content-center">
+        <div class="col-6 col-md-4 text-center mb-3">
+          <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
+          <h4 class="h6">{{ t('data.notableItems.fullstack.title') }}</h4>
+          <p class="small mb-0">{{ t('data.notableItems.fullstack.desc') }}</p>
+        </div>
+        <div class="col-6 col-md-4 text-center mb-3">
+          <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
+          <h4 class="h6">{{ t('data.notableItems.uiux.title') }}</h4>
+          <p class="small mb-0">{{ t('data.notableItems.uiux.desc') }}</p>
+        </div>
+        <div class="col-6 col-md-4 text-center mb-3">
+          <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
+          <h4 class="h6">{{ t('data.notableItems.frontend.title') }}</h4>
+          <p class="small mb-0">{{ t('data.notableItems.frontend.desc') }}</p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="col-12 col-md-4">
+      <h3 class="h5">{{ t('data.personalInfoTitle') }}</h3>
+
+      <!-- Personal details -->
+      <div class="mt-2 small">
+        <div class="row mb-1">
+          <div class="col-5 text-end text-muted">{{ t('data.personal.nametag') }}:</div>
+          <div class="col-7">{{ t('data.personal.name') }}</div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-5 text-end text-muted">{{ t('data.personal.dobTag') }}:</div>
+          <div class="col-7">{{ t('data.personal.dob') }}</div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-5 text-end text-muted">{{ t('data.personal.residenceTag') }}:</div>
+          <div class="col-7">{{ t('data.personal.residence') }}</div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-5 text-end text-muted">Tel:</div>
+          <div class="col-7">
+            <span class="d-inline-flex align-items-center">
+              <span>{{ t('data.personal.phone') }}</span>
+              <i
+                class="bi bi-copy ms-2"
+                role="button"
+                tabindex="0"
+                title="Copy phone"
+                aria-label="Copy phone"
+                (click)="copy(t('data.personal.phoneHref'))"
+              ></i>
+            </span>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-5 text-end text-muted">Email:</div>
+          <div class="col-7">
+            <span class="d-inline-flex align-items-center">
+              <span>{{ t('data.personal.email') }}</span>
+              <i
+                class="bi bi-copy ms-2"
+                role="button"
+                tabindex="0"
+                title="Copy email"
+                aria-label="Copy email"
+                (click)="copy(t('data.personal.email'))"
+              ></i>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5 text-end text-muted">Roles:</div>
+          <div class="col-7">
+            <div class="small">{{ (t('data.personal.rolesList') || []).join(', ') }}</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Row 4: Projects with timeline -->
+  <div class="row mt-4">
+    <section class="col-12 col-md-4">
+      <h3 class="h4">{{ t('data.hardSkillsTitle') }}</h3>
+      <div class="d-flex flex-column gap-3">
+        <article class="p-3 border rounded">
+          <h4 class="h6">{{ t('data.hardSkills.developmentTitle') }}</h4>
+          <ul class="mb-0">
+            <li>{{ t('data.hardSkills.development.0') }}</li>
+            <li>{{ t('data.hardSkills.development.1') }}</li>
+            <li>{{ t('data.hardSkills.development.2') }}</li>
+            <li>{{ t('data.hardSkills.development.3') }}</li>
+            <li>{{ t('data.hardSkills.development.4') }}</li>
+          </ul>
+        </article>
+
+        <article class="p-3 border rounded">
+          <h4 class="h6">{{ t('data.hardSkills.designTitle') }}</h4>
+          <ul class="mb-0">
+            <li>{{ t('data.hardSkills.design.0') }}</li>
+            <li>{{ t('data.hardSkills.design.1') }}</li>
+            <li>{{ t('data.hardSkills.design.2') }}</li>
+            <li>{{ t('data.hardSkills.design.3') }}</li>
+          </ul>
+        </article>
+
+        <article class="p-3 border rounded">
+          <h4 class="h6">{{ t('data.hardSkills.dataTitle') }}</h4>
+          <ul class="mb-0">
+            <li>{{ t('data.hardSkills.data.0') }}</li>
+            <li>{{ t('data.hardSkills.data.1') }}</li>
+            <li>{{ t('data.hardSkills.data.2') }}</li>
+          </ul>
+        </article>
+
+        <article class="p-3 border rounded">
+          <h4 class="h6">{{ t('data.hardSkills.productivityTitle') }}</h4>
+          <ul class="mb-0">
+            <li>{{ t('data.hardSkills.productivity.0') }}</li>
+            <li>{{ t('data.hardSkills.productivity.1') }}</li>
+            <li>{{ t('data.hardSkills.productivity.2') }}</li>
+          </ul>
+        </article>
+
+        <article class="p-3 border rounded">
+          <h4 class="h6">{{ t('data.hardSkills.humanitiesTitle') }}</h4>
+          <ul class="mb-0">
+            <li>{{ t('data.hardSkills.humanities.0') }}</li>
+            <li>{{ t('data.hardSkills.humanities.1') }}</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="col-12 col-md-8">
+      <h3 class="h4">{{ t('data.projectsTitle') }}</h3>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="d-flex justify-content-between">
+              <h4 class="h6 mb-0">{{ t('data.projects.0.title') }}</h4>
+              <time class="text-muted small">{{ t('data.projects.0.year') }}</time>
+            </div>
+            <div class="text-uppercase small text-muted">{{ t('data.projects.0.role') }}</div>
+            <p class="mb-0 small">{{ t('data.projects.0.desc') }}</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="d-flex justify-content-between">
+              <h4 class="h6 mb-0">{{ t('data.projects.1.title') }}</h4>
+              <time class="text-muted small">{{ t('data.projects.1.year') }}</time>
+            </div>
+            <div class="text-uppercase small text-muted">{{ t('data.projects.1.role') }}</div>
+            <p class="mb-0 small">{{ t('data.projects.1.desc') }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+  <div class="row mt-4">
+    <section class="col-12 col-md-4">
+      <h3 class="h4">{{ t('data.softSkillsTitle') }}</h3>
+      <div class="p-3 border rounded">
+        <h4 class="h6">{{ t('data.softSkillsSubtitle') }}</h4>
+        <ul>
+          <li>{{ t('data.softSkills.0') }}</li>
+          <li>{{ t('data.softSkills.1') }}</li>
+          <li>{{ t('data.softSkills.2') }}</li>
+          <li>{{ t('data.softSkills.3') }}</li>
+          <li>{{ t('data.softSkills.4') }}</li>
+        </ul>
+      </div>
+    </section>
+    <section class="col-12 col-md-8" id="studies">
+      <h3 class="h4">{{ t('data.studiesTitle') }}</h3>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="d-flex justify-content-between">
+              <h4 class="h6 mb-0">{{ t('data.projects.0.title') }}</h4>
+              <time class="text-muted small">{{ t('data.projects.0.year') }}</time>
+            </div>
+            <div class="text-uppercase small text-muted">{{ t('data.projects.0.role') }}</div>
+            <p class="mb-0 small">{{ t('data.projects.0.desc') }}</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="d-flex justify-content-between">
+              <h4 class="h6 mb-0">{{ t('data.projects.1.title') }}</h4>
+              <time class="text-muted small">{{ t('data.projects.1.year') }}</time>
+            </div>
+            <div class="text-uppercase small text-muted">{{ t('data.projects.1.role') }}</div>
+            <p class="mb-0 small">{{ t('data.projects.1.desc') }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <span class="text-center d-block mt-4 mb-4">{{ t('data.redesignNote') }}</span>
+
+  <!-- Share modal -->
+  <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shareModalLabel">{{ t('data.shareTitle') || 'Compartir' }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted mb-2">{{ t('data.sharePrompt') || 'Elige cómo compartir este perfil' }}</p>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary" type="button" (click)="copyCurrentUrl()">
+              <i class="bi bi-link-45deg me-2"></i>{{ t('data.shareCopyLink') || 'Copiar enlace' }}
+            </button>
+            <button class="btn btn-outline-primary" type="button" (click)="shareNative()">
+              <i class="bi bi-send me-2"></i>{{ t('data.shareNative') || 'Abrir compartir nativo' }}
+            </button>
+            <div class="btn-group" role="group" aria-label="Social share"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{ t('data.close') || 'Cerrar' }}</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 </section>

@@ -6,7 +6,8 @@
         class="btn btn-outline-secondary d-md-none w-100 mb-2"
         (click)="toggleAside()"
         [attr.aria-expanded]="asideOpen"
-        aria-controls="portfolio-nav">
+        aria-controls="portfolio-nav"
+      >
         {{ t('portfolio.more') }}
       </button>
 
@@ -33,7 +34,12 @@
               <li class="nav-item mt-2">
                 <div class="d-flex align-items-center justify-content-between">
                   <span class="nav-link p-0">Ejemplos</span>
-                  <button class="btn btn-sm btn-link nav-toggle" (click)="toggleExtra()" [attr.aria-expanded]="extraOpen" aria-controls="extra-list">
+                  <button
+                    class="btn btn-sm btn-link nav-toggle"
+                    (click)="toggleExtra()"
+                    [attr.aria-expanded]="extraOpen"
+                    aria-controls="extra-list"
+                  >
                     <span aria-hidden="true">{{ extraOpen ? '▾' : '▸' }}</span>
                     <span class="visually-hidden">{{ extraOpen ? 'Cerrar' : 'Abrir' }}</span>
                   </button>

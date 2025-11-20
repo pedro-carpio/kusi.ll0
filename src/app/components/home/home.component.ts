@@ -8,6 +8,6 @@ import { ContentImageComponent } from '../shared/content/content-image/content-i
   standalone: true,
   imports: [CommonModule, ContentTextComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {}

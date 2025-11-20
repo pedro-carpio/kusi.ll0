@@ -12,7 +12,7 @@ declare const bootstrap: any;
   selector: 'app-root',
   imports: [CommonModule, RouterOutlet, FooterComponent, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
   title = 'Casa';
@@ -39,9 +39,15 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   public isMobile = false;
   private resizeHandler?: () => void;
 
-  constructor(private i18n: I18nService, private userConfig: UserConfigService) {
+  constructor(
+    private i18n: I18nService,
+    private userConfig: UserConfigService
+  ) {
     const saved = this.userConfig.getLanguage();
-    if (saved) { this.selectedLang = saved; this.i18n.setLang(saved); }
+    if (saved) {
+      this.selectedLang = saved;
+      this.i18n.setLang(saved);
+    }
   }
 
   ngAfterViewInit(): void {
@@ -71,10 +77,14 @@ export class AppComponent implements AfterViewInit, OnDestroy {
             // Save if user clicks on the backdrop (outside modal content)
             try {
               el.addEventListener('click', (ev: any) => {
-                if (ev.target === el) { this.saveUserConfig(); }
+                if (ev.target === el) {
+                  this.saveUserConfig();
+                }
               });
               // Also listen to bootstrap's hidden event in case modal is dismissed by other means
-              el.addEventListener('hidden.bs.modal', () => { this.saveUserConfig(); });
+              el.addEventListener('hidden.bs.modal', () => {
+                this.saveUserConfig();
+              });
             } catch (e) {
               // ignore listener errors
             }
@@ -89,7 +99,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   saveUserConfig() {
-    if (!this.selectedLang) { return; }
+    if (!this.selectedLang) {
+      return;
+    }
     this.userConfig.setLanguage(this.selectedLang);
     this.i18n.setLang(this.selectedLang);
     if (this.bsModalRef && typeof this.bsModalRef.hide === 'function') {
@@ -102,7 +114,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   changeLang(lang: string) {
-    if (!lang) { return; }
+    if (!lang) {
+      return;
+    }
     this.selectedLang = lang;
     // Apply immediately for preview
     this.i18n.setLang(lang);
