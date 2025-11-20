@@ -1,8 +1,32 @@
-/* Global styles and Bootstrap customization */
+/* Bootstrap (legacy @import) setup following Bootstrap docs
+     We import functions first so we can override variables that depend
+     on functions. Then we set variable overrides, import variables and
+     mixins, and finally include the Bootstrap components (bootstrap.scss)
+     which will respect the overridden variables. */
 
-@use "bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
 
-/* Primary color requested by user */
+// Variable overrides (must be set AFTER functions are available)
+$primary: #E50914;
+$secondary: #6c757d;
+$success: $secondary;
+$info: $secondary;
+$warning: $secondary;
+$danger: $secondary;
+
+$body-bg: #fff;
+$body-color: #111;
+$font-family-base: 'Inconsolata, monospace';
+$headings-font-family: 'Noto Serif Display, serif';
+
+// Now import the rest of Bootstrap (variables depend on functions)
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Include all Bootstrap components (option: import only needed partials)
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Mirror a few CSS custom properties for runtime theming and legacy uses */
 :root {
     --bs-primary: #E50914;
     --bs-primary-rgb: 229, 9, 20;
@@ -16,14 +40,13 @@
     --bs-dark: #212529;
 }
 
-/* Global base font: keep Inconsolata as body font (monospace aesthetic) */
+/* Global base font */
 body {
     font-family: "Inconsolata", monospace;
-    background-color: #fff;
-    color: #111;
+    background-color: $body-bg;
+    color: $body-color;
 }
 
-/* Small utility: ensure headings have readable fallback */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Noto Serif Display", serif;
 }
