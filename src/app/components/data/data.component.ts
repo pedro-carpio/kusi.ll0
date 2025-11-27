@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Subscription, timer } from 'rxjs';
 import { I18nService } from '../../services/i18n.service';
 import { CopyService } from '../../services/copy/copy.service';
@@ -10,7 +11,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
 })
 export class DataComponent implements OnInit, OnDestroy {
   roles: string[] = [];

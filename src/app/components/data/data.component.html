@@ -9,7 +9,6 @@
     </figure>
     <!-- Main column: occupies 9 on md+ and full width on mobile -->
     <main class="col-12 col-md-8">
-      <!-- Row 1.1 -> floating text left, icon square right -->
       <article class="row">
         <div class="col-12">
           <div class="col-10">
@@ -18,7 +17,6 @@
         </div>
       </article>
 
-      <!-- Row 1.2 -->
       <article class="row mb-3">
         <div class="col-12">
           <span class="big-text big-text-subtitle rotating-role" [attr.data-text]="currentRole" [class.glitch-active]="showRole">{{
@@ -70,28 +68,12 @@
   <!-- Row 2: left info blocks and right personal info -->
   <div class="row mt-4">
     <section class="col-12 col-md-8">
-      <h3 class="h4">{{ t('data.notable') }}</h3>
-      <div class="row justify-content-center">
-        <div class="col-6 col-md-4 text-center mb-3">
-          <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
-          <h4 class="h6">{{ t('data.notableItems.fullstack.title') }}</h4>
-          <p class="small mb-0">{{ t('data.notableItems.fullstack.desc') }}</p>
-        </div>
-        <div class="col-6 col-md-4 text-center mb-3">
-          <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
-          <h4 class="h6">{{ t('data.notableItems.uiux.title') }}</h4>
-          <p class="small mb-0">{{ t('data.notableItems.uiux.desc') }}</p>
-        </div>
-        <div class="col-6 col-md-4 text-center mb-3">
-          <div class="mb-2 icon-circle bg-primary text-white d-inline-flex align-items-center justify-content-center">M</div>
-          <h4 class="h6">{{ t('data.notableItems.frontend.title') }}</h4>
-          <p class="small mb-0">{{ t('data.notableItems.frontend.desc') }}</p>
-        </div>
-      </div>
+      <h3 class="h4">{{ t('data.summaryTitle') }}</h3>
+      <p class="small text-muted">{{ t('data.summaryText') }}</p>
     </section>
 
     <aside class="col-12 col-md-4">
-      <h3 class="h5">{{ t('data.personalInfoTitle') }}</h3>
+      <h3 class="h4">{{ t('data.personalInfoTitle') }}</h3>
 
       <!-- Personal details -->
       <div class="mt-2 small">
@@ -139,14 +121,34 @@
             </span>
           </div>
         </div>
-        <div class="row">
-          <div class="col-5 text-end text-muted">Roles:</div>
-          <div class="col-7">
-            <div class="small">{{ (t('data.personal.rolesList') || []).join(', ') }}</div>
-          </div>
-        </div>
       </div>
     </aside>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 col-md-6">
+      <h4 class="h4 mt-3">{{ t('data.exploreRolesTitle') }}</h4>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/persona">{{ t('data.roles.persona') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/kusillo">{{ t('data.roles.kusillo') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/ui-ux-tech">{{ t('data.roles.uiUxTech') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/software-developer">{{ t('data.roles.softwareDeveloper') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/data-analyst">{{ t('data.roles.dataAnalyst') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/solutions-architect">{{ t('data.roles.solutionsArchitect') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/impact-generalist">{{ t('data.roles.impactGeneralist') }}</a>
+        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/cx-practitioner">{{ t('data.roles.cxPractitioner') }}</a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <p class="small mb-0">
+          {{ t('data.rolesHelper') }}
+          <button type="button" class="btn btn-link p-0 align-baseline" data-bs-toggle="modal" data-bs-target="#shareModal">
+            <i class="bi bi-share-fill"></i>
+          </button>
+        </p>
+      </div>
+    </div>
   </div>
 
   <!-- Row 4: Projects with timeline -->
@@ -174,58 +176,22 @@
             <li>{{ t('data.hardSkills.design.3') }}</li>
           </ul>
         </article>
-
-        <article class="p-3 border rounded">
-          <h4 class="h6">{{ t('data.hardSkills.dataTitle') }}</h4>
-          <ul class="mb-0">
-            <li>{{ t('data.hardSkills.data.0') }}</li>
-            <li>{{ t('data.hardSkills.data.1') }}</li>
-            <li>{{ t('data.hardSkills.data.2') }}</li>
-          </ul>
-        </article>
-
-        <article class="p-3 border rounded">
-          <h4 class="h6">{{ t('data.hardSkills.productivityTitle') }}</h4>
-          <ul class="mb-0">
-            <li>{{ t('data.hardSkills.productivity.0') }}</li>
-            <li>{{ t('data.hardSkills.productivity.1') }}</li>
-            <li>{{ t('data.hardSkills.productivity.2') }}</li>
-          </ul>
-        </article>
-
-        <article class="p-3 border rounded">
-          <h4 class="h6">{{ t('data.hardSkills.humanitiesTitle') }}</h4>
-          <ul class="mb-0">
-            <li>{{ t('data.hardSkills.humanities.0') }}</li>
-            <li>{{ t('data.hardSkills.humanities.1') }}</li>
-          </ul>
-        </article>
       </div>
     </section>
     <section class="col-12 col-md-8">
-      <h3 class="h4">{{ t('data.projectsTitle') }}</h3>
-      <div class="timeline">
-        <article class="timeline-item">
+      <h3 class="h4">{{ t('data.experienceTitle') }}</h3>
+      <div class="timeline mt-3">
+        <article class="timeline-item" *ngFor="let e of t('data.experience')">
           <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-content">
             <div class="d-flex justify-content-between">
-              <h4 class="h6 mb-0">{{ t('data.projects.0.title') }}</h4>
-              <time class="text-muted small">{{ t('data.projects.0.year') }}</time>
+              <h4 class="h6 mb-0">{{ e.org }}</h4>
+              <time class="text-muted small">{{ e.dates }}</time>
             </div>
-            <div class="text-uppercase small text-muted">{{ t('data.projects.0.role') }}</div>
-            <p class="mb-0 small">{{ t('data.projects.0.desc') }}</p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true"></div>
-          <div class="timeline-content">
-            <div class="d-flex justify-content-between">
-              <h4 class="h6 mb-0">{{ t('data.projects.1.title') }}</h4>
-              <time class="text-muted small">{{ t('data.projects.1.year') }}</time>
-            </div>
-            <div class="text-uppercase small text-muted">{{ t('data.projects.1.role') }}</div>
-            <p class="mb-0 small">{{ t('data.projects.1.desc') }}</p>
+            <div class="text-uppercase small text-muted" *ngIf="e.role">{{ e.role }}</div>
+            <ul class="mb-0 small" *ngIf="e.bullets && e.bullets.length">
+              <li *ngFor="let b of e.bullets">{{ b }}</li>
+            </ul>
           </div>
         </article>
       </div>
@@ -246,29 +212,12 @@
       </div>
     </section>
     <section class="col-12 col-md-8" id="studies">
-      <h3 class="h4">{{ t('data.studiesTitle') }}</h3>
-      <div class="timeline">
-        <article class="timeline-item">
+      <h3 class="h4">{{ t('data.educationTitle') }}</h3>
+      <div class="timeline mt-3">
+        <article class="timeline-item" *ngFor="let edu of t('data.education')">
           <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-content">
-            <div class="d-flex justify-content-between">
-              <h4 class="h6 mb-0">{{ t('data.projects.0.title') }}</h4>
-              <time class="text-muted small">{{ t('data.projects.0.year') }}</time>
-            </div>
-            <div class="text-uppercase small text-muted">{{ t('data.projects.0.role') }}</div>
-            <p class="mb-0 small">{{ t('data.projects.0.desc') }}</p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-marker" aria-hidden="true"></div>
-          <div class="timeline-content">
-            <div class="d-flex justify-content-between">
-              <h4 class="h6 mb-0">{{ t('data.projects.1.title') }}</h4>
-              <time class="text-muted small">{{ t('data.projects.1.year') }}</time>
-            </div>
-            <div class="text-uppercase small text-muted">{{ t('data.projects.1.role') }}</div>
-            <p class="mb-0 small">{{ t('data.projects.1.desc') }}</p>
+            <p class="mb-0 small">{{ edu }}</p>
           </div>
         </article>
       </div>

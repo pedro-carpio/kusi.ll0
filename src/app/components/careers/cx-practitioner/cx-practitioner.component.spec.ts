@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UiEngineerComponent } from './ui-engineer.component';
+import { CxPractitionerComponent } from './cx-practitioner.component';
 
-describe('UiEngineerComponent', () => {
-  let component: UiEngineerComponent;
-  let fixture: ComponentFixture<UiEngineerComponent>;
+describe('CxPractitionerComponent', () => {
+  let component: CxPractitionerComponent;
+  let fixture: ComponentFixture<CxPractitionerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UiEngineerComponent]
+      imports: [CxPractitionerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UiEngineerComponent);
+    fixture = TestBed.createComponent(CxPractitionerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

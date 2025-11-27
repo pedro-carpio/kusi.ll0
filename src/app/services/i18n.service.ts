@@ -136,6 +136,105 @@ export class I18nService {
         shareText: 'We should hire this guy!',
         shareUnsupported: 'Sharing is not supported in this browser',
         close: 'Close',
+        // Professional summary, roles, experience and education
+        summaryTitle: 'Professional summary',
+        summaryText:
+          'Multidisciplinary professional with over a decade converging technology, design and people management. Specialist at creating binding links between business needs and technical solutions, focused on empathy and social impact. Proven ability to lead digital transformations in critical and creative environments, combining strong software engineering with UX sensibility and crisis management. Seeking roles to apply an integrated vision to build tools that not only work but bring calm and real value to people.',
+        exploreRolesTitle: 'Explore my roles',
+        rolesHelper:
+          "If you know a role I haven't considered but think suits me, please get in touch. If my profile isn't useful to you, share it with someone who might benefit.",
+        roles: {
+          persona: 'Persona',
+          kusillo: 'Kusillo',
+          uiUxTech: 'UI/UX Tech',
+          softwareDeveloper: 'Software Developer',
+          dataAnalyst: 'Data Analyst',
+          solutionsArchitect: 'Solutions Architect',
+          impactGeneralist: 'Impact Generalist',
+          cxPractitioner: 'CX Practitioner',
+        },
+        experienceTitle: 'Professional Experience',
+        experience: [
+          {
+            org: 'Cervantes Asoc. (EdTech) | Remoto',
+            role: 'Lead Developer & UX Designer',
+            dates: 'Julio 2025 – Septiembre 2025',
+            bullets: [
+              'Gestión Integral: Administración del ciclo de vida del producto, desde el diseño de la experiencia de usuario (UX) hasta el testeo de aplicación y uso del sistema.',
+            ],
+          },
+          {
+            org: 'QURI | Bolivia',
+            role: 'Director de Marca, Marketing & UI/UX',
+            dates: 'Junio 2025 – Septiembre 2025',
+            bullets: [
+              'Estrategia Comercial: Creación de la primera campaña comercial y de marca para la distribución de arte boliviano a nivel nacional e internacional.',
+              'Diseño de Producto: Diseño de un sistema UI/UX para la gestión de diversos artistas, roles y contenido global.',
+            ],
+          },
+          {
+            org: 'Dirección General de Régimen Penitenciario | La Paz, Bolivia',
+            role: 'Project Manager & Lead Fullstack Developer',
+            dates: 'Mayo 2024 - Junio 2025',
+            bullets: [
+              'Liderazgo técnico y de producto en la modernización del sistema de gestión del Penal de San Pedro.',
+              'Gestión Crítica: Escalado del sistema para soportar 5,000 expedientes de privados de libertad y 12 secciones de instalaciones.',
+              'Optimización Operativa: Implementación de control de asistencia mediante NFC, proyectando una reducción en tiempos de lista de ~60 min (manual) a ~15-35 min.',
+              'Seguridad de Datos: Desarrollo de un sistema de trazabilidad con hashing evidente de manipulación (tamper-evident) para asegurar el 100% de los eventos de credenciales.',
+              'Diseño UX: Creación de interfaces de alta usabilidad para reducir la superficie de error humano en la entrada de datos.',
+            ],
+          },
+          {
+            org: 'Grupo GOIT | Bolivia',
+            role: 'Desarrollador Multidisciplinario & Especialista UX',
+            dates: 'Agosto 2021 – Noviembre 2022',
+            bullets: [
+              'Desarrollo Fullstack: Colaboración en la selección y procesamiento de datos, asegurando una gestión eficiente, y desarrollo del sitio web corporativo completo usando Node.js, Angular y Python.',
+              'Investigación de Usuario: Análisis e investigación de clientes ideales y sus comportamientos únicos para estrategias de UX y Rebranding.',
+              'Automatización: Colaboración en proyectos de administración de sistemas usando Red Hat Linux, Ansible y ciberseguridad.',
+            ],
+          },
+          {
+            org: 'Game Shop | Cochabamba, Bolivia',
+            role: 'Administrador de Tienda & Desarrollador Fullstack',
+            dates: '2018 – 2021',
+            bullets: [
+              'Inteligencia de Negocios: Desarrollo de un sistema de administración y visualización de datos para inventario y predicción de ventas.',
+              'Gestión Comercial: Administración de inventario, análisis de mercado, negociación y retención de clientes, logrando eficiencia en flujo de efectivo.',
+            ],
+          },
+          {
+            org: 'Jala | Cochabamba, Bolivia',
+            role: 'Residente Becario de Software Comercial & Tutor',
+            dates: '2015 – 2019',
+            bullets: [
+              'Ingeniería de Software: Formación intensiva y aplicación de metodologías ágiles, QA, Fullstack (Python, Angular, Node, C#), CI/CD y Testing.',
+              'Educación: Tutoría en robótica y fundamentos de software.',
+            ],
+          },
+          {
+            org: 'Trabajo Independiente / Voluntariado',
+            role: '',
+            dates: '',
+            bullets: [
+              'Kusillo (2025): Implementación de sistema de portafolio personal y marca.',
+              'Vliruos (2020-2021): Gestión de datos para mapeo de agua potable y salud pública (QGIS).',
+              'Cocina y Servicio (2021-2023): Diversos roles operativos que fortalecieron la gestión de estrés, planificación y eficiencia operativa.',
+            ],
+          },
+        ],
+        educationTitle: 'Educación',
+        education: [
+          'Google Data Analytics Professional Certificate - Google (Coursera)',
+          'Meta Full Stack Developer Professional Certificate - Meta (Coursera)',
+          'Google UX Design Professional Certificate - Google (Coursera)',
+          'Meta Database Engineer Professional Certificate - Meta (Coursera)',
+          'Graphic Design Specialization - CALARTS (Coursera)',
+          'Scrum Master Certification - Learn Quest (Coursera)',
+          'Python 3 Programming Specialization - University of Michigan (Coursera)',
+          'Programas de Residencia en Ingeniería de Software - Jala Foundation (2015-2019)',
+          'Licenciatura en Ing. Informática - Universidad Mayor de San Simón (2023 - en curso)',
+        ],
       },
       // User configuration modal (minimal)
       userConfig: {
@@ -276,6 +375,105 @@ export class I18nService {
         shareText: 'Deberíamos contratar a este tipo!',
         shareUnsupported: 'Compartir no está soportado en este navegador',
         close: 'Cerrar',
+        // Resumen profesional, roles, experiencia y educación (ES)
+        summaryTitle: 'Resumen profesional',
+        summaryText:
+          'Profesional multidisciplinario con más de una década de experiencia convergiendo tecnología, diseño y gestión humana. Especialista en crear "vínculos aglutinantes" entre necesidades de negocio y soluciones técnicas, con un enfoque centrado en la empatía y el impacto social. Capacidad probada para liderar transformaciones digitales en entornos críticos y creativos, combinando una sólida ingeniería de software con sensibilidad en Experiencia de Usuario y gestión de crisis. Busco roles donde pueda aplicar mi visión integral para construir herramientas que no solo funcionen, sino que aporten tranquilidad y valor real a las personas.',
+        exploreRolesTitle: 'Explora mis roles',
+        rolesHelper:
+          'porfavor, no olvides que si tienes un rol que no tengo considerado pero crees que es para mi, háblame y si mi perfil no es de utilidad para ti, compartelo a alguien que creas que sí le pueda servir',
+        roles: {
+          persona: 'Persona',
+          kusillo: 'Kusillo',
+          uiUxTech: 'UI/UX Tech',
+          softwareDeveloper: 'Software Developer',
+          dataAnalyst: 'Data Analyst',
+          solutionsArchitect: 'Solutions Architect',
+          impactGeneralist: 'Impact Generalist',
+          cxPractitioner: 'CX Practitioner',
+        },
+        experienceTitle: 'Experiencia profesional',
+        experience: [
+          {
+            org: 'Cervantes Asoc. (EdTech) | Remoto',
+            role: 'Lead Developer & UX Designer',
+            dates: 'Julio 2025 – Septiembre 2025',
+            bullets: [
+              'Gestión Integral: Administración del ciclo de vida del producto, desde el diseño de la experiencia de usuario (UX) hasta el testeo de aplicación y uso del sistema.',
+            ],
+          },
+          {
+            org: 'QURI | Bolivia',
+            role: 'Director de Marca, Marketing & UI/UX',
+            dates: 'Junio 2025 – Septiembre 2025',
+            bullets: [
+              'Estrategia Comercial: Creación de la primera campaña comercial y de marca para la distribución de arte boliviano a nivel nacional e internacional.',
+              'Diseño de Producto: Diseño de un sistema UI/UX para la gestión de diversos artistas, roles y contenido global.',
+            ],
+          },
+          {
+            org: 'Dirección General de Régimen Penitenciario | La Paz, Bolivia',
+            role: 'Project Manager & Lead Fullstack Developer',
+            dates: 'Mayo 2024 - Junio 2025',
+            bullets: [
+              'Liderazgo técnico y de producto en la modernización del sistema de gestión del Penal de San Pedro.',
+              'Gestión Crítica: Escalado del sistema para soportar 5,000 expedientes de privados de libertad y 12 secciones de instalaciones.',
+              'Optimización Operativa: Implementación de control de asistencia mediante NFC, proyectando una reducción en tiempos de lista de ~60 min (manual) a ~15-35 min.',
+              'Seguridad de Datos: Desarrollo de un sistema de trazabilidad con hashing evidente de manipulación (tamper-evident) para asegurar el 100% de los eventos de credenciales.',
+              'Diseño UX: Creación de interfaces de alta usabilidad para reducir la superficie de error humano en la entrada de datos.',
+            ],
+          },
+          {
+            org: 'Grupo GOIT | Bolivia',
+            role: 'Desarrollador Multidisciplinario & Especialista UX',
+            dates: 'Agosto 2021 – Noviembre 2022',
+            bullets: [
+              'Desarrollo Fullstack: Colaboración en la selección y procesamiento de datos, asegurando una gestión eficiente, y desarrollo del sitio web corporativo completo usando Node.js, Angular y Python.',
+              'Investigación de Usuario: Análisis e investigación de clientes ideales y sus comportamientos únicos para estrategias de UX y Rebranding.',
+              'Automatización: Colaboración en proyectos de administración de sistemas usando Red Hat Linux, Ansible y ciberseguridad.',
+            ],
+          },
+          {
+            org: 'Game Shop | Cochabamba, Bolivia',
+            role: 'Administrador de Tienda & Desarrollador Fullstack',
+            dates: '2018 – 2021',
+            bullets: [
+              'Inteligencia de Negocios: Desarrollo de un sistema de administración y visualización de datos para inventario y predicción de ventas.',
+              'Gestión Comercial: Administración de inventario, análisis de mercado, negociación y retención de clientes, logrando eficiencia en flujo de efectivo.',
+            ],
+          },
+          {
+            org: 'Jala | Cochabamba, Bolivia',
+            role: 'Residente Becario de Software Comercial & Tutor',
+            dates: '2015 – 2019',
+            bullets: [
+              'Ingeniería de Software: Formación intensiva y aplicación de metodologías ágiles, QA, Fullstack (Python, Angular, Node, C#), CI/CD y Testing.',
+              'Educación: Tutoría en robótica y fundamentos de software.',
+            ],
+          },
+          {
+            org: 'Trabajo Independiente / Voluntariado',
+            role: '',
+            dates: '',
+            bullets: [
+              'Kusillo (2025): Implementación de sistema de portafolio personal y marca.',
+              'Vliruos (2020-2021): Gestión de datos para mapeo de agua potable y salud pública (QGIS).',
+              'Cocina y Servicio (2021-2023): Diversos roles operativos que fortalecieron la gestión de estrés, planificación y eficiencia operativa.',
+            ],
+          },
+        ],
+        educationTitle: 'Educación',
+        education: [
+          'Google Data Analytics Professional Certificate - Google (Coursera)',
+          'Meta Full Stack Developer Professional Certificate - Meta (Coursera)',
+          'Google UX Design Professional Certificate - Google (Coursera)',
+          'Meta Database Engineer Professional Certificate - Meta (Coursera)',
+          'Graphic Design Specialization - CALARTS (Coursera)',
+          'Scrum Master Certification - Learn Quest (Coursera)',
+          'Python 3 Programming Specialization - University of Michigan (Coursera)',
+          'Programas de Residencia en Ingeniería de Software - Jala Foundation (2015-2019)',
+          'Licenciatura en Ing. Informática - Universidad Mayor de San Simón (2023 - en curso)',
+        ],
       },
       // User configuration modal (ES minimal)
       userConfig: {
