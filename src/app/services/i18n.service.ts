@@ -144,11 +144,13 @@ export class I18nService {
         rolesHelper:
           "If you know a role I haven't considered but think suits me, please get in touch. If my profile isn't useful to you, share it with someone who might benefit.",
         roles: {
+          all: 'All Roles',
           persona: 'Persona',
           kusillo: 'Kusillo',
           uiUxTech: 'UI/UX Tech',
           softwareDeveloper: 'Software Developer',
           dataAnalyst: 'Data Analyst',
+          productOwner: 'Product Owner',
           solutionsArchitect: 'Solutions Architect',
           impactGeneralist: 'Impact Generalist',
           cxPractitioner: 'CX Practitioner',
@@ -455,11 +457,13 @@ export class I18nService {
         rolesHelper:
           'porfavor, no olvides que si tienes un rol que no tengo considerado pero crees que es para mi, háblame y si mi perfil no es de utilidad para ti, compartelo a alguien que creas que sí le pueda servir',
         roles: {
+          all: 'Todos los Roles',
           persona: 'Persona',
           kusillo: 'Kusillo',
           uiUxTech: 'UI/UX Tech',
           softwareDeveloper: 'Software Developer',
           dataAnalyst: 'Data Analyst',
+          productOwner: 'Product Owner',
           solutionsArchitect: 'Solutions Architect',
           impactGeneralist: 'Impact Generalist',
           cxPractitioner: 'CX Practitioner',
@@ -548,7 +552,7 @@ export class I18nService {
         ],
         productOwner: {
           rolesList: ['Analista de Producto', 'Product Owner Jr.', 'Enfoque en Impacto Social'],
-          summaryTitle: 'Resumen Profesional',
+          summaryTitle: 'Resumen profesional',
           summaryText:
             'Profesional híbrido con una pasión demostrada por traducir problemas sociales complejos en soluciones de software escalables. Certificado en UX Design (Google) y con experiencia práctica en la gestión de características de productos en entornos de alta criticidad. Mi fortaleza reside en la investigación empática de usuarios, la definición de User Stories y la priorización de backlogs basada en métricas y valor social. Poseo las habilidades técnicas necesarias para comunicarme eficazmente con equipos de Ingeniería y Diseño. Busco un rol no-Lead para enfocarme en la excelencia de la ejecución del ciclo de vida del producto.',
           experienceTitle: 'Experiencia de Gestión y Análisis de Producto',
