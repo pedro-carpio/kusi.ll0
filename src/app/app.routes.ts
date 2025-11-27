@@ -16,6 +16,7 @@ import { CxPractitionerComponent } from './components/careers/cx-practitioner/cx
 import { CreationsComponent } from './components/creations/creations.component';
 import { DataComponent } from './components/data/data.component';
 import { CareersComponent } from './components/careers/careers.component';
+import { ProductOwnerComponent } from './components/careers/product-owner/product-owner.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -41,6 +42,7 @@ export const routes: Routes = [
       { path: 'solutions-architect', component: SolutionsArchitectComponent },
       { path: 'impact-generalist', component: ImpactGeneralistComponent },
       { path: 'cx-practitioner', component: CxPractitionerComponent },
+      { path: 'product-owner', component: ProductOwnerComponent },
       { path: '', redirectTo: 'profesional', pathMatch: 'full' },
       { path: 'profesional', component: CareersComponent },
     ],
