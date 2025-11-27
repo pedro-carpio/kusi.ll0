@@ -1,0 +1,61 @@
+.icon-square {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 6px;
+  font-size: 2rem;
+  display: inline;
+}
+
+.icon-row {
+  /* make the row flush: remove extra gaps added by margins */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icon-cell {
+  /* six across on desktop, fill width, square via aspect-ratio */
+  flex: 0 0 calc(100% / 6);
+  max-width: calc(100% / 6);
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1; /* ensures square */
+  display: flex;
+  flex-direction: column; /* stack icon above text */
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 0.35rem;
+  background: var(--bs-light);
+  border: none; /* remove borders so cells sit flush */
+  padding: 0.5em;
+  margin: 0;
+  text-decoration: none;
+  color: inherit;
+  /* icon inside cell: slightly larger than label */
+  i {
+    font-size: 1.6rem;
+    display: block;
+  }
+
+  /* make any direct text wrap centered */
+  & > *:not(i) {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* hide larger icon elements on small screens to save space */
+  .icon-square {
+    display: none !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .icon-cell {
+    /* two across on extra small screens */
+    flex: 0 0 calc(100% / 3);
+    max-width: calc(100% / 3);
+  }
+}

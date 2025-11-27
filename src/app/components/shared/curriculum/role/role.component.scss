@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.btn-outline-secondary {
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+}

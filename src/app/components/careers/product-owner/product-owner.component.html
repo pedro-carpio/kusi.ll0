@@ -28,38 +28,7 @@
       <!-- Row 1.3: 6 icon squares occupying full width without gap on small screens -->
       <article class="row mb-3">
         <div class="col-12">
-          <div class="icon-row d-flex flex-wrap justify-content-end">
-            <a
-              class="icon-cell"
-              href="/PEDRO%20CARPIO%202025.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open Pedro Carpio PDF"
-            >
-              <i class="bi bi-filetype-pdf" aria-hidden="true"></i>
-              <span class="ms-2">{{ t('data.iconCells.0') }}</span>
-            </a>
-            <a class="icon-cell" [routerLink]="['./']" fragment="studies"><i class="bi bi-book-half"></i>{{ t('data.iconCells.1') }}</a>
-            <a
-              class="icon-cell"
-              href="https://www.linkedin.com/in/pedro-carpio"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open Pedro Carpio LinkedIn profile"
-              ><i class="bi bi-linkedin"></i>{{ t('data.iconCells.2') }}</a
-            >
-            <a class="icon-cell" routerLink="/mis/trabajos"><i class="bi bi-collection-fill"></i>{{ t('data.iconCells.3') }}</a>
-            <a class="icon-cell" routerLink="/mis/webadas"><i class="bi bi-pencil-square"></i>{{ t('data.iconCells.4') }}</a>
-            <button
-              type="button"
-              class="icon-cell btn btn-link p-0"
-              data-bs-toggle="modal"
-              data-bs-target="#shareModal"
-              [attr.aria-label]="t('data.iconCells.5')"
-            >
-              <i class="bi bi-share-fill"></i>{{ t('data.iconCells.5') }}
-            </button>
-          </div>
+          <app-buttons></app-buttons>
         </div>
       </article>
     </main>
@@ -71,85 +40,10 @@
       <h3 class="h4">{{ t('data.productOwner.summaryTitle') }}</h3>
       <p class="small text-muted">{{ t('data.productOwner.summaryText') }}</p>
     </section>
-
-    <aside class="col-12 col-md-4">
-      <h3 class="h4">{{ t('data.personalInfoTitle') }}</h3>
-
-      <!-- Personal details -->
-      <div class="mt-2 small">
-        <div class="row mb-1">
-          <div class="col-5 text-end text-muted">{{ t('data.personal.nametag') }}:</div>
-          <div class="col-7">{{ t('data.personal.name') }}</div>
-        </div>
-        <div class="row mb-1">
-          <div class="col-5 text-end text-muted">{{ t('data.personal.dobTag') }}:</div>
-          <div class="col-7">{{ t('data.personal.dob') }}</div>
-        </div>
-        <div class="row mb-1">
-          <div class="col-5 text-end text-muted">{{ t('data.personal.residenceTag') }}:</div>
-          <div class="col-7">{{ t('data.personal.residence') }}</div>
-        </div>
-        <div class="row mb-1">
-          <div class="col-5 text-end text-muted">Tel:</div>
-          <div class="col-7">
-            <span class="d-inline-flex align-items-center">
-              <span>{{ t('data.personal.phone') }}</span>
-              <i
-                class="bi bi-copy ms-2"
-                role="button"
-                tabindex="0"
-                title="Copy phone"
-                aria-label="Copy phone"
-                (click)="copy(t('data.personal.phoneHref'))"
-              ></i>
-            </span>
-          </div>
-        </div>
-        <div class="row mb-1">
-          <div class="col-5 text-end text-muted">Email:</div>
-          <div class="col-7">
-            <span class="d-inline-flex align-items-center">
-              <span>{{ t('data.personal.email') }}</span>
-              <i
-                class="bi bi-copy ms-2"
-                role="button"
-                tabindex="0"
-                title="Copy email"
-                aria-label="Copy email"
-                (click)="copy(t('data.personal.email'))"
-              ></i>
-            </span>
-          </div>
-        </div>
-      </div>
-    </aside>
+    <aside class="col-12 col-md-4"><app-personal-info (copyValue)="copy($event)"></app-personal-info></aside>
   </div>
 
-  <div class="row mt-4">
-    <div class="col-12 col-md-6">
-      <h4 class="h4 mt-3">{{ t('data.exploreRolesTitle') }}</h4>
-      <div class="d-flex flex-wrap gap-2 mt-2">
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/persona">{{ t('data.roles.persona') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/kusillo">{{ t('data.roles.kusillo') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/ui-ux-tech">{{ t('data.roles.uiUxTech') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/software-developer">{{ t('data.roles.softwareDeveloper') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/data-analyst">{{ t('data.roles.dataAnalyst') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/solutions-architect">{{ t('data.roles.solutionsArchitect') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/impact-generalist">{{ t('data.roles.impactGeneralist') }}</a>
-        <a class="btn btn-sm btn-outline-secondary" routerLink="/yo-como/cx-practitioner">{{ t('data.roles.cxPractitioner') }}</a>
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="d-flex flex-wrap gap-2 mt-2">
-        <p class="small mb-0">
-          {{ t('data.rolesHelper') }}
-          <button type="button" class="btn btn-link p-0 align-baseline" data-bs-toggle="modal" data-bs-target="#shareModal">
-            <i class="bi bi-share-fill"></i>
-          </button>
-        </p>
-      </div>
-    </div>
-  </div>
+  <app-role></app-role>
 
   <!-- Row 4: Projects with timeline -->
   <div class="row mt-4">

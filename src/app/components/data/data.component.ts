@@ -6,12 +6,15 @@ import { CopyService } from '../../services/copy/copy.service';
 import { SnackbarService } from '../../services/snackbar/snackbar.service';
 import { MetaTagsService } from '../../services/meta-tags/meta-tags.service';
 import { RouterModule } from '@angular/router';
+import { ButtonsComponent } from '../shared/curriculum/buttons/buttons.component';
+import { PersonalInfoComponent } from '../shared/curriculum/personal-info/personal-info.component';
+import { RoleComponent } from '../shared/curriculum/role/role.component';
 
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, ButtonsComponent, PersonalInfoComponent, RoleComponent],
 })
 export class DataComponent implements OnInit, OnDestroy {
   roles: string[] = [];

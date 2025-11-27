@@ -6,10 +6,13 @@ import { MetaTagsService } from '../../../services/meta-tags/meta-tags.service';
 import { SnackbarService } from '../../../services/snackbar/snackbar.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ButtonsComponent } from '../../shared/curriculum/buttons/buttons.component';
+import { PersonalInfoComponent } from '../../shared/curriculum/personal-info/personal-info.component';
+import { RoleComponent } from '../../shared/curriculum/role/role.component';
 
 @Component({
   selector: 'app-product-owner',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, ButtonsComponent, PersonalInfoComponent, RoleComponent],
   templateUrl: './product-owner.component.html',
   styleUrl: './product-owner.component.scss',
 })

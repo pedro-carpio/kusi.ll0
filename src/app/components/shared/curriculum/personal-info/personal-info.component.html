@@ -1,0 +1,49 @@
+<h3 class="h4">{{ t('data.personalInfoTitle') }}</h3>
+
+<!-- Personal details -->
+<div class="mt-2 small">
+  <div class="row mb-1">
+    <div class="col-5 text-end text-muted">{{ t('data.personal.nametag') }}:</div>
+    <div class="col-7">{{ t('data.personal.name') }}</div>
+  </div>
+  <div class="row mb-1">
+    <div class="col-5 text-end text-muted">{{ t('data.personal.dobTag') }}:</div>
+    <div class="col-7">{{ t('data.personal.dob') }}</div>
+  </div>
+  <div class="row mb-1">
+    <div class="col-5 text-end text-muted">{{ t('data.personal.residenceTag') }}:</div>
+    <div class="col-7">{{ t('data.personal.residence') }}</div>
+  </div>
+  <div class="row mb-1">
+    <div class="col-5 text-end text-muted">Tel:</div>
+    <div class="col-7">
+      <span class="d-inline-flex align-items-center">
+        <span>{{ t('data.personal.phone') }}</span>
+        <i
+          class="bi bi-copy ms-2"
+          role="button"
+          tabindex="0"
+          title="Copy phone"
+          aria-label="Copy phone"
+          (click)="onCopy(t('data.personal.phoneHref'))"
+        ></i>
+      </span>
+    </div>
+  </div>
+  <div class="row mb-1">
+    <div class="col-5 text-end text-muted">Email:</div>
+    <div class="col-7">
+      <span class="d-inline-flex align-items-center">
+        <span>{{ t('data.personal.email') }}</span>
+        <i
+          class="bi bi-copy ms-2"
+          role="button"
+          tabindex="0"
+          title="Copy email"
+          aria-label="Copy email"
+          (click)="onCopy(t('data.personal.email'))"
+        ></i>
+      </span>
+    </div>
+  </div>
+</div>
