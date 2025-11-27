@@ -140,7 +140,7 @@ export class I18nService {
         summaryTitle: 'Professional summary',
         summaryText:
           'Multidisciplinary professional with over a decade converging technology, design and people management. Specialist at creating binding links between business needs and technical solutions, focused on empathy and social impact. Proven ability to lead digital transformations in critical and creative environments, combining strong software engineering with UX sensibility and crisis management. Seeking roles to apply an integrated vision to build tools that not only work but bring calm and real value to people.',
-        exploreRolesTitle: 'Explore my roles',
+        exploreRolesTitle: 'Explore this curriculum by role',
         rolesHelper:
           "If you know a role I haven't considered but think suits me, please get in touch. If my profile isn't useful to you, share it with someone who might benefit.",
         roles: {
@@ -453,7 +453,7 @@ export class I18nService {
         summaryTitle: 'Resumen profesional',
         summaryText:
           'Profesional multidisciplinario con más de una década de experiencia convergiendo tecnología, diseño y gestión humana. Especialista en crear "vínculos aglutinantes" entre necesidades de negocio y soluciones técnicas, con un enfoque centrado en la empatía y el impacto social. Capacidad probada para liderar transformaciones digitales en entornos críticos y creativos, combinando una sólida ingeniería de software con sensibilidad en Experiencia de Usuario y gestión de crisis. Busco roles donde pueda aplicar mi visión integral para construir herramientas que no solo funcionen, sino que aporten tranquilidad y valor real a las personas.',
-        exploreRolesTitle: 'Explora mis roles',
+        exploreRolesTitle: 'Observa este curriculum a traves de un rol específico',
         rolesHelper:
           'porfavor, no olvides que si tienes un rol que no tengo considerado pero crees que es para mi, háblame y si mi perfil no es de utilidad para ti, compartelo a alguien que creas que sí le pueda servir',
         roles: {
