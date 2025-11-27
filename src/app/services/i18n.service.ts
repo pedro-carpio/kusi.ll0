@@ -238,7 +238,7 @@ export class I18nService {
           'Licenciatura en Ing. Informática - Universidad Mayor de San Simón (2023 - en curso)',
         ],
         productOwner: {
-          rolesList: ['Product Analyst', 'Junior Product Owner', 'Social Impact Focus'],
+          rolesList: ['Product Analyst', 'Junior Product Owner'],
           summaryTitle: 'Professional Summary',
           summaryText:
             'Hybrid professional with a demonstrated passion for translating complex social problems into scalable software solutions. Google UX Design certified and with hands-on experience managing product features in high-criticality environments. My strength lies in empathetic user research, writing clear user stories and backlog prioritization based on metrics and social value. I have the technical literacy to communicate effectively with engineering and design teams. Seeking a non-lead role focused on execution excellence across the product lifecycle.',
@@ -551,7 +551,7 @@ export class I18nService {
           'Licenciatura en Ing. Informática - Universidad Mayor de San Simón (2023 - en curso)',
         ],
         productOwner: {
-          rolesList: ['Analista de Producto', 'Product Owner Jr.', 'Enfoque en Impacto Social'],
+          rolesList: ['Analista de Producto', 'Product Owner Jr.'],
           summaryTitle: 'Resumen profesional',
           summaryText:
             'Profesional híbrido con una pasión demostrada por traducir problemas sociales complejos en soluciones de software escalables. Certificado en UX Design (Google) y con experiencia práctica en la gestión de características de productos en entornos de alta criticidad. Mi fortaleza reside en la investigación empática de usuarios, la definición de User Stories y la priorización de backlogs basada en métricas y valor social. Poseo las habilidades técnicas necesarias para comunicarme eficazmente con equipos de Ingeniería y Diseño. Busco un rol no-Lead para enfocarme en la excelencia de la ejecución del ciclo de vida del producto.',
