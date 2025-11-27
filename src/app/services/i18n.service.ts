@@ -156,74 +156,74 @@ export class I18nService {
         experienceTitle: 'Professional Experience',
         experience: [
           {
-            org: 'Cervantes Asoc. (EdTech) | Remoto',
+            org: 'Cervantes Asoc. (EdTech) | Remote',
             role: 'Lead Developer & UX Designer',
-            dates: 'Julio 2025 – Septiembre 2025',
+            dates: 'July 2025 – September 2025',
             bullets: [
-              'Gestión Integral: Administración del ciclo de vida del producto, desde el diseño de la experiencia de usuario (UX) hasta el testeo de aplicación y uso del sistema.',
+              'End-to-end product management: Oversaw product lifecycle from UX design to application testing and adoption.',
             ],
           },
           {
             org: 'QURI | Bolivia',
-            role: 'Director de Marca, Marketing & UI/UX',
-            dates: 'Junio 2025 – Septiembre 2025',
+            role: 'Brand, Marketing & UI/UX Director',
+            dates: 'June 2025 – September 2025',
             bullets: [
-              'Estrategia Comercial: Creación de la primera campaña comercial y de marca para la distribución de arte boliviano a nivel nacional e internacional.',
-              'Diseño de Producto: Diseño de un sistema UI/UX para la gestión de diversos artistas, roles y contenido global.',
+              'Commercial strategy: Launched the first brand and commercial campaign for national and international distribution of Bolivian art.',
+              'Product design: Designed a UI/UX system to manage multiple artists, roles and global content.',
             ],
           },
           {
             org: 'Dirección General de Régimen Penitenciario | La Paz, Bolivia',
             role: 'Project Manager & Lead Fullstack Developer',
-            dates: 'Mayo 2024 - Junio 2025',
+            dates: 'May 2024 – June 2025',
             bullets: [
-              'Liderazgo técnico y de producto en la modernización del sistema de gestión del Penal de San Pedro.',
-              'Gestión Crítica: Escalado del sistema para soportar 5,000 expedientes de privados de libertad y 12 secciones de instalaciones.',
-              'Optimización Operativa: Implementación de control de asistencia mediante NFC, proyectando una reducción en tiempos de lista de ~60 min (manual) a ~15-35 min.',
-              'Seguridad de Datos: Desarrollo de un sistema de trazabilidad con hashing evidente de manipulación (tamper-evident) para asegurar el 100% de los eventos de credenciales.',
-              'Diseño UX: Creación de interfaces de alta usabilidad para reducir la superficie de error humano en la entrada de datos.',
+              'Technical and product leadership in modernizing the San Pedro prison management system.',
+              'Critical operations: Scaled the system to support 5,000 inmate records across 12 facility sections.',
+              'Operational optimization: Implemented NFC-based attendance control, projecting a reduction in roll-call time from ~60 minutes to ~15–35 minutes.',
+              'Data security: Developed an auditable traceability system with tamper-evident hashing to ensure 100% event integrity for credentials.',
+              'UX design: Built highly usable interfaces to reduce human error in data entry.',
             ],
           },
           {
             org: 'Grupo GOIT | Bolivia',
-            role: 'Desarrollador Multidisciplinario & Especialista UX',
-            dates: 'Agosto 2021 – Noviembre 2022',
+            role: 'Multidisciplinary Developer & UX Specialist',
+            dates: 'August 2021 – November 2022',
             bullets: [
-              'Desarrollo Fullstack: Colaboración en la selección y procesamiento de datos, asegurando una gestión eficiente, y desarrollo del sitio web corporativo completo usando Node.js, Angular y Python.',
-              'Investigación de Usuario: Análisis e investigación de clientes ideales y sus comportamientos únicos para estrategias de UX y Rebranding.',
-              'Automatización: Colaboración en proyectos de administración de sistemas usando Red Hat Linux, Ansible y ciberseguridad.',
+              'Fullstack development: Collaborated on data selection and processing and delivered the corporate website using Node.js, Angular and Python.',
+              'User research: Performed customer analysis to inform UX strategy and rebranding.',
+              'Automation: Contributed to systems administration projects using Red Hat Linux, Ansible and security practices.',
             ],
           },
           {
             org: 'Game Shop | Cochabamba, Bolivia',
-            role: 'Administrador de Tienda & Desarrollador Fullstack',
+            role: 'Store Manager & Fullstack Developer',
             dates: '2018 – 2021',
             bullets: [
-              'Inteligencia de Negocios: Desarrollo de un sistema de administración y visualización de datos para inventario y predicción de ventas.',
-              'Gestión Comercial: Administración de inventario, análisis de mercado, negociación y retención de clientes, logrando eficiencia en flujo de efectivo.',
+              'Business intelligence: Built an administration and visualization system for inventory and sales forecasting.',
+              'Commercial management: Managed inventory, market analysis, negotiation and customer retention to improve cash flow efficiency.',
             ],
           },
           {
             org: 'Jala | Cochabamba, Bolivia',
-            role: 'Residente Becario de Software Comercial & Tutor',
+            role: 'Software Residency Fellow & Tutor',
             dates: '2015 – 2019',
             bullets: [
-              'Ingeniería de Software: Formación intensiva y aplicación de metodologías ágiles, QA, Fullstack (Python, Angular, Node, C#), CI/CD y Testing.',
-              'Educación: Tutoría en robótica y fundamentos de software.',
+              'Software engineering: Intensive training and application of agile methods, QA, Fullstack development (Python, Angular, Node, C#), CI/CD and testing.',
+              'Education: Tutoring in robotics and software fundamentals.',
             ],
           },
           {
-            org: 'Trabajo Independiente / Voluntariado',
+            org: 'Freelance / Volunteering',
             role: '',
             dates: '',
             bullets: [
-              'Kusillo (2025): Implementación de sistema de portafolio personal y marca.',
-              'Vliruos (2020-2021): Gestión de datos para mapeo de agua potable y salud pública (QGIS).',
-              'Cocina y Servicio (2021-2023): Diversos roles operativos que fortalecieron la gestión de estrés, planificación y eficiencia operativa.',
+              'Kusillo (2025): Implemented a personal portfolio system and brand.',
+              'Vliruos (2020–2021): Data work for water mapping and public health (QGIS).',
+              'Kitchen & service (2021–2023): Various operational roles that strengthened stress management, planning and operational efficiency.',
             ],
           },
         ],
-        educationTitle: 'Educación',
+        educationTitle: 'Education',
         education: [
           'Google Data Analytics Professional Certificate - Google (Coursera)',
           'Meta Full Stack Developer Professional Certificate - Meta (Coursera)',
@@ -235,6 +235,78 @@ export class I18nService {
           'Programas de Residencia en Ingeniería de Software - Jala Foundation (2015-2019)',
           'Licenciatura en Ing. Informática - Universidad Mayor de San Simón (2023 - en curso)',
         ],
+        productOwner: {
+          rolesList: ['Product Analyst', 'Junior Product Owner', 'Social Impact Focus'],
+          summaryTitle: 'Professional Summary',
+          summaryText:
+            'Hybrid professional with a demonstrated passion for translating complex social problems into scalable software solutions. Google UX Design certified and with hands-on experience managing product features in high-criticality environments. My strength lies in empathetic user research, writing clear user stories and backlog prioritization based on metrics and social value. I have the technical literacy to communicate effectively with engineering and design teams. Seeking a non-lead role focused on execution excellence across the product lifecycle.',
+          experienceTitle: 'Product Management & Analysis Experience',
+          experience: [
+            {
+              org: 'Cervantes Asoc. (EdTech) | Remote & Bolivia',
+              role: 'Product & UX Analyst (EdTech & Brand Design)',
+              dates: '2025 (Freelance Projects)',
+              bullets: [
+                'Product strategy: designed the initial roadmap and key features for an LMS, focusing the MVP on smooth management of tutors, students and class schedules.',
+                'Early validation: organized and ran usability testing sessions for a demo management system, identifying flow problems before full development investment.',
+              ],
+            },
+            {
+              org: 'QURI (Art) | Remote & Bolivia',
+              role: 'Product & UX Analyst (EdTech & Brand Design)',
+              dates: '2025 (Freelance Projects)',
+              bullets: [
+                'Information architecture: created the IA and navigation flow for an art distribution platform, ensuring buyer experience aligned with brand narrative.',
+              ],
+            },
+            {
+              org: 'Dirección General de Régimen Penitenciario | La Paz, Bolivia',
+              role: 'Product & Traceability Analyst (Critical Systems)',
+              dates: 'May 2024 – 2024',
+              bullets: [
+                'Focused on data efficiency and ethics to improve HR and records management.',
+                'Critical user research: conducted interviews and process analysis with police and administrative staff in a high-security environment to identify pain points and workflows (As is / To be).',
+                'Feature definition: translated bureaucratic and operational requirements into clear user stories for the development team, managing backlog related to ~5,000 inmate records.',
+                'Metrics & optimization: analyzed operational data to establish KPIs, projecting a reduction in roll-call time from ~60 to ~15 minutes per block through NFC introduction.',
+                'Data integrity: prioritized and implemented immutable logging to ensure 100% traceability of credential events, critical for auditability and trust.',
+              ],
+            },
+            {
+              org: 'Game Shop | Cochabamba, Bolivia',
+              role: 'Business Intelligence Analyst (Retail)',
+              dates: 'Aug 2021 – 2022',
+              bullets: [
+                'Data-driven prioritization: built a visualization system for inventory to prioritize purchasing and restocking based on predictive demand and market trends.',
+                'Market research: analyzed customer purchasing behavior to inform product decisions (what items to stock and promote), improving inventory turnover.',
+              ],
+            },
+          ],
+          skillsTitle: 'Key Skills & Competencies',
+          hardSkillsTitle: 'Hard Skills (Product Execution)',
+          skills: {
+            hard: [
+              'UX/Research: User Journey Mapping, Storyboarding, Interviews, Usability Testing, Persona Definition.',
+              'Agile methodology: Scrum, Kanban, Backlog & Sprint management (Jira, Trello).',
+              'Technical communication: ability to read and understand code (Python, JavaScript/Angular) and databases (SQL) to estimate and validate engineering decisions.',
+              'Prototyping: Figma (wireframing and high-fidelity prototypes).',
+              'Metrics: KPI definition and descriptive data analysis (Excel, SQL) to measure product success.',
+            ],
+            soft: [
+              'Social empathy: deep understanding of vulnerability and end-user needs based on prior customer service and social projects.',
+              'Assertive communication: facilitating discussions between divergent stakeholders (business, development, design, end users).',
+              'Conflict resolution: experience managing relationships and expectations in complex projects.',
+            ],
+          },
+          softSkillsTitle: 'Soft Skills (Leadership without Title)',
+          educationTitle: 'Education & Certifications',
+          education: [
+            'Google UX Design Professional Certificate – Google (Coursera)',
+            'Meta React Specialization – Meta (Coursera)',
+            'Meta Full Stack Developer: Front-End & Back-End from Scratch – Meta (Coursera)',
+            'Google Data Analytics Professional Certificate – Google (Coursera) (Focus: metrics, R, SQL, visualization).',
+            'Software Engineering Residency Programs - Jala Foundation (2015-2019)',
+          ],
+        },
       },
       // User configuration modal (minimal)
       userConfig: {
@@ -474,6 +546,78 @@ export class I18nService {
           'Programas de Residencia en Ingeniería de Software - Jala Foundation (2015-2019)',
           'Licenciatura en Ing. Informática - Universidad Mayor de San Simón (2023 - en curso)',
         ],
+        productOwner: {
+          rolesList: ['Analista de Producto', 'Product Owner Jr.', 'Enfoque en Impacto Social'],
+          summaryTitle: 'Resumen Profesional',
+          summaryText:
+            'Profesional híbrido con una pasión demostrada por traducir problemas sociales complejos en soluciones de software escalables. Certificado en UX Design (Google) y con experiencia práctica en la gestión de características de productos en entornos de alta criticidad. Mi fortaleza reside en la investigación empática de usuarios, la definición de User Stories y la priorización de backlogs basada en métricas y valor social. Poseo las habilidades técnicas necesarias para comunicarme eficazmente con equipos de Ingeniería y Diseño. Busco un rol no-Lead para enfocarme en la excelencia de la ejecución del ciclo de vida del producto.',
+          experienceTitle: 'Experiencia de Gestión y Análisis de Producto',
+          experience: [
+            {
+              org: 'Cervantes Asoc. (EdTech) | Remoto & Bolivia',
+              role: 'Analista de Producto y UX (EdTech y Diseño de Marca)',
+              dates: '2025 (Proyectos Freelance)',
+              bullets: [
+                'Estrategia de Producto: Diseñé el roadmap inicial y las funcionalidades clave para una plataforma LMS (e-learning), enfocando el MVP en la gestión fluida de tutores, estudiantes y calendarios de clases.',
+                'Validación Temprana: Organicé y ejecuté sesiones de Testeo de Usabilidad (Usability Testing) para un demo del sistema de gestión, identificando fallos en el flujo antes de la inversión completa en desarrollo.',
+              ],
+            },
+            {
+              org: 'QURI (Arte) | Remoto & Bolivia',
+              role: 'Analista de Producto y UX (EdTech y Diseño de Marca)',
+              dates: '2025 (Proyectos Freelance)',
+              bullets: [
+                'Arquitectura de Información: Creé la arquitectura y el flujo de navegación de la plataforma para la distribución de arte (QURI), asegurando que la experiencia del comprador se alineara con la narrativa de la marca.',
+              ],
+            },
+            {
+              org: 'Dirección General de Régimen Penitenciario | La Paz, Bolivia',
+              role: 'Analista de Producto y Trazabilidad (Sistemas Críticos)',
+              dates: 'Mayo 2024 – 2024',
+              bullets: [
+                'Enfoque en la eficiencia y la ética de los datos para mejorar la gestión de recursos humanos y expedientes.',
+                'Investigación de Usuario Crítica: Realicé entrevistas y análisis de procesos con personal policial y administrativo en un entorno de alta seguridad para identificar puntos de dolor y flujos de trabajo (As is/To be).',
+                'Definición de Características: Traduje requerimientos burocráticos y operativos en historias de usuario claras para el equipo de desarrollo, gestionando el backlog de características como la gestión de 5,000 expedientes de internos.',
+                'Métricas y Optimización: Analicé datos operativos para establecer métricas de rendimiento (KPIs), logrando una reducción proyectada del tiempo de conteo de 60 a ~15 minutos por pabellón mediante la introducción de tecnología NFC.',
+                'Integridad de Datos: Prioricé e implementé la característica de logging inmutable, asegurando la trazabilidad del 100% de los eventos de credenciales, fundamental para la auditoría y la confianza en el sistema.',
+              ],
+            },
+            {
+              org: 'Game Shop | Cochabamba, Bolivia',
+              role: 'Analista de Business Intelligence (Retail)',
+              dates: 'Ago 2021 – 2022',
+              bullets: [
+                'Priorización Basada en Datos: Desarrollé un sistema de visualización para el inventario, permitiendo priorizar la compra y reposición de stock basándose en datos predictivos de demanda y tendencias de mercado.',
+                'Investigación de Mercado: Analicé el comportamiento de compra de los clientes para informar las decisiones de producto (qué artículos almacenar y promocionar), logrando una mayor rotación de inventario.',
+              ],
+            },
+          ],
+          skillsTitle: 'Habilidades y Competencias Clave',
+          hardSkillsTitle: 'Hard Skills (Ejecución de Producto)',
+          skills: {
+            hard: [
+              'UX/Investigación: User Journey Mapping, Storyboarding, Entrevistas, Usability Testing, Definición de Personas.',
+              'Metodología Ágil: Scrum, Kanban, Gestión de Backlog y Sprints (Jira, Trello).',
+              'Comunicación Técnica: Capacidad para leer y entender código (Python, JavaScript/Angular) y bases de datos (SQL) para estimar y validar decisiones de ingeniería.',
+              'Prototipado: Figma (Wireframing y Prototipos de Alta Fidelidad).',
+              'Métricas: Definición de KPIs, Análisis de datos descriptivos (Excel, SQL) para medir el éxito del producto.',
+            ],
+            soft: [
+              'Empatía Social: Profunda comprensión de la vulnerabilidad y necesidades del usuario final, basada en experiencias previas en servicio al cliente y proyectos sociales.',
+              'Comunicación Asertiva: Habilidad para facilitar discusiones entre stakeholders divergentes (negocio, desarrollo, diseño, usuario final).',
+              'Resolución de Conflictos: Experiencia gestionando relaciones y expectativas en proyectos complejos.',
+            ],
+          },
+          softSkillsTitle: 'Soft Skills (Liderazgo sin Cargo)',
+          educationTitle: 'Educación y Certificaciones Clave',
+          education: [
+            'Google UX Design Professional Certificate – Google (Coursera)',
+            'Meta React Specialization – Meta (Coursera)',
+            'Meta Full Stack Developer: Front-End & Back-End from Scratch – Meta (Coursera)',
+            'Google Data Analytics Professional Certificate – Google (Coursera) (Énfasis: Definición de métricas, R, SQL, Visualización).',
+            'Programas de Residencia en Ingeniería de Software - Jala Foundation (2015-2019)',
+          ],
+        },
       },
       // User configuration modal (ES minimal)
       userConfig: {
