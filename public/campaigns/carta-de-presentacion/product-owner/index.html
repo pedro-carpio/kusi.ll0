@@ -374,6 +374,37 @@
         .letter {
           padding: 1.5rem;
         }
+
+        /* Hide on mobile */
+        .printable-section,
+        .contact-info,
+        .footer {
+          display: none;
+        }
+
+        /* Show alternative roles text on mobile */
+        .alt-roles {
+          display: block;
+        }
+      }
+
+      /* Alternative roles - hidden by default on desktop */
+      .alt-roles {
+        display: none;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px dashed var(--secondary);
+        font-size: 0.85rem;
+        color: var(--secondary);
+      }
+
+      .alt-roles a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .alt-roles a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -391,8 +422,11 @@
         <section class="cta-section">
           <h3>¿Quieres conocer sobre mi perfil?</h3>
           <p>Explora mi currículum completo y todos mis roles profesionales</p>
-          <a href="https://kusillo.studio/yo-como/product-owner" class="btn btn-primary">Ver CV como Product Owner</a>
+          <a href="https://kusillo.studio/yo-como/product-owner" class="btn btn-primary">Ver CV como Product Owner (Practicante)</a>
           <a href="https://kusillo.studio/mis/datos" class="btn btn-secondary">Explorar todos mis roles</a>
+          <div class="alt-roles">
+            <p>Tal vez te interesan mis roles en <a href="https://kusillo.studio/yo-como/ui-ux-tech">UI/UX Design</a> o en <a href="https://kusillo.studio/yo-como/data-analyst">Data Analysis</a></p>
+          </div>
         </section>
 
         <!-- Printable Section -->
