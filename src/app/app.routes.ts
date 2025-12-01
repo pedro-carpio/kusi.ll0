@@ -1,53 +1,118 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { StudiesComponent } from './components/studies/studies.component';
-import { ErrorComponent } from './components/error/error.component';
-import { NotfoundComponent } from './components/error/notfound/notfound.component';
-import { MeComponent } from './components/careers/me/me.component';
-import { KusilloComponent } from './components/careers/kusillo/kusillo.component';
-import { UiUxDesignComponent } from './components/careers/ui-ux-design/ui-ux-design.component';
-import { SoftwareDeveloperComponent } from './components/careers/software-developer/software-developer.component';
-import { DataAnalystComponent } from './components/careers/data-analyst/data-analyst.component';
-import { SolutionsArchitectComponent } from './components/careers/solutions-architect/solutions-architect.component';
-import { ImpactGeneralistComponent } from './components/careers/impact-generalist/impact-generalist.component';
-import { CxPractitionerComponent } from './components/careers/cx-practitioner/cx-practitioner.component';
-import { CreationsComponent } from './components/creations/creations.component';
-import { DataComponent } from './components/data/data.component';
-import { CareersComponent } from './components/careers/careers.component';
-import { ProductOwnerComponent } from './components/careers/product-owner/product-owner.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  {
+    path: 'home',
+    loadComponent: () => import('./components/home/home.component').then((m) => m.HomeComponent),
+  },
   {
     path: 'mis',
     children: [
-      { path: 'webadas', component: BlogComponent },
-      { path: 'trabajos', component: PortfolioComponent },
-      { path: 'estudios', component: StudiesComponent },
-      { path: 'creaciones', component: CreationsComponent },
-      { path: 'datos', component: DataComponent },
+      {
+        path: 'webadas',
+        loadComponent: () =>
+          import('./components/blog/blog.component').then((m) => m.BlogComponent),
+      },
+      {
+        path: 'trabajos',
+        loadComponent: () =>
+          import('./components/portfolio/portfolio.component').then((m) => m.PortfolioComponent),
+      },
+      {
+        path: 'estudios',
+        loadComponent: () =>
+          import('./components/studies/studies.component').then((m) => m.StudiesComponent),
+      },
+      {
+        path: 'creaciones',
+        loadComponent: () =>
+          import('./components/creations/creations.component').then((m) => m.CreationsComponent),
+      },
+      {
+        path: 'datos',
+        loadComponent: () =>
+          import('./components/data/data.component').then((m) => m.DataComponent),
+      },
     ],
   },
   {
     path: 'yo-como',
     children: [
-      { path: 'persona', component: MeComponent },
-      { path: 'kusillo', component: KusilloComponent },
-      { path: 'ui-ux-tech', component: UiUxDesignComponent },
-      { path: 'software-developer', component: SoftwareDeveloperComponent },
-      { path: 'data-analyst', component: DataAnalystComponent },
-      { path: 'solutions-architect', component: SolutionsArchitectComponent },
-      { path: 'impact-generalist', component: ImpactGeneralistComponent },
-      { path: 'cx-practitioner', component: CxPractitionerComponent },
-      { path: 'product-owner', component: ProductOwnerComponent },
+      {
+        path: 'persona',
+        loadComponent: () =>
+          import('./components/careers/me/me.component').then((m) => m.MeComponent),
+      },
+      {
+        path: 'kusillo',
+        loadComponent: () =>
+          import('./components/careers/kusillo/kusillo.component').then((m) => m.KusilloComponent),
+      },
+      {
+        path: 'ui-ux-tech',
+        loadComponent: () =>
+          import('./components/careers/ui-ux-design/ui-ux-design.component').then(
+            (m) => m.UiUxDesignComponent
+          ),
+      },
+      {
+        path: 'software-developer',
+        loadComponent: () =>
+          import('./components/careers/software-developer/software-developer.component').then(
+            (m) => m.SoftwareDeveloperComponent
+          ),
+      },
+      {
+        path: 'data-analyst',
+        loadComponent: () =>
+          import('./components/careers/data-analyst/data-analyst.component').then(
+            (m) => m.DataAnalystComponent
+          ),
+      },
+      {
+        path: 'solutions-architect',
+        loadComponent: () =>
+          import('./components/careers/solutions-architect/solutions-architect.component').then(
+            (m) => m.SolutionsArchitectComponent
+          ),
+      },
+      {
+        path: 'impact-generalist',
+        loadComponent: () =>
+          import('./components/careers/impact-generalist/impact-generalist.component').then(
+            (m) => m.ImpactGeneralistComponent
+          ),
+      },
+      {
+        path: 'cx-practitioner',
+        loadComponent: () =>
+          import('./components/careers/cx-practitioner/cx-practitioner.component').then(
+            (m) => m.CxPractitionerComponent
+          ),
+      },
+      {
+        path: 'product-owner',
+        loadComponent: () =>
+          import('./components/careers/product-owner/product-owner.component').then(
+            (m) => m.ProductOwnerComponent
+          ),
+      },
       { path: '', redirectTo: 'profesional', pathMatch: 'full' },
-      { path: 'profesional', component: CareersComponent },
+      {
+        path: 'profesional',
+        loadComponent: () =>
+          import('./components/careers/careers.component').then((m) => m.CareersComponent),
+      },
     ],
   },
-  { path: 'error', component: ErrorComponent },
-  // wildcard -> show 404 error page
-  { path: '**', component: NotfoundComponent },
+  {
+    path: 'error',
+    loadComponent: () => import('./components/error/error.component').then((m) => m.ErrorComponent),
+  },
+  {
+    path: '**',
+    loadComponent: () =>
+      import('./components/error/notfound/notfound.component').then((m) => m.NotfoundComponent),
+  },
 ];

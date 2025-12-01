@@ -4,10 +4,10 @@
      mixins, and finally include the Bootstrap components (bootstrap.scss)
      which will respect the overridden variables. */
 
-@import "../node_modules/bootstrap/scss/functions";
+@import '../node_modules/bootstrap/scss/functions';
 
 // Variable overrides (must be set AFTER functions are available)
-$primary: #E50914;
+$primary: #e50914;
 $secondary: #6c757d;
 $success: $secondary;
 $info: $secondary;
@@ -20,33 +20,259 @@ $font-family-base: 'Inconsolata, monospace';
 $headings-font-family: 'Noto Serif Display, serif';
 
 // Now import the rest of Bootstrap (variables depend on functions)
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/maps';
+@import '../node_modules/bootstrap/scss/mixins';
 
-// Include all Bootstrap components (option: import only needed partials)
-@import "../node_modules/bootstrap/scss/bootstrap";
+// Customize which utilities to include (reduces CSS significantly)
+$utilities: (
+  'display': (
+    responsive: true,
+    print: true,
+    property: display,
+    class: d,
+    values: inline inline-block block grid inline-grid table table-row table-cell flex inline-flex
+      none,
+  ),
+  'flex-direction': (
+    responsive: true,
+    property: flex-direction,
+    class: flex,
+    values: row column row-reverse column-reverse,
+  ),
+  'justify-content': (
+    responsive: true,
+    property: justify-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      between: space-between,
+      around: space-around,
+      evenly: space-evenly,
+    ),
+  ),
+  'align-items': (
+    responsive: true,
+    property: align-items,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  'gap': (
+    responsive: true,
+    property: gap,
+    class: gap,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+    ),
+  ),
+  'margin': (
+    responsive: true,
+    property: margin,
+    class: m,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+      auto: auto,
+    ),
+  ),
+  'margin-top': (
+    responsive: true,
+    property: margin-top,
+    class: mt,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+      auto: auto,
+    ),
+  ),
+  'margin-bottom': (
+    responsive: true,
+    property: margin-bottom,
+    class: mb,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+      auto: auto,
+    ),
+  ),
+  'margin-start': (
+    responsive: true,
+    property: margin-left,
+    class: ms,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+      auto: auto,
+    ),
+  ),
+  'margin-end': (
+    responsive: true,
+    property: margin-right,
+    class: me,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+      auto: auto,
+    ),
+  ),
+  'padding': (
+    responsive: true,
+    property: padding,
+    class: p,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+    ),
+  ),
+  'padding-x': (
+    responsive: true,
+    property: padding-right padding-left,
+    class: px,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+    ),
+  ),
+  'padding-y': (
+    responsive: true,
+    property: padding-top padding-bottom,
+    class: py,
+    values: (
+      0: 0,
+      1: 0.25rem,
+      2: 0.5rem,
+      3: 1rem,
+      4: 1.5rem,
+      5: 3rem,
+    ),
+  ),
+  'text-align': (
+    responsive: true,
+    property: text-align,
+    class: text,
+    values: (
+      start: left,
+      end: right,
+      center: center,
+    ),
+  ),
+  'font-weight': (
+    property: font-weight,
+    class: fw,
+    values: (
+      light: 300,
+      normal: 400,
+      medium: 500,
+      semibold: 600,
+      bold: 700,
+    ),
+  ),
+  'width': (
+    property: width,
+    class: w,
+    values: (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto,
+    ),
+  ),
+  'height': (
+    property: height,
+    class: h,
+    values: (
+      25: 25%,
+      50: 50%,
+      75: 75%,
+      100: 100%,
+      auto: auto,
+    ),
+  ),
+);
+
+@import '../node_modules/bootstrap/scss/utilities';
+
+// Bootstrap Reset/Reboot
+@import '../node_modules/bootstrap/scss/root';
+@import '../node_modules/bootstrap/scss/reboot';
+
+// Only import Bootstrap components you actually use
+@import '../node_modules/bootstrap/scss/type';
+@import '../node_modules/bootstrap/scss/containers';
+@import '../node_modules/bootstrap/scss/grid';
+@import '../node_modules/bootstrap/scss/buttons';
+@import '../node_modules/bootstrap/scss/nav';
+@import '../node_modules/bootstrap/scss/transitions';
+@import '../node_modules/bootstrap/scss/close';
+@import '../node_modules/bootstrap/scss/modal';
+@import '../node_modules/bootstrap/scss/utilities/api';
 
 /* Mirror a few CSS custom properties for runtime theming and legacy uses */
 :root {
-    --bs-primary: #E50914;
-    --bs-primary-rgb: 229, 9, 20;
-    --bs-secondary: #6c757d;
-    --bs-success: #6c757d;
-    --bs-info: #6c757d;
-    --bs-warning: #6c757d;
-    --bs-danger: #6c757d;
-    --bs-nav-link-color: #E50914;
-    --bs-light: #f8f9fa;
-    --bs-dark: #212529;
+  --bs-primary: #e50914;
+  --bs-primary-rgb: 229, 9, 20;
+  --bs-secondary: #6c757d;
+  --bs-success: #6c757d;
+  --bs-info: #6c757d;
+  --bs-warning: #6c757d;
+  --bs-danger: #6c757d;
+  --bs-nav-link-color: #e50914;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
 }
 
 /* Global base font */
 body {
-    font-family: "Inconsolata", monospace;
-    background-color: $body-bg;
-    color: $body-color;
+  font-family: 'Inconsolata', monospace;
+  background-color: $body-bg;
+  color: $body-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Noto Serif Display", serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Noto Serif Display', serif;
 }
