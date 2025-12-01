@@ -9,10 +9,11 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ButtonsComponent } from '../../shared/curriculum/buttons/buttons.component';
 import { PersonalInfoComponent } from '../../shared/curriculum/personal-info/personal-info.component';
 import { RoleComponent } from '../../shared/curriculum/role/role.component';
+import { ShareModalComponent } from '../../shared/curriculum/share-modal/share-modal.component';
 
 @Component({
   selector: 'app-product-owner',
-  imports: [RouterModule, CommonModule, ButtonsComponent, PersonalInfoComponent, RoleComponent],
+  imports: [RouterModule, CommonModule, ButtonsComponent, PersonalInfoComponent, RoleComponent, ShareModalComponent],
   templateUrl: './product-owner.component.html',
   styleUrl: './product-owner.component.scss',
 })
@@ -53,9 +54,6 @@ export class ProductOwnerComponent implements OnInit, OnDestroy {
   /** Close share modal */
   closeShareModal(): void {
     this.isShareModalOpen = false;
-    if (this.isBrowser) {
-      document.body.classList.remove('modal-open');
-    }
   }
 
   /**
@@ -82,41 +80,6 @@ export class ProductOwnerComponent implements OnInit, OnDestroy {
       const lang = this.i18n.getLang();
       const msg = lang === 'es' ? 'No se pudo copiar' : 'Copy failed';
       this.snackbar.show(msg);
-    }
-  }
-
-  /** Copy the current page URL to clipboard */
-  copyCurrentUrl(): void {
-    if (!this.isBrowser) return;
-    try {
-      const url = window.location.href;
-      this.copy(url);
-    } catch (err) {
-      console.error('copyCurrentUrl failed', err);
-    }
-  }
-
-  /** Use the native Web Share API if available */
-  async shareNative(): Promise<void> {
-    if (!this.isBrowser) return;
-    try {
-      if ((navigator as any).share) {
-        const name = this.t('data.name') || 'Profile';
-        const subtitle = this.t('data.subtitle') || '';
-        await (navigator as any).share({
-          title: `${name} — ${subtitle}`,
-          text: this.t('data.shareText') || '',
-          url: window.location.href,
-        });
-      } else {
-        // fallback
-        console.error(this.t('data.shareUnsupported') || 'Sharing not supported in this browser');
-        this.snackbar.show(
-          this.t('data.shareUnsupported') || 'Sharing not supported in this browser'
-        );
-      }
-    } catch (err) {
-      console.error('Native share failed', err);
     }
   }
 

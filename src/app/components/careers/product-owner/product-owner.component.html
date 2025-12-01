@@ -101,37 +101,5 @@
   <span class="text-center d-block mt-4 mb-4">{{ t('data.redesignNote') }}</span>
 
   <!-- Share modal -->
-  <div class="modal-backdrop" [class.show]="isShareModalOpen" (click)="closeShareModal()"></div>
-  <div
-    class="modal"
-    [class.show]="isShareModalOpen"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="shareModalLabel"
-    [attr.aria-hidden]="!isShareModalOpen"
-  >
-    <div class="modal-dialog modal-sm modal-dialog-centered" (click)="$event.stopPropagation()">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="shareModalLabel">{{ t('data.shareTitle') || 'Compartir' }}</h5>
-          <button type="button" class="btn-close" (click)="closeShareModal()" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p class="small text-muted mb-2">{{ t('data.sharePrompt') || 'Elige cómo compartir este perfil' }}</p>
-          <div class="d-grid gap-2">
-            <button class="btn btn-outline-secondary" type="button" (click)="copyCurrentUrl()">
-              <i class="bi bi-link-45deg me-2"></i>{{ t('data.shareCopyLink') || 'Copiar enlace' }}
-            </button>
-            <button class="btn btn-outline-primary" type="button" (click)="shareNative()">
-              <i class="bi bi-send me-2"></i>{{ t('data.shareNative') || 'Abrir compartir nativo' }}
-            </button>
-            <div class="btn-group" role="group" aria-label="Social share"></div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" (click)="closeShareModal()">{{ t('data.close') || 'Cerrar' }}</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-share-modal [isOpen]="isShareModalOpen" (closed)="closeShareModal()"></app-share-modal>
 </section>

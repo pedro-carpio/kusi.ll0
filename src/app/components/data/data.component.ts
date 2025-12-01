@@ -9,12 +9,13 @@ import { RouterModule } from '@angular/router';
 import { ButtonsComponent } from '../shared/curriculum/buttons/buttons.component';
 import { PersonalInfoComponent } from '../shared/curriculum/personal-info/personal-info.component';
 import { RoleComponent } from '../shared/curriculum/role/role.component';
+import { ShareModalComponent } from '../shared/curriculum/share-modal/share-modal.component';
 
 @Component({
   selector: 'app-data',
   templateUrl: './data.component.html',
   styleUrls: ['./data.component.scss'],
-  imports: [RouterModule, CommonModule, ButtonsComponent, PersonalInfoComponent, RoleComponent],
+  imports: [RouterModule, CommonModule, ButtonsComponent, PersonalInfoComponent, RoleComponent, ShareModalComponent],
 })
 export class DataComponent implements OnInit, OnDestroy {
   private isBrowser: boolean;
@@ -53,9 +54,6 @@ export class DataComponent implements OnInit, OnDestroy {
   /** Close share modal */
   closeShareModal(): void {
     this.isShareModalOpen = false;
-    if (this.isBrowser) {
-      document.body.classList.remove('modal-open');
-    }
   }
 
   /**
@@ -83,69 +81,6 @@ export class DataComponent implements OnInit, OnDestroy {
       const msg = lang === 'es' ? 'No se pudo copiar' : 'Copy failed';
       this.snackbar.show(msg);
     }
-  }
-
-  /** Copy the current page URL to clipboard */
-  copyCurrentUrl(): void {
-    if (!this.isBrowser) return;
-    try {
-      const url = window.location.href;
-      this.copy(url);
-    } catch (err) {
-      console.error('copyCurrentUrl failed', err);
-    }
-  }
-
-  /** Use the native Web Share API if available */
-  async shareNative(): Promise<void> {
-    if (!this.isBrowser) return;
-    try {
-      if ((navigator as any).share) {
-        const name = this.t('data.name') || 'Profile';
-        const subtitle = this.t('data.subtitle') || '';
-        await (navigator as any).share({
-          title: `${name} — ${subtitle}`,
-          text: this.t('data.shareText') || '',
-          url: window.location.href,
-        });
-      } else {
-        // fallback
-        console.error(this.t('data.shareUnsupported') || 'Sharing not supported in this browser');
-        this.snackbar.show(
-          this.t('data.shareUnsupported') || 'Sharing not supported in this browser'
-        );
-      }
-    } catch (err) {
-      console.error('Native share failed', err);
-    }
-  }
-
-  /** Social sharing URLs */
-  getLinkedInShareUrl(): string {
-    if (!this.isBrowser) return '';
-    const url = encodeURIComponent(window.location.href);
-    return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-  }
-
-  getTwitterShareUrl(): string {
-    if (!this.isBrowser) return '';
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent(this.t('data.shareText') || '');
-    return `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-  }
-
-  getWhatsAppShareUrl(): string {
-    if (!this.isBrowser) return '';
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent(`${this.t('data.shareText') || ''} ${window.location.href}`);
-    return `https://wa.me/?text=${text}`;
-  }
-
-  getEmailShareUrl(): string {
-    if (!this.isBrowser) return '';
-    const subject = encodeURIComponent(`${this.t('data.name')} — ${this.t('data.subtitle')}`);
-    const body = encodeURIComponent(`${this.t('data.shareText') || ''}\n\n${window.location.href}`);
-    return `mailto:?subject=${subject}&body=${body}`;
   }
 
   ngOnInit(): void {

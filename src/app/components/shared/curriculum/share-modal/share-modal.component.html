@@ -1,0 +1,63 @@
+<div class="modal-backdrop" [class.show]="isOpen" (click)="close()"></div>
+<div class="modal" [class.show]="isOpen" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" [attr.aria-hidden]="!isOpen">
+  <div class="modal-dialog modal-sm modal-dialog-centered" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="shareModalLabel">{{ t('data.shareTitle') || 'Compartir' }}</h5>
+        <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="small text-muted mb-2">{{ t('data.sharePrompt') || 'Elige cómo compartir este perfil' }}</p>
+        <div class="d-grid gap-2">
+          <button class="btn btn-outline-secondary" type="button" (click)="copyCurrentUrl()">
+            <i class="bi bi-link-45deg me-2"></i>{{ t('data.shareCopyLink') || 'Copiar enlace' }}
+          </button>
+          <button class="btn btn-outline-primary" type="button" (click)="shareNative()">
+            <i class="bi bi-send me-2"></i>{{ t('data.shareNative') || 'Abrir compartir nativo' }}
+          </button>
+          <div class="d-flex gap-2 mt-2 justify-content-center" role="group" aria-label="Social share">
+            <a
+              class="btn btn-outline-dark"
+              [href]="getLinkedInShareUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on LinkedIn"
+            >
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a
+              class="btn btn-outline-dark"
+              [href]="getTwitterShareUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on X (Twitter)"
+            >
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a
+              class="btn btn-outline-dark"
+              [href]="getWhatsAppShareUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on WhatsApp"
+            >
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a
+              class="btn btn-outline-dark"
+              [href]="getEmailShareUrl()"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share via Email"
+            >
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" (click)="close()">{{ t('data.close') || 'Cerrar' }}</button>
+      </div>
+    </div>
+  </div>
+</div>
