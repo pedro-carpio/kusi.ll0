@@ -5,6 +5,7 @@ import {
   ChangeDetectorRef,
   Output,
   EventEmitter,
+  Input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -20,6 +21,9 @@ import { I18nService } from '../../../../services/i18n.service';
 export class ButtonsComponent implements OnInit, OnDestroy {
   private langSub?: Subscription;
   @Output() shareClick = new EventEmitter<void>();
+  
+  /** URL to the PDF file. Defaults to generic CV. */
+  @Input() pdfUrl = 'curriculum/PEDRO%20CARPIO%202026.pdf';
 
   constructor(
     private i18n: I18nService,
