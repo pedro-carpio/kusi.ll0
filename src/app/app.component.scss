@@ -1,31 +1,176 @@
-
 .under-construction-bg {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .card {
-	border: none;
-	border-radius: 1rem;
+  border: none;
+  border-radius: 1rem;
 }
 
 .display-1 {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 
 app-footer {
-    text-align: center;
-    padding: 1rem;
-    display: block;
-    margin: auto;
+  text-align: center;
+  padding: 1rem;
+  display: block;
+  margin: auto;
 }
 
 @media (max-width: 576px) {
-	.display-1 { font-size: 2.2rem; }
-	.card { padding: 1rem; }
+  .display-1 {
+    font-size: 2.2rem;
+  }
+  .card {
+    padding: 1rem;
+  }
 }
 
-.progress { background-color: rgba(0,0,0,0.05); }
+.progress {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 
+// Route transition animation for yo-como routes - Glitch/Flicker effect
+.route-container {
+  position: relative;
+  min-height: 50vh;
+
+  &::before,
+  &::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+  }
+
+  &::before {
+    background: linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(229, 9, 20, 0.1) 2%,
+      transparent 4%,
+      transparent 96%,
+      rgba(229, 9, 20, 0.1) 98%,
+      transparent 100%
+    );
+    background-size: 100% 8px;
+  }
+
+  &::after {
+    background-color: #e50914;
+    mix-blend-mode: overlay;
+  }
+
+  &.route-flash {
+    animation: glitch-shake 0.3s ease-in-out;
+
+    &::before {
+      animation: glitch-scanlines 0.3s steps(8) infinite;
+    }
+
+    &::after {
+      animation: glitch-flash 0.3s ease-in-out;
+    }
+  }
+}
+
+@keyframes glitch-flash {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.4;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.3;
+  }
+  20% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  55% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.1;
+  }
+  85% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch-scanlines {
+  0% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(-2px);
+  }
+  75% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-2px);
+  }
+  20% {
+    transform: translateX(2px);
+  }
+  30% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  60% {
+    transform: translateX(1px);
+  }
+  70% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(2px);
+  }
+  90% {
+    transform: translateX(-1px);
+  }
+}
