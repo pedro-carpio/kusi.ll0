@@ -26,7 +26,6 @@ app.disable('x-powered-by');
  */
 app.use(compression());
 
-
 /**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
@@ -47,8 +46,27 @@ app.use(
     maxAge: '1y',
     index: false,
     redirect: false,
-  }),
+  })
 );
+
+/**
+ * Serve index.html for campaign routes without file extension
+ * This allows /campaigns/carta-de-presentacion/product-owner/ to load the index.html file
+ */
+app.use('/campaigns/', (req, res, next) => {
+  // If request doesn't have a file extension and isn't an API call, try serving index.html
+  if (!req.path.includes('.')) {
+    const indexPath = resolve(browserDistFolder, req.path, 'index.html');
+    res.sendFile(indexPath, (err) => {
+      if (err) {
+        // If index.html doesn't exist, continue to next middleware
+        next();
+      }
+    });
+  } else {
+    next();
+  }
+});
 
 /**
  * Handle all other requests by rendering the Angular application.
@@ -56,9 +74,7 @@ app.use(
 app.use('/**', (req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
     .catch(next);
 });
 
