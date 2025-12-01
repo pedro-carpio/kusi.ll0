@@ -1,6 +1,6 @@
 <section class="data container-fluid" aria-labelledby="data-heading">
   <!-- Row 1: foto (hidden on mobile) + main area with three stacked rows -->
-  <h1 class="title">Pedro's Curriculum</h1>
+  <h1 class="title" id="data-heading">{{ t('data.name') }} — {{ t('data.subtitle') }}</h1>
   <div class="row align-items-start mt-3">
     <!-- Photo column: 3 cols on md+, hidden on small screens -->
     <figure class="col-12 col-md-4 d-none d-md-block mb-0">
@@ -37,7 +37,7 @@
   <!-- Row 2: left info blocks and right personal info -->
   <div class="row mt-4">
     <section class="col-12 col-md-8">
-      <h3 class="h4">{{ t('data.summaryTitle') }}</h3>
+      <h2 class="h4">{{ t('data.summaryTitle') }}</h2>
       <p class="small text-muted">{{ t('data.summaryText') }}</p>
     </section>
 
@@ -49,10 +49,10 @@
   <!-- Row 4: Projects with timeline -->
   <div class="row mt-4">
     <section class="col-12 col-md-4">
-      <h3 class="h4">{{ t('data.hardSkillsTitle') }}</h3>
+      <h2 class="h4">{{ t('data.hardSkillsTitle') }}</h2>
       <div class="d-flex flex-column gap-3">
         <article class="p-3 border rounded">
-          <h4 class="h6">{{ t('data.hardSkills.developmentTitle') }}</h4>
+          <h3 class="h6">{{ t('data.hardSkills.developmentTitle') }}</h3>
           <ul class="mb-0">
             <li>{{ t('data.hardSkills.development.0') }}</li>
             <li>{{ t('data.hardSkills.development.1') }}</li>
@@ -63,7 +63,7 @@
         </article>
 
         <article class="p-3 border rounded">
-          <h4 class="h6">{{ t('data.hardSkills.designTitle') }}</h4>
+          <h3 class="h6">{{ t('data.hardSkills.designTitle') }}</h3>
           <ul class="mb-0">
             <li>{{ t('data.hardSkills.design.0') }}</li>
             <li>{{ t('data.hardSkills.design.1') }}</li>
@@ -74,13 +74,13 @@
       </div>
     </section>
     <section class="col-12 col-md-8">
-      <h3 class="h4">{{ t('data.experienceTitle') }}</h3>
+      <h2 class="h4">{{ t('data.experienceTitle') }}</h2>
       <div class="timeline mt-3">
         <article class="timeline-item" *ngFor="let e of t('data.experience')">
           <div class="timeline-marker" aria-hidden="true"></div>
           <div class="timeline-content">
             <div class="d-flex justify-content-between">
-              <h4 class="h6 mb-0">{{ e.org }}</h4>
+              <h3 class="h6 mb-0">{{ e.org }}</h3>
               <time class="text-muted small">{{ e.dates }}</time>
             </div>
             <div class="text-uppercase small text-muted" *ngIf="e.role">{{ e.role }}</div>
@@ -94,9 +94,9 @@
   </div>
   <div class="row mt-4">
     <section class="col-12 col-md-4">
-      <h3 class="h4">{{ t('data.softSkillsTitle') }}</h3>
+      <h2 class="h4">{{ t('data.softSkillsTitle') }}</h2>
       <div class="p-3 border rounded">
-        <h4 class="h6">{{ t('data.softSkillsSubtitle') }}</h4>
+        <h3 class="h6">{{ t('data.softSkillsSubtitle') }}</h3>
         <ul>
           <li>{{ t('data.softSkills.0') }}</li>
           <li>{{ t('data.softSkills.1') }}</li>
@@ -107,7 +107,7 @@
       </div>
     </section>
     <section class="col-12 col-md-8" id="studies">
-      <h3 class="h4">{{ t('data.educationTitle') }}</h3>
+      <h2 class="h4">{{ t('data.educationTitle') }}</h2>
       <div class="timeline mt-3">
         <article class="timeline-item" *ngFor="let edu of t('data.education')">
           <div class="timeline-marker" aria-hidden="true"></div>
@@ -138,7 +138,44 @@
             <button class="btn btn-outline-primary" type="button" (click)="shareNative()">
               <i class="bi bi-send me-2"></i>{{ t('data.shareNative') || 'Abrir compartir nativo' }}
             </button>
-            <div class="btn-group" role="group" aria-label="Social share"></div>
+            <div class="d-flex gap-2 mt-2 justify-content-center" role="group" aria-label="Social share">
+              <a
+                class="btn btn-outline-dark"
+                [href]="getLinkedInShareUrl()"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on LinkedIn"
+              >
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a
+                class="btn btn-outline-dark"
+                [href]="getTwitterShareUrl()"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on X (Twitter)"
+              >
+                <i class="bi bi-twitter-x"></i>
+              </a>
+              <a
+                class="btn btn-outline-dark"
+                [href]="getWhatsAppShareUrl()"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share on WhatsApp"
+              >
+                <i class="bi bi-whatsapp"></i>
+              </a>
+              <a
+                class="btn btn-outline-dark"
+                [href]="getEmailShareUrl()"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Share via Email"
+              >
+                <i class="bi bi-envelope"></i>
+              </a>
+            </div>
           </div>
         </div>
         <div class="modal-footer">

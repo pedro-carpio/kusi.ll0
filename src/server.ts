@@ -16,6 +16,11 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
+ * Disable X-Powered-By header for security
+ */
+app.disable('x-powered-by');
+
+/**
  * Enable gzip/deflate compression for all responses.
  * Brotli is handled at the CDN/reverse proxy level (nginx, cloudflare, etc.)
  */

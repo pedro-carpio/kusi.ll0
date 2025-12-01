@@ -101,6 +101,34 @@ export class DataComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** Social sharing URLs */
+  getLinkedInShareUrl(): string {
+    if (!this.isBrowser) return '';
+    const url = encodeURIComponent(window.location.href);
+    return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+  }
+
+  getTwitterShareUrl(): string {
+    if (!this.isBrowser) return '';
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(this.t('data.shareText') || '');
+    return `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+  }
+
+  getWhatsAppShareUrl(): string {
+    if (!this.isBrowser) return '';
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(`${this.t('data.shareText') || ''} ${window.location.href}`);
+    return `https://wa.me/?text=${text}`;
+  }
+
+  getEmailShareUrl(): string {
+    if (!this.isBrowser) return '';
+    const subject = encodeURIComponent(`${this.t('data.name')} — ${this.t('data.subtitle')}`);
+    const body = encodeURIComponent(`${this.t('data.shareText') || ''}\n\n${window.location.href}`);
+    return `mailto:?subject=${subject}&body=${body}`;
+  }
+
   ngOnInit(): void {
     this.loadRoles();
     // Restart rotation when language changes
