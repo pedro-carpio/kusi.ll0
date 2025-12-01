@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pedro Carpio | Frontend Developer & UX Engineering | Carta de Presentación</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Hola. Soy Pedro, frontend developer con pasión por UX Engineering. Combino código con empatía para construir interfaces que realmente funcionan para las personas."
+    />
+    <meta name="keywords" content="Frontend Developer, UX Engineering, Angular, React, Diseño de Interfaces, Pedro Carpio, Bolivia" />
+    <meta name="author" content="Pedro Carpio" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://kusillo.studio/campaigns/carta-de-presentacion/dev/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://kusillo.studio/campaigns/carta-de-presentacion/dev/" />
+    <meta property="og:title" content="Pedro Carpio | Frontend Developer & UX Engineering" />
+    <meta
+      property="og:description"
+      content="Frontend developer con formación en UX Design. Busco crecer hacia UX Engineering: código que entienda de personas."
+    />
+    <meta property="og:image" content="https://kusillo.studio/kusillo.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Kusillo Studio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://kusillo.studio/campaigns/carta-de-presentacion/dev/" />
+    <meta name="twitter:title" content="Pedro Carpio | Frontend Developer & UX Engineering" />
+    <meta
+      name="twitter:description"
+      content="Frontend developer con formación en UX Design. Busco crecer hacia UX Engineering: código que entienda de personas."
+    />
+    <meta name="twitter:image" content="https://kusillo.studio/kusillo.webp" />
+
+    <!-- WhatsApp / Telegram -->
+    <meta property="og:image:alt" content="Pedro Carpio - Frontend Developer & UX Engineering" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kusillo" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #e50914;
+        --secondary: #6c757d;
+        --dark: #212529;
+        --light: #f8f9fa;
+        --success: #28a745;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inconsolata', monospace;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--dark);
+        background-color: var(--light);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: 'Noto Serif Display', serif;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      /* Two-column layout */
+      .page-wrapper {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      .left-column {
+        width: 40%;
+        background: var(--dark);
+        color: var(--light);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      .right-column {
+        width: 60%;
+        padding: 2rem 3rem;
+        background: var(--light);
+        overflow-y: auto;
+      }
+
+      /* Header (left column) */
+      .header {
+        text-align: left;
+        padding-bottom: 2rem;
+        border-bottom: 3px solid var(--primary);
+        margin-bottom: 2rem;
+      }
+
+      .header h1 {
+        font-size: 1.8rem;
+        color: var(--light);
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .header h1 span {
+        color: var(--primary);
+      }
+
+      .header .subtitle {
+        font-size: 0.95rem;
+        color: #b0b8d4;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      /* CTA Section (left column) */
+      .cta-section {
+        padding: 1.5rem 0;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-section h3 {
+        color: var(--light);
+        margin-bottom: 0.75rem;
+        font-size: 1.15rem;
+      }
+
+      .cta-section p {
+        color: #b0b8d4;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        font-family: 'Inconsolata', monospace;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        color: var(--light);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-primary:hover {
+        background-color: #c30812;
+        border-color: #c30812;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--light);
+        border: 2px solid #b0b8d4;
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(176, 184, 212, 0.1);
+        border-color: var(--light);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--light);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary);
+        color: var(--light);
+        transform: translateY(-2px);
+      }
+
+      /* Printable Section (left column) */
+      .printable-section {
+        padding: 1rem 0;
+        border-top: 1px dashed #b0b8d4;
+        margin-bottom: 1.5rem;
+      }
+
+      .printable-section p {
+        color: #b0b8d4;
+        margin-bottom: 0.75rem;
+        font-size: 0.85rem;
+      }
+
+      /* Contact info */
+      .contact-info {
+        margin-top: auto;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-info h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.85rem;
+        color: #b0b8d4;
+      }
+
+      .contact-info-item a {
+        color: var(--light);
+        text-decoration: underline;
+      }
+
+      .contact-info-item a:hover {
+        color: var(--primary);
+      }
+
+      /* Letter content (right column) */
+      .letter {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 2rem;
+      }
+
+      .saludo {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--dark);
+        font-size: 1.1rem;
+      }
+
+      .letter p {
+        margin-bottom: 1.25rem;
+        text-align: left;
+        line-height: 1.8;
+      }
+
+      .letter strong {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .highlight-box {
+        background: linear-gradient(135deg, rgba(229, 9, 20, 0.06) 0%, rgba(229, 9, 20, 0.02) 100%);
+        border-left: 4px solid var(--primary);
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .highlight-box h4 {
+        color: var(--primary);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .highlight-box p {
+        color: #555;
+        font-size: 0.95rem;
+      }
+
+      .code-snippet {
+        background: #f5f5f5;
+        border-left: 3px solid var(--primary);
+        padding: 1rem;
+        margin: 1rem 0;
+        font-family: 'Inconsolata', monospace;
+        font-size: 0.85rem;
+        overflow-x: auto;
+      }
+
+      .firma {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #dee2e6;
+      }
+
+      .firma .nombre {
+        font-family: 'Noto Serif Display', serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .firma .ubicacion {
+        color: var(--secondary);
+        font-size: 0.95rem;
+      }
+
+      /* Right column contact */
+      .right-contact {
+        background: var(--dark);
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+      }
+
+      .right-contact h4 {
+        color: var(--primary);
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .right-contact .contact-info-item {
+        color: #b0b8d4;
+      }
+
+      .right-contact .contact-info-item a {
+        color: var(--light);
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 1rem;
+        color: #b0b8d4;
+        font-size: 0.8rem;
+        margin-top: auto;
+      }
+
+      .footer a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .page-wrapper {
+          flex-direction: column;
+        }
+
+        .left-column {
+          width: 100%;
+          position: relative;
+          height: auto;
+        }
+
+        .right-column {
+          width: 100%;
+          padding: 1.5rem;
+        }
+
+        .header h1 {
+          font-size: 1.4rem;
+        }
+
+        .letter {
+          padding: 1.5rem;
+        }
+
+        .printable-section,
+        .contact-info,
+        .footer {
+          display: none;
+        }
+
+        .alt-roles {
+          display: block;
+        }
+      }
+
+      .alt-roles {
+        display: none;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px dashed #b0b8d4;
+        font-size: 0.8rem;
+        color: #b0b8d4;
+      }
+
+      .alt-roles a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .alt-roles a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- Left Column -->
+      <aside class="left-column">
+        <!-- Header -->
+        <header class="header">
+          <h1>Código que <span>entiende</span> de gente</h1>
+          <p class="subtitle">Frontend Developer + UX Design, UX Engineering aspirant</p>
+        </header>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+          <h3>¿Quieres conocer mi lado dev?</h3>
+          <p>Explora mi currículum completo como Frontend Developer y mi visión hacia UX Engineering</p>
+          <a href="https://kusillo.studio/yo-como/software-developer" class="btn btn-primary">Ver CV Completo</a>
+          <a href="https://kusillo.studio/mis/datos" class="btn btn-secondary">Todos mis roles</a>
+          <div class="alt-roles">
+            <p>
+              También trabajo como <a href="https://kusillo.studio/yo-como/product-owner">Product Owner</a> y
+              <a href="https://kusillo.studio/yo-como/ui-ux-tech">UI/UX Designer</a>
+            </p>
+          </div>
+        </section>
+
+        <!-- Printable Section -->
+        <section class="printable-section">
+          <p>¿Prefieres una versión en PDF?</p>
+          <a href="curriculum/PEDRO%20CARPIO%20DEV%202026.pdf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            Ver CV Imprimible
+          </a>
+        </section>
+
+        <!-- Contact Info (Left) -->
+        <div class="contact-info">
+          <h4>Contacto</h4>
+          <div class="contact-info-item">
+            <a href="mailto:pedrocarpiom@gmail.com">pedrocarpiom@gmail.com</a>
+          </div>
+          <div class="contact-info-item">
+            <a href="tel:+59177914381">+591 77914381</a>
+          </div>
+          <div class="contact-info-item">
+            <a href="https://linkedin.com/in/pedro-carpio">LinkedIn</a>
+          </div>
+          <div class="contact-info-item">
+            <span>Cochabamba, Bolivia</span>
+          </div>
+        </div>
+
+        <!-- Footer (Left) -->
+        <footer class="footer">
+          <p>© 2025 Pedro Carpio — <a href="https://kusillo.studio">kusillo.studio</a></p>
+        </footer>
+      </aside>
+
+      <!-- Right Column -->
+      <main class="right-column">
+        <!-- Letter Content -->
+        <article class="letter">
+          <p class="saludo">Hola,</p>
+
+          <p>
+            Soy <strong>Pedro</strong>, tengo 25 años, y aprendí que <strong>el mejor código</strong> es el que la gente puede usar
+            <strong>sin darse cuenta lo fácil que fue</strong>.
+          </p>
+
+          <p>
+            Empecé como full-stack developer, pero con el tiempo me encontré analizando al usuario y sus necesidades. Así que me formé en
+            <strong>UX Design, areas de analisis humano, diseño gráfico</strong> y ese combo nutrió mi perspectiva.
+          </p>
+
+          <div class="highlight-box">
+            <h4>Mi visión: UX Engineering</h4>
+            <p>
+              No es simplemente hacer código bonito o interfaces que funcionen. Es
+              <strong>construir soluciones que respeten el tiempo y la empatía de quienes las usan</strong>. Eso es lo que quiero hacer en
+              mi próxima etapa: <strong>UX Engineering</strong> a partir de todo rol que nutra mi experiencia profesional.
+            </p>
+          </div>
+
+          <p>Mi experiencia reciente lo confirma:</p>
+
+          <ul style="margin: 1.25rem 0; padding-left: 1.5rem">
+            <li style="margin-bottom: 0.75rem">
+              <strong>LMS para 80 tutores (2025):</strong> Diseñé e implementé una plataforma desde cero. No solo "funcionaba" técnicamente,
+              sino que reducimos el tiempo de configuración de clases de 30 min repartidos en multiples días a 5 min a través de UX pensada.
+            </li>
+            <li style="margin-bottom: 0.75rem">
+              <strong>Sistema de Gestión Penitenciaria (2024-2025):</strong> Trabajé con interfaces para ~5,000 expedientes críticos. Cada
+              pequeño error de UX podría significar confusion operativa. Así que construí interfaces intuitivas que redujeron posibles
+              errores manuales significativamente.
+            </li>
+            <li style="margin-bottom: 0.75rem">
+              <strong>Branding y UX para Diversas empresas (2022-2025):</strong> Desde identidad visual hasta arquitectura de información o
+              estrategias go-to-market (campañas piloto) de diversas plataformas. Porque <strong>el diseño no es solo visual</strong>, es
+              funcional, narrativo y multidisciplinario.
+            </li>
+          </ul>
+
+          <div class="highlight-box">
+            <h4>Lo que traigo a cualquier equipo</h4>
+            <p>
+              <strong>Técnicamente:</strong> Angular, Vue, TypeScript, HTML5/SCSS responsive, Git, CI/CD basics, y puedo leer/entender la
+              arquitectura de sistemas complejos. <br /><br />
+              <strong>De UX:</strong> Figma (low fidelity, design tokens, handoff), User Research, Usability Testing, Accesibilidad (WCAG
+              basics), y la capacidad de <strong>traducir "el usuario quiere X"</strong> en requisitos técnicos claros. <br /><br />
+              <strong>Lo más importante:</strong> Empatía aplicada. Tengo experiencia en contacto directo con clientes (cocina, ventas),
+              investigación social, y entender que detrás de cada métrica hay personas reales.
+            </p>
+          </div>
+
+          <p>
+            Actualmente estoy en posición <strong>Junior</strong> (y eso está bien 🙂). Estoy abierto a continuar creciendo como
+            <strong>Frontend Developer</strong> porque cada proyecto me acerca más a lo que realmente quiero:
+            <strong>ser un Frontend Developer que entienda profundamente UX</strong> y posteriormente posiciones de dirección.
+          </p>
+
+          <p>Si se busca a alguien que:</p>
+
+          <ul style="margin: 1.25rem 0; padding-left: 1.5rem">
+            <li style="margin-bottom: 0.75rem">Escriba código limpio y mantenible que sea amigable para otros desarrolladores</li>
+            <li style="margin-bottom: 0.75rem">Piense en la experiencia del usuario final mientras construye interfaces</li>
+            <li style="margin-bottom: 0.75rem">Sea curioso, aprenda rápido, y no le asuste decir "no sé, pero voy a averiguar"</li>
+            <li style="margin-bottom: 0.75rem">Colabore bien en equipos diversos y comunique ideas claramente</li>
+            <li style="margin-bottom: 0.75rem">Tome decisiones éticas en conflictos técnicos vs. UX</li>
+          </ul>
+
+          <p>
+            <strong>Creo que podría ser un buen match.</strong>
+          </p>
+
+          <p>
+            Si quieres conocer más sobre mis proyectos, mi curriculum detallado, o simplemente charlar sobre UX Engineering,
+            <strong>estoy disponible</strong>. Preferentemente remoto, pero flexible.
+          </p>
+
+          <div class="firma">
+            <p>Un abrazo,</p>
+            <p class="nombre">Pedro</p>
+            <p class="ubicacion">Cochabamba, Bolivia • 27 de abril de 2000</p>
+          </div>
+        </article>
+
+        <!-- Contact Info (Right) -->
+        <div class="right-contact">
+          <h4>Contacto rápido</h4>
+          <div class="contact-info-item">
+            <a href="mailto:pedrocarpiom@gmail.com">📧 pedrocarpiom@gmail.com</a>
+          </div>
+          <div class="contact-info-item">
+            <a href="tel:+59177914381">📱 +591 77914381</a>
+          </div>
+          <div class="contact-info-item">
+            <a href="https://linkedin.com/in/pedro-carpio">💼 LinkedIn</a>
+          </div>
+          <div class="contact-info-item">
+            <a href="https://kusillo.studio/yo-como/software-developer">🔗 CV Completo</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
