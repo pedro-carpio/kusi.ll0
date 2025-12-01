@@ -1,12 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class MetaTagsService {
+  private isBrowser: boolean;
+
   constructor(
     private title: Title,
-    private meta: Meta
-  ) {}
+    private meta: Meta,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   private localeFor(lang: string) {
     return lang === 'es' ? 'es_ES' : 'en_US';
@@ -16,7 +22,7 @@ export class MetaTagsService {
    * Set a canonical link element (replace if exists)
    */
   setCanonical(url: string) {
-    if (!url) {
+    if (!url || !this.isBrowser) {
       return;
     }
     let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
@@ -32,6 +38,7 @@ export class MetaTagsService {
    * Set or replace a JSON-LD script node with id kusi-jsonld
    */
   setStructuredData(obj: object) {
+    if (!this.isBrowser) return;
     try {
       const id = 'kusi-jsonld';
       let script = document.getElementById(id) as HTMLScriptElement | null;
@@ -52,7 +59,7 @@ export class MetaTagsService {
    * Set alternate/hreflang links for multilingual pages. Accepts a map { lang: url }
    */
   setAlternateLinks(alternates: Record<string, string>) {
-    if (!alternates) {
+    if (!alternates || !this.isBrowser) {
       return;
     }
     // remove any previous alternate links we manage
@@ -72,7 +79,7 @@ export class MetaTagsService {
    * Add og:locale:alternate meta tags for other locales
    */
   setOgLocaleAlternates(locales: string[]) {
-    if (!locales || locales.length === 0) {
+    if (!locales || locales.length === 0 || !this.isBrowser) {
       return;
     }
     // remove previous
@@ -92,7 +99,7 @@ export class MetaTagsService {
    */
   setHtmlLang(lang: string) {
     try {
-      if (document && document.documentElement) {
+      if (this.isBrowser && document.documentElement) {
         document.documentElement.lang = lang || 'en';
       }
     } catch (e) {
@@ -142,7 +149,7 @@ export class MetaTagsService {
     const title = opts.title || '';
     const description = opts.description || '';
     const image = opts.image || '/kusillo.webp';
-    const url = opts.url || (typeof window !== 'undefined' ? window.location.href : '');
+    const url = opts.url || (this.isBrowser ? window.location.href : '');
     const lang = opts.lang || 'en';
 
     // Title (document + meta)

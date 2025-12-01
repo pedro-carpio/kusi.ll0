@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class I18nService {
+  private isBrowser: boolean;
   private defaultLang = 'es';
-  private lang$ = new BehaviorSubject<string>(this.loadLang());
-  public langChanges = this.lang$.asObservable();
+  private lang$: BehaviorSubject<string>;
+  public langChanges;
 
   // Translations organized as a descriptive tree (header data)
   private translations: Record<string, any> = {
@@ -632,9 +634,16 @@ export class I18nService {
     },
   };
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    this.lang$ = new BehaviorSubject<string>(this.loadLang());
+    this.langChanges = this.lang$.asObservable();
+  }
 
   private loadLang(): string {
+    if (!this.isBrowser) {
+      return this.defaultLang;
+    }
     try {
       const saved = localStorage.getItem('lang');
       return saved ? saved : this.defaultLang;
@@ -648,10 +657,12 @@ export class I18nService {
   }
 
   setLang(lang: string) {
-    try {
-      localStorage.setItem('lang', lang);
-    } catch (e) {
-      // ignore storage errors
+    if (this.isBrowser) {
+      try {
+        localStorage.setItem('lang', lang);
+      } catch (e) {
+        // ignore storage errors
+      }
     }
     this.lang$.next(lang);
   }

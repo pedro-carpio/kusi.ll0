@@ -1,16 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CopyService {
-  constructor() {}
+  private isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   /**
    * Copies text to the clipboard. Returns true on success.
    */
   async copy(text: string): Promise<boolean> {
-    if (!text) {
+    if (!text || !this.isBrowser) {
       return false;
     }
 

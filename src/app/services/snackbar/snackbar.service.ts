@@ -1,15 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class SnackbarService {
   private containerId = 'kusi-snackbar-container';
+  private isBrowser: boolean;
 
-  constructor() {
-    this.ensureContainer();
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+    if (this.isBrowser) {
+      this.ensureContainer();
+    }
   }
 
   private ensureContainer() {
-    if (!document) {
+    if (!this.isBrowser) {
       return;
     }
     if (!document.getElementById(this.containerId)) {
@@ -27,7 +32,7 @@ export class SnackbarService {
   }
 
   show(message: string, timeout = 2500) {
-    if (!document) {
+    if (!this.isBrowser) {
       return;
     }
     this.ensureContainer();

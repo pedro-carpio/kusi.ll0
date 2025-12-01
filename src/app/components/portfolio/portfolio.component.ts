@@ -1,5 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, HostListener, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { I18nService } from '../../services/i18n.service';
 
@@ -11,6 +11,8 @@ import { I18nService } from '../../services/i18n.service';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
+  private isBrowser: boolean;
+  
   // responsive state
   isMobile = false;
   asideOpen = false; // when true the aside nav is visible on mobile
@@ -19,15 +21,23 @@ export class PortfolioComponent implements OnInit {
   trabajosOpen = false;
   extraOpen = false;
 
-  constructor(private i18n: I18nService) {}
+  constructor(
+    private i18n: I18nService,
+    @Inject(PLATFORM_ID) platformId: Object
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit(): void {
-    this.isMobile = window.innerWidth < 768;
-    this.asideOpen = !this.isMobile; // open by default on desktop
+    if (this.isBrowser) {
+      this.isMobile = window.innerWidth < 768;
+      this.asideOpen = !this.isMobile; // open by default on desktop
+    }
   }
 
   @HostListener('window:resize')
   onResize(): void {
+    if (!this.isBrowser) return;
     const nowMobile = window.innerWidth < 768;
     if (nowMobile !== this.isMobile) {
       this.isMobile = nowMobile;

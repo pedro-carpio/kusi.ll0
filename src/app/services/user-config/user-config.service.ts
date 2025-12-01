@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export interface UserConfig {
   lang?: string;
@@ -8,10 +9,16 @@ export interface UserConfig {
 @Injectable({ providedIn: 'root' })
 export class UserConfigService {
   private readonly key = 'kc_user_config';
+  private isBrowser: boolean;
 
-  constructor() {}
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   getConfig(): UserConfig {
+    if (!this.isBrowser) {
+      return {};
+    }
     try {
       const raw = localStorage.getItem(this.key);
       return raw ? (JSON.parse(raw) as UserConfig) : {};
@@ -21,6 +28,9 @@ export class UserConfigService {
   }
 
   setConfig(cfg: UserConfig): void {
+    if (!this.isBrowser) {
+      return;
+    }
     try {
       localStorage.setItem(this.key, JSON.stringify(cfg));
     } catch (e) {

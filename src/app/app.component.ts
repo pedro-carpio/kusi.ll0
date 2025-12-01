@@ -1,6 +1,6 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { FooterComponent } from './components/shared/layout/footer/footer.component';
 import { HeaderComponent } from './components/shared/layout/header/header.component';
 import { I18nService } from './services/i18n.service';
@@ -15,6 +15,7 @@ declare const bootstrap: any;
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit, OnDestroy {
+  private isBrowser: boolean;
   title = 'Casa';
   @ViewChild('userConfigModal') userConfigModal!: ElementRef;
 
@@ -24,6 +25,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (!this.isBrowser) return;
     try {
       if (this.resizeHandler) {
         window.removeEventListener('resize', this.resizeHandler);
@@ -41,8 +43,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   constructor(
     private i18n: I18nService,
-    private userConfig: UserConfigService
+    private userConfig: UserConfigService,
+    @Inject(PLATFORM_ID) platformId: Object
   ) {
+    this.isBrowser = isPlatformBrowser(platformId);
     const saved = this.userConfig.getLanguage();
     if (saved) {
       this.selectedLang = saved;
@@ -51,6 +55,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    if (!this.isBrowser) return;
     // If the user hasn't configured preferences yet, show the modal
     setTimeout(() => {
       if (!this.userConfig.isConfigured()) {
