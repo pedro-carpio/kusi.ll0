@@ -2,10 +2,28 @@
   display: block;
 }
 
-.btn-outline-secondary {
+.role-btn {
+  // Default state: outline secondary style
+  color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+  background-color: transparent;
   transition: all 0.2s ease;
 
   &:hover {
     transform: translateY(-1px);
+    color: var(--bs-secondary);
+    background-color: rgba(var(--bs-secondary-rgb), 0.1);
+  }
+
+  // Active state: primary style
+  &.active {
+    color: var(--bs-white);
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+
+    &:hover {
+      background-color: var(--bs-primary);
+      border-color: var(--bs-primary);
+    }
   }
 }
