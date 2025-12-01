@@ -135,7 +135,7 @@ export class I18nService {
         sharePrompt: 'Choose how to share this profile',
         shareCopyLink: 'Copy link',
         shareNative: 'Use native share',
-        shareText: 'We should hire this guy!',
+        shareText: 'Pedro Carpio — Multidisciplinary professional: Full-stack Developer, UX Designer & Product Owner with 10+ years experience in technology, design and social impact.',
         shareUnsupported: 'Sharing is not supported in this browser',
         close: 'Close',
         // Professional summary, roles, experience and education
@@ -448,7 +448,7 @@ export class I18nService {
         sharePrompt: 'Elige cómo compartir este perfil',
         shareCopyLink: 'Copiar enlace',
         shareNative: 'Abrir compartir nativo',
-        shareText: 'Deberíamos contratar a este tipo!',
+        shareText: 'Pedro Carpio — Profesional multidisciplinario: Desarrollador Full-stack, Diseñador UX & Product Owner con más de 10 años de experiencia en tecnología, diseño e impacto social.',
         shareUnsupported: 'Compartir no está soportado en este navegador',
         close: 'Cerrar',
         // Resumen profesional, roles, experiencia y educación (ES)

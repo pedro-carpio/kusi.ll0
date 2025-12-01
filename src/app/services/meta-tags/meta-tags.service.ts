@@ -1,4 +1,5 @@
 import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -9,7 +10,8 @@ export class MetaTagsService {
   constructor(
     private title: Title,
     private meta: Meta,
-    @Inject(PLATFORM_ID) platformId: Object
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(DOCUMENT) private document: Document
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
   }
@@ -20,37 +22,39 @@ export class MetaTagsService {
 
   /**
    * Set a canonical link element (replace if exists)
+   * Works in both browser and SSR
    */
   setCanonical(url: string) {
-    if (!url || !this.isBrowser) {
-      return;
+    if (!url) return;
+    try {
+      let link: HTMLLinkElement | null = this.document.querySelector("link[rel='canonical']");
+      if (!link) {
+        link = this.document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        this.document.head.appendChild(link);
+      }
+      link.setAttribute('href', url);
+    } catch (e) {
+      console.warn('setCanonical failed', e);
     }
-    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
-    if (!link) {
-      link = document.createElement('link');
-      link.setAttribute('rel', 'canonical');
-      document.head.appendChild(link);
-    }
-    link.setAttribute('href', url);
   }
 
   /**
    * Set or replace a JSON-LD script node with id kusi-jsonld
+   * Works in both browser and SSR
    */
   setStructuredData(obj: object) {
-    if (!this.isBrowser) return;
     try {
       const id = 'kusi-jsonld';
-      let script = document.getElementById(id) as HTMLScriptElement | null;
+      let script = this.document.getElementById(id) as HTMLScriptElement | null;
       if (!script) {
-        script = document.createElement('script');
+        script = this.document.createElement('script');
         script.type = 'application/ld+json';
         script.id = id;
-        document.head.appendChild(script);
+        this.document.head.appendChild(script);
       }
-      script.text = JSON.stringify(obj);
+      script.textContent = JSON.stringify(obj);
     } catch (e) {
-      // ignore JSON-LD errors
       console.warn('setStructuredData failed', e);
     }
   }
@@ -59,19 +63,21 @@ export class MetaTagsService {
    * Set alternate/hreflang links for multilingual pages. Accepts a map { lang: url }
    */
   setAlternateLinks(alternates: Record<string, string>) {
-    if (!alternates || !this.isBrowser) {
-      return;
-    }
-    // remove any previous alternate links we manage
-    const prev = document.querySelectorAll("link[rel='alternate'][data-kusi]");
-    prev.forEach((n) => n.parentElement?.removeChild(n));
-    for (const [lang, url] of Object.entries(alternates)) {
-      const link = document.createElement('link');
-      link.setAttribute('rel', 'alternate');
-      link.setAttribute('hreflang', lang);
-      link.setAttribute('href', url);
-      link.setAttribute('data-kusi', '1');
-      document.head.appendChild(link);
+    if (!alternates) return;
+    try {
+      // remove any previous alternate links we manage
+      const prev = this.document.querySelectorAll("link[rel='alternate'][data-kusi]");
+      prev.forEach((n) => n.parentElement?.removeChild(n));
+      for (const [lang, url] of Object.entries(alternates)) {
+        const link = this.document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', lang);
+        link.setAttribute('href', url);
+        link.setAttribute('data-kusi', '1');
+        this.document.head.appendChild(link);
+      }
+    } catch (e) {
+      console.warn('setAlternateLinks failed', e);
     }
   }
 
@@ -79,18 +85,20 @@ export class MetaTagsService {
    * Add og:locale:alternate meta tags for other locales
    */
   setOgLocaleAlternates(locales: string[]) {
-    if (!locales || locales.length === 0 || !this.isBrowser) {
-      return;
-    }
-    // remove previous
-    const prev = document.querySelectorAll("meta[property='og:locale:alternate'][data-kusi]");
-    prev.forEach((n) => n.parentElement?.removeChild(n));
-    for (const l of locales) {
-      const m = document.createElement('meta');
-      m.setAttribute('property', 'og:locale:alternate');
-      m.setAttribute('content', l);
-      m.setAttribute('data-kusi', '1');
-      document.head.appendChild(m);
+    if (!locales || locales.length === 0) return;
+    try {
+      // remove previous
+      const prev = this.document.querySelectorAll("meta[property='og:locale:alternate'][data-kusi]");
+      prev.forEach((n) => n.parentElement?.removeChild(n));
+      for (const l of locales) {
+        const m = this.document.createElement('meta');
+        m.setAttribute('property', 'og:locale:alternate');
+        m.setAttribute('content', l);
+        m.setAttribute('data-kusi', '1');
+        this.document.head.appendChild(m);
+      }
+    } catch (e) {
+      console.warn('setOgLocaleAlternates failed', e);
     }
   }
 
@@ -99,8 +107,8 @@ export class MetaTagsService {
    */
   setHtmlLang(lang: string) {
     try {
-      if (this.isBrowser && document.documentElement) {
-        document.documentElement.lang = lang || 'en';
+      if (this.document.documentElement) {
+        this.document.documentElement.lang = lang || 'en';
       }
     } catch (e) {
       /* ignore */

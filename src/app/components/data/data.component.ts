@@ -102,8 +102,8 @@ export class DataComponent implements OnInit, OnDestroy {
       const name = this.i18n.t('data.name') || 'Profile';
       const subtitle = this.i18n.t('data.subtitle') || '';
       const shareText = (this.i18n.t('data.shareText') as string) || subtitle || '';
-      const image = '/kusillo.webp';
-      const url = this.isBrowser ? window.location.href : '';
+      const image = 'https://kusillo.studio/web-app-manifest-512x512.png';
+      const url = this.isBrowser ? window.location.href : 'https://kusillo.studio/mis/datos';
       this.metaTags.setProfileTags({
         title: `${name} - ${subtitle}`,
         description: shareText,
