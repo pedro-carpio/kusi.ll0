@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { I18nService } from '../../../../services/i18n.service';
 
 @Component({
@@ -6,7 +7,9 @@ import { I18nService } from '../../../../services/i18n.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private langSub?: Subscription;
+  
   // left menu items (static for now)
   public leftItems = [
     { key: 'love', route: '#love' },
@@ -14,7 +17,23 @@ export class HeaderComponent {
     { key: 'art', route: '#art' }
   ];
 
-  constructor(private i18n: I18nService) {}
+  constructor(
+    private i18n: I18nService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    // Subscribe to language changes to trigger re-render
+    this.langSub = this.i18n.langChanges.subscribe(() => {
+      this.cdr.markForCheck();
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.langSub) {
+      this.langSub.unsubscribe();
+    }
+  }
 
   // expose current language to the template
   get currentLang(): string {
