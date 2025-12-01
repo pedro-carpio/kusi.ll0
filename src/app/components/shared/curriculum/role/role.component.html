@@ -18,7 +18,7 @@
     <div class="d-flex flex-wrap gap-2 mt-2">
       <p class="small mb-0">
         {{ t('data.rolesHelper') }}
-        <button type="button" class="btn btn-link p-0 align-baseline" data-bs-toggle="modal" data-bs-target="#shareModal">
+        <button type="button" class="btn btn-link p-0 align-baseline" (click)="onShareClick()">
           <i class="bi bi-share-fill"></i>
         </button>
       </p>

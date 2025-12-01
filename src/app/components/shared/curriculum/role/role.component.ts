@@ -1,4 +1,11 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ChangeDetectorRef,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -12,6 +19,7 @@ import { I18nService } from '../../../../services/i18n.service';
 })
 export class RoleComponent implements OnInit, OnDestroy {
   private langSub?: Subscription;
+  @Output() shareClick = new EventEmitter<void>();
 
   constructor(
     private i18n: I18nService,
@@ -28,5 +36,9 @@ export class RoleComponent implements OnInit, OnDestroy {
 
   t(key: string): any {
     return this.i18n.t(key);
+  }
+
+  onShareClick(): void {
+    this.shareClick.emit();
   }
 }

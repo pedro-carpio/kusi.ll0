@@ -14,13 +14,7 @@
   >
   <a class="icon-cell" routerLink="/mis/trabajos"><i class="bi bi-collection-fill"></i>{{ t('data.iconCells.3') }}</a>
   <a class="icon-cell" routerLink="/mis/webadas"><i class="bi bi-pencil-square"></i>{{ t('data.iconCells.4') }}</a>
-  <button
-    type="button"
-    class="icon-cell btn btn-link p-0"
-    data-bs-toggle="modal"
-    data-bs-target="#shareModal"
-    [attr.aria-label]="t('data.iconCells.5')"
-  >
+  <button type="button" class="icon-cell btn btn-link p-0" (click)="onShareClick()" [attr.aria-label]="t('data.iconCells.5')">
     <i class="bi bi-share-fill"></i>{{ t('data.iconCells.5') }}
   </button>
 </div>

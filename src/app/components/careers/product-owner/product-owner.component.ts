@@ -24,6 +24,9 @@ export class ProductOwnerComponent implements OnInit, OnDestroy {
   private rotationInterval = 1500; // ms
   private intervalId: any;
   private langSub?: Subscription;
+  
+  // Share modal state
+  isShareModalOpen = false;
 
   constructor(
     private i18n: I18nService,
@@ -37,6 +40,22 @@ export class ProductOwnerComponent implements OnInit, OnDestroy {
 
   t(key: string): any {
     return this.i18n.t(key);
+  }
+
+  /** Open share modal */
+  openShareModal(): void {
+    this.isShareModalOpen = true;
+    if (this.isBrowser) {
+      document.body.classList.add('modal-open');
+    }
+  }
+
+  /** Close share modal */
+  closeShareModal(): void {
+    this.isShareModalOpen = false;
+    if (this.isBrowser) {
+      document.body.classList.remove('modal-open');
+    }
   }
 
   /**

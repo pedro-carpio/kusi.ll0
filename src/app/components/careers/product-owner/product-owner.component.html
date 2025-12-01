@@ -28,7 +28,7 @@
       <!-- Row 1.3: 6 icon squares occupying full width without gap on small screens -->
       <article class="row mb-3">
         <div class="col-12">
-          <app-buttons></app-buttons>
+          <app-buttons (shareClick)="openShareModal()"></app-buttons>
         </div>
       </article>
     </main>
@@ -43,7 +43,7 @@
     <aside class="col-12 col-md-4"><app-personal-info (copyValue)="copy($event)"></app-personal-info></aside>
   </div>
 
-  <app-role></app-role>
+  <app-role (shareClick)="openShareModal()"></app-role>
 
   <!-- Row 4: Projects with timeline -->
   <div class="row mt-4">
@@ -101,12 +101,20 @@
   <span class="text-center d-block mt-4 mb-4">{{ t('data.redesignNote') }}</span>
 
   <!-- Share modal -->
-  <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
+  <div class="modal-backdrop" [class.show]="isShareModalOpen" (click)="closeShareModal()"></div>
+  <div
+    class="modal"
+    [class.show]="isShareModalOpen"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="shareModalLabel"
+    [attr.aria-hidden]="!isShareModalOpen"
+  >
+    <div class="modal-dialog modal-sm modal-dialog-centered" (click)="$event.stopPropagation()">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="shareModalLabel">{{ t('data.shareTitle') || 'Compartir' }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" (click)="closeShareModal()" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <p class="small text-muted mb-2">{{ t('data.sharePrompt') || 'Elige cómo compartir este perfil' }}</p>
@@ -121,7 +129,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">{{ t('data.close') || 'Cerrar' }}</button>
+          <button type="button" class="btn btn-sm btn-secondary" (click)="closeShareModal()">{{ t('data.close') || 'Cerrar' }}</button>
         </div>
       </div>
     </div>
