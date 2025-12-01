@@ -135,7 +135,7 @@ export class I18nService {
         sharePrompt: 'Choose how to share this profile',
         shareCopyLink: 'Copy link',
         shareNative: 'Use native share',
-        shareText: 'Pedro Carpio — Multidisciplinary professional: Full-stack Developer, UX Designer & Product Owner with 10+ years experience in technology, design and social impact.',
+        shareText: 'Pedro Carpio - Multidisciplinary professional: Full-stack Developer, UX Designer & Product Owner with 10+ years experience in technology, design and social impact.',
         shareUnsupported: 'Sharing is not supported in this browser',
         close: 'Close',
         // Professional summary, roles, experience and education
@@ -311,6 +311,118 @@ export class I18nService {
             'Software Engineering Residency Programs - Jala Foundation (2015-2019)',
           ],
         },
+        softwareDeveloper: {
+          rolesList: ['Frontend Dev (Mid)', 'UI Designer (Mid)', 'UX Designer (Jr)'],
+          shareText: 'Multidisciplinary frontend developer with experience in user-centered interfaces, prototyping, and production-ready development (Angular / Vue). Seeking JR-MID roles to contribute adaptability, applied empathy, and technical creativity.',
+          summaryTitle: 'Summary',
+          summaryText:
+            'Multidisciplinary developer-designer with experience in user-centered interfaces, prototyping and frontend development (Angular / Vue). I combine visual sensibility and social vocation to build accessible and practical products. I have accompanied the full production of applications from both a visual and functional perspective, and I also have the ability to produce functional brands and commercial strategies that complement my work as a developer. Seeking JR-MID roles where I can contribute adaptability, applied empathy and technical creativity.',
+          hardSkillsTitle: 'Skills',
+          hardSkills: {
+            technicalTitle: 'Technical Skills',
+            technical: [
+              'HTML5 / SCSS / Responsive Design - Intermediate',
+              'JavaScript (ES6+) · TypeScript · Angular - Intermediate',
+              'Figma: low fidelity prototyping, design tokens, handoff - Intermediate',
+              'Design Systems & Components (tokens, documentation) - Intermediate',
+              'Git / GitHub · CI basics · Deploys - Intermediate',
+            ],
+            softTitle: 'Soft / Productive Skills',
+            soft: [
+              'Qualitative research, user testing and insight synthesis.',
+              'Cross-disciplinary communication (design ↔ dev ↔ operations).',
+              'Applied empathy, adaptability, proactivity.',
+              'User-Centered Critical Thinking.',
+            ],
+          },
+          experienceTitle: 'Experience',
+          experience: [
+            {
+              org: 'Freelance - Developer / Designer',
+              role: 'Cochabamba / La Paz / Remote',
+              dates: '2019 – Present',
+              bullets: [
+                'Designed and implemented frontends in Angular and Vue for various clients; delivered Figma prototypes with handoff and reusable components.',
+                'Prototyped and validated flows with users (N≈5) to improve critical tasks; iterated solutions that reduced perceived friction.',
+                'Implemented automations and scripts for reporting that decreased manual entries and operational errors.',
+              ],
+            },
+            {
+              org: 'Demo LMS - Implementation and pilot testing',
+              role: 'Cervantes / Educational project',
+              dates: '2025',
+              bullets: [
+                'Designed and deployed an LMS prototype for managing ~80 tutors: class creation, calendar, material uploads and student control.',
+                'Conducted pilot tests and onboarding documentation; reduced average class setup time through templates and guides.',
+                'Deliverables: UI design, handoff document, pilot metrics documentation and lessons learned, usage tutorials.',
+              ],
+            },
+            {
+              org: 'Grupo GOIT - Digital transformation project',
+              role: 'Frontend / Fullstack (Angular)',
+              dates: '2021 – 2022',
+              bullets: [
+                'Co-designed and developed an Angular frontend connected to a custom CMS; built reusable components and improved deployment processes.',
+                'Automations for reporting and remote infrastructure configuration (scripts), contributing operational efficiency.',
+                'Results: deployment of new site with modernized UI and internal tools for maintenance.',
+              ],
+            },
+            {
+              org: 'Projects',
+              role: '',
+              dates: '2015 – Present',
+              bullets: [
+                'Developed personal portfolio in Angular 19 with SSR, SEO optimization, and route prerendering.',
+                'Contributions to volunteer projects with data analysis and qualitative interviews.',
+              ],
+            },
+          ],
+          projectsTitle: 'Featured Projects',
+          projects: [
+            {
+              name: 'International Art Distribution',
+              desc: 'Visual identity, store mockups and go-to-market strategy (pilot campaigns).',
+              tech: ['Branding', 'Marketing', 'Visual Identity'],
+            },
+            {
+              name: 'Component Library / Automations',
+              desc: 'Extracted components (Storybook/demo) and automation scripts (repos with README and dummy dataset).',
+              tech: ['Angular', 'Storybook', 'TypeScript'],
+            },
+            {
+              name: 'Branding Projects',
+              desc: 'Visual identities, strategies, pilot designs for various clients.',
+              tech: ['Figma', 'Adobe Suite', 'Brand Strategy'],
+            },
+            {
+              name: 'Art Portfolio',
+              desc: 'Visual and creative works that highlight my creative vision.',
+              tech: ['Illustration', 'Digital Art', 'Traditional Media'],
+            },
+          ],
+          educationTitle: 'Education & Certifications',
+          education: [
+            'Google UX Design Professional Certificate – Google (Coursera, 2025) - Emphasis: Figma, Usability Testing, Accessibility (a11y), Wireframing.',
+            'Meta Full Stack Developer: Front-End & Back-End from Scratch – Meta (Coursera, 2024) - JavaScript Frameworks, Responsive Frontend Development.',
+            'Python 3 Programming Specialization – University of Michigan (Coursera, 2023)',
+            'Practical Frontend Training: Angular, TypeScript, HTML/CSS - Jala Foundation (2015-2019), UMSS and applied projects.',
+          ],
+          extrasTitle: 'Additional Information',
+          extras: [
+            {
+              title: 'Volunteering',
+              desc: 'Social research and resource mapping (La Paz) - experience in interviews, analysis and data visualization.',
+            },
+            {
+              title: 'Languages',
+              desc: 'Spanish (native), English (intermediate).',
+            },
+            {
+              title: 'Availability',
+              desc: 'Remote / hybrid / relocatable.',
+            },
+          ],
+        },
       },
       // User configuration modal (minimal)
       userConfig: {
@@ -448,7 +560,7 @@ export class I18nService {
         sharePrompt: 'Elige cómo compartir este perfil',
         shareCopyLink: 'Copiar enlace',
         shareNative: 'Abrir compartir nativo',
-        shareText: 'Pedro Carpio — Profesional multidisciplinario: Desarrollador Full-stack, Diseñador UX & Product Owner con más de 10 años de experiencia en tecnología, diseño e impacto social.',
+        shareText: 'Pedro Carpio - Profesional multidisciplinario: Desarrollador Full-stack, Diseñador UX & Product Owner con más de 10 años de experiencia en tecnología, diseño e impacto social.',
         shareUnsupported: 'Compartir no está soportado en este navegador',
         close: 'Cerrar',
         // Resumen profesional, roles, experiencia y educación (ES)
@@ -622,6 +734,118 @@ export class I18nService {
             'Meta Full Stack Developer: Front-End & Back-End from Scratch – Meta (Coursera)',
             'Google Data Analytics Professional Certificate – Google (Coursera) (Énfasis: Definición de métricas, R, SQL, Visualización).',
             'Programas de Residencia en Ingeniería de Software - Jala Foundation (2015-2019)',
+          ],
+        },
+        softwareDeveloper: {
+          rolesList: ['Frontend Dev (Mid)', 'UI Designer (Mid)', 'UX Designer (Jr)'],
+          shareText: 'Desarrollador frontend multidisciplinario con experiencia en interfaces centradas en usuarios, prototipado y desarrollo production-ready (Angular / Vue). Busco roles JR-MID donde aportar adaptabilidad, empatía aplicada y creatividad técnica.',
+          summaryTitle: 'Resumen',
+          summaryText:
+            'Desarrollador-diseñador multidisciplinario con experiencia en interfaces centradas en usuarios, prototipado y desarrollo frontend (Angular / Vue). Combino sensibilidad visual y vocación social para construir productos accesibles y prácticos. He acompañado la producción completa de aplicaciones desde una perspectiva visual y funcional, y también tengo la capacidad de producir marcas y estrategias comerciales funcionales que complementan mi trabajo como desarrollador. Busco roles JR-MID donde aportar adaptabilidad, empatía aplicada y creatividad técnica.',
+          hardSkillsTitle: 'Habilidades',
+          hardSkills: {
+            technicalTitle: 'Habilidades Técnicas',
+            technical: [
+              'HTML5 / SCSS / Responsive Design - Intermedio',
+              'JavaScript (ES6+) · TypeScript · Angular - Intermedio',
+              'Figma: prototipado low fidelity, design tokens, handoff - Intermedio','Accesibilidad (WCAG basics, ARIA) - Intermedio',
+              'Design Systems & Components (tokens, documentación) - Intermedio',
+              'Git / GitHub · CI basics · Deploys - Intermedio',
+            ],
+            softTitle: 'Habilidades Blandas / Productivas',
+            soft: [
+              'Investigación cualitativa, pruebas con usuarios y síntesis de insights.',
+              'Comunicación cross-disciplinar (diseño ↔ dev ↔ operaciones).',
+              'Empatía aplicada, adaptabilidad, proactividad.',
+              'Pensamiento Crítico Centrado en el Usuario.',
+            ],
+          },
+          experienceTitle: 'Experiencia',
+          experience: [
+            {
+              org: 'Freelance - Developer / Designer',
+              role: 'Cochabamba / La Paz / Remoto',
+              dates: '2019 – Presente',
+              bullets: [
+                'Diseñé e implementé frontends en Angular y Vue para clientes variados; entregué prototipos en Figma con handoff y componentes reutilizables.',
+                'Prototipé y validé flujos con usuarios (N≈5) para mejorar tareas críticas; iteré soluciones que redujeron fricción percibida.',
+                'Implementé automatizaciones y scripts para reporting que disminuyeron entradas manuales y errores operativos.',
+              ],
+            },
+            {
+              org: 'Demo LMS - Implementación y pruebas piloto',
+              role: 'Cervantes / Proyecto educativo',
+              dates: '2025',
+              bullets: [
+                'Diseñé y desplegué un prototipo de LMS para la gestión de ~80 tutores: creación de clases, calendario, subida de materiales y control de alumnos.',
+                'Realicé pruebas piloto y documentación de onboarding; reduje el tiempo promedio de configuración de clases mediante plantillas y guías.',
+                'Entregables: UI design, handoff document, documentación de métricas piloto y lecciones aprendidas, tutorías de uso.',
+              ],
+            },
+            {
+              org: 'Grupo GOIT - Proyecto de transformación digital',
+              role: 'Frontend / Fullstack (Angular)',
+              dates: '2021 – 2022',
+              bullets: [
+                'Co-diseñé y desarrollé un frontend en Angular conectado a un CMS personalizado; construí componentes reutilizables y mejoré procesos de despliegue.',
+                'Automatizaciones para reporting y configuración remota de infra (scripts), aportando eficiencia operativa.',
+                'Resultados: despliegue de nuevo sitio con UI modernizada y herramientas internas para mantenimiento.',
+              ],
+            },
+            {
+              org: 'Proyectos',
+              role: '',
+              dates: '2015 – Presente',
+              bullets: [
+                'Desarrollé portafolio personal en Angular 19 con SSR, optimización SEO y prerendering de rutas.',
+                'Contribuciones a proyectos de voluntariado con análisis de datos y entrevistas cualitativas.',
+              ],
+            },
+          ],
+          projectsTitle: 'Proyectos destacados',
+          projects: [
+            {
+              name: 'Distribución Internacional de Arte',
+              desc: 'Identidad visual, mockups de tienda y estrategia go-to-market (campañas piloto).',
+              tech: ['Branding', 'Marketing', 'Identidad Visual'],
+            },
+            {
+              name: 'Component Library / Automations',
+              desc: 'Componentes extraídos (Storybook/demo) y scripts de automatización (repos con README y dataset dummy).',
+              tech: ['Angular', 'Storybook', 'TypeScript'],
+            },
+            {
+              name: 'Proyectos de Branding',
+              desc: 'Identidades visuales, estrategias, diseños piloto para varios clientes.',
+              tech: ['Figma', 'Adobe Suite', 'Brand Strategy'],
+            },
+            {
+              name: 'Portafolio de Arte',
+              desc: 'Trabajos visuales y creativos que resaltan mi visión creativa.',
+              tech: ['Ilustración', 'Arte Digital', 'Medios Tradicionales'],
+            },
+          ],
+          educationTitle: 'Educación y certificaciones',
+          education: [
+            'Google UX Design Professional Certificate – Google (Coursera, 2025) - Énfasis: Figma, Usability Testing, Accesibilidad (a11y), Wireframing.',
+            'Meta Full Stack Developer: Front-End & Back-End from Scratch – Meta (Coursera, 2024) - JavaScript Frameworks, Desarrollo Frontend Responsivo.',
+            'Python 3 Programming Specialization – University of Michigan (Coursera, 2023)',
+            'Formación práctica en Frontend: Angular, TypeScript, HTML/CSS - Jala Foundation (2015-2019), UMSS y proyectos aplicados.',
+          ],
+          extrasTitle: 'Información Adicional',
+          extras: [
+            {
+              title: 'Voluntariado',
+              desc: 'Investigación social y mapeo de recursos (La Paz) - experiencia en entrevistas, análisis y visualización de datos.',
+            },
+            {
+              title: 'Idiomas',
+              desc: 'Español (nativo), Inglés (intermedio).',
+            },
+            {
+              title: 'Disponibilidad',
+              desc: 'Remoto / híbrido / relocalizable.',
+            },
           ],
         },
       },

@@ -1,2 +1,146 @@
-<p>Hola! este curriculum está siendo generado en este preciso instante. esperalo como mucho una semana, muchas gracias.</p>
-<p>Mientras tanto, porfavor revisa <a href="/mis/datos">mi curriculum general</a> ahi encontraras todo lo necesario.</p>
+<section class="data container-fluid" aria-labelledby="data-heading">
+  <!-- Row 1: foto (hidden on mobile) + main area with three stacked rows -->
+  <h1 class="title" id="data-heading">{{ t('data.name') }} — Frontend Developer & UX Designer Jr</h1>
+  <div class="row align-items-start mt-3">
+    <!-- Photo column: 3 cols on md+, hidden on small screens -->
+    <figure class="col-12 col-md-4 d-none d-md-block mb-0">
+      <img src="/kusillo.webp" alt="{{ t('data.photoAlt') }}" class="img-fluid photo justify-content-end" />
+      <figcaption class="visually-hidden">{{ t('data.photoCaption') }}</figcaption>
+    </figure>
+    <!-- Main column: occupies 9 on md+ and full width on mobile -->
+    <main class="col-12 col-md-8">
+      <article class="row">
+        <div class="col-12">
+          <div class="col-10">
+            <span class="big-text col-8">{{ t('data.name') }}</span>
+            <span class="d-block text-muted small mt-1 subtitle-content">Frontend Developer & UX Designer Jr</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="row mb-3">
+        <div class="col-12">
+          <span class="big-text big-text-subtitle rotating-role" [attr.data-text]="currentRole" [class.glitch-active]="showRole">{{
+            currentRole
+          }}</span>
+        </div>
+      </article>
+
+      <!-- Row 1.3: 6 icon squares occupying full width without gap on small screens -->
+      <article class="row mb-3">
+        <div class="col-12">
+          <app-buttons (shareClick)="openShareModal()"></app-buttons>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Row 2: Summary + Personal Info -->
+  <div class="row mt-4">
+    <section class="col-12 col-md-8">
+      <h2 class="h4">{{ t('data.softwareDeveloper.summaryTitle') }}</h2>
+      <p class="small text-muted">{{ t('data.softwareDeveloper.summaryText') }}</p>
+    </section>
+
+    <aside class="col-12 col-md-4"><app-personal-info (copyValue)="copy($event)"></app-personal-info></aside>
+  </div>
+
+  <app-role (shareClick)="openShareModal()"></app-role>
+
+  <!-- Row 3: Hard Skills + Experience -->
+  <div class="row mt-4">
+    <section class="col-12 col-md-4">
+      <h2 class="h4">{{ t('data.softwareDeveloper.hardSkillsTitle') }}</h2>
+      <div class="d-flex flex-column gap-3">
+        <!-- Technical Skills -->
+        <article class="p-3 border rounded">
+          <h3 class="h6">{{ t('data.softwareDeveloper.hardSkills.technicalTitle') }}</h3>
+          <ul class="mb-0">
+            <li *ngFor="let skill of t('data.softwareDeveloper.hardSkills.technical')">{{ skill }}</li>
+          </ul>
+        </article>
+
+        <!-- Soft Skills -->
+        <article class="p-3 border rounded">
+          <h3 class="h6">{{ t('data.softwareDeveloper.hardSkills.softTitle') }}</h3>
+          <ul class="mb-0">
+            <li *ngFor="let skill of t('data.softwareDeveloper.hardSkills.soft')">{{ skill }}</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="col-12 col-md-8">
+      <h2 class="h4">{{ t('data.softwareDeveloper.experienceTitle') }}</h2>
+      <div class="timeline mt-3">
+        <article class="timeline-item" *ngFor="let e of t('data.softwareDeveloper.experience')">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="d-flex justify-content-between">
+              <h3 class="h6 mb-0">{{ e.org }}</h3>
+              <time class="text-muted small">{{ e.dates }}</time>
+            </div>
+            <div class="text-uppercase small text-muted" *ngIf="e.role">{{ e.role }}</div>
+            <ul class="mb-0 small" *ngIf="e.bullets && e.bullets.length">
+              <li *ngFor="let b of e.bullets">{{ b }}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Row 4: Projects -->
+  <div class="row mt-4">
+    <section class="col-12">
+      <h2 class="h4">{{ t('data.softwareDeveloper.projectsTitle') }}</h2>
+      <div class="row g-3 mt-2">
+        <article class="col-12 col-md-6 col-lg-4" *ngFor="let proj of t('data.softwareDeveloper.projects')">
+          <div class="p-3 border rounded h-100">
+            <h3 class="h6 mb-1">{{ proj.name }}</h3>
+            <p class="small text-muted mb-2">{{ proj.desc }}</p>
+            <ul class="mb-0 small" *ngIf="proj.tech && proj.tech.length">
+              <li *ngFor="let tech of proj.tech">{{ tech }}</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Row 5: Education -->
+  <div class="row mt-4">
+    <section class="col-12 col-md-8" id="studies">
+      <h2 class="h4">{{ t('data.softwareDeveloper.educationTitle') }}</h2>
+      <div class="timeline mt-3">
+        <article class="timeline-item" *ngFor="let edu of t('data.softwareDeveloper.education')">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <p class="mb-0 small">{{ edu }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Row 6: Extras -->
+  <div class="row mt-4">
+    <section class="col-12">
+      <h2 class="h4">{{ t('data.softwareDeveloper.extrasTitle') }}</h2>
+      <div class="row g-3 mt-2">
+        <article class="col-12 col-md-4" *ngFor="let extra of t('data.softwareDeveloper.extras')">
+          <div class="p-3 border rounded h-100">
+            <h3 class="h6 mb-1">{{ extra.title }}</h3>
+            <p class="small text-muted mb-0">{{ extra.desc }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <span class="text-center d-block mt-4 mb-4">{{ t('data.redesignNote') }}</span>
+
+  <!-- Share modal -->
+  <app-share-modal [isOpen]="isShareModalOpen" (closed)="closeShareModal()"></app-share-modal>
+</section>
