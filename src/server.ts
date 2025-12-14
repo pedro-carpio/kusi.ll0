@@ -43,14 +43,15 @@ app.get('/link/:id', (req, res) => {
 
   const data = {
     title: 'Croac!',
-    description: '📅 20 Dic • 5 PM | 🌿 Dresscode: Un poco verde | Acompáñanos en esta aventura anfibia.',
+    description:
+      '📅 20 Dic • 5 PM | 🌿 Dresscode: Un poco verde | Acompáñanos en esta aventura anfibia.',
     imageUrl: 'https://eventa-invites--eventa-invites.us-east4.hosted.app/croac.webp',
   };
   const title = data.title;
   const description = data.description;
   const imageUrl = data.imageUrl; // Debe ser una URL absoluta (https://...)
   const current_url = req.protocol + '://' + req.get('host') + req.originalUrl;
-  const redirect_url = `${current_url.replace('/lik/', '/invitacion/')}`;
+  const redirect_url = `https://eventa-invites--eventa-invites.us-east4.hosted.app/baby-shower/vinculo-natural`;
 
   const html = `
     <!DOCTYPE html>
