@@ -27,32 +27,6 @@ app.disable('x-powered-by');
 app.use(compression());
 
 /**
- * Middleware to check if request is from a bot
- */
-const isBot = (req: any): boolean => {
-  const userAgent = req.get('user-agent') || '';
-  const botPatterns = [
-    /googlebot/i,
-    /bingbot/i,
-    /slurp/i,
-    /duckduckbot/i,
-    /baiduspider/i,
-    /yandexbot/i,
-    /facebookexternalhit/i,
-    /twitterbot/i,
-    /linkedinbot/i,
-    /whatsapp/i,
-    /telegrambot/i,
-    /slackbot/i,
-    /discordbot/i,
-    /curl/i,
-    /wget/i,
-    /preview/i,
-  ];
-  return botPatterns.some((pattern) => pattern.test(userAgent));
-};
-
-/**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
  *
@@ -68,13 +42,6 @@ app.get('/link/:id', (req, res) => {
   const shareId = req.params['id'];
 
   // Only allow bots to access this endpoint
-  if (!isBot(req)) {
-    return res.status(403).json({
-      error: 'Access denied',
-      message:
-        'This endpoint is only accessible to bots (search engines, social media crawlers, etc.)',
-    });
-  }
 
   const data = {
     title: 'Croac!',
@@ -86,8 +53,7 @@ app.get('/link/:id', (req, res) => {
   const description = data.description;
   const imageUrl = data.imageUrl; // Debe ser una URL absoluta (https://...)
   const current_url = req.protocol + '://' + req.get('host') + req.originalUrl;
-  //const redirect_url = `https://eventa-invites--eventa-invites.us-east4.hosted.app/baby-shower/vinculo-natural`;
-  const redirect_url = current_url; // Temporalmente redirige a si mismo
+  const redirect_url = `https://eventa-invites--eventa-invites.us-east4.hosted.app/invitacion/croac?shareId=${shareId}`;
   const html = `
     <!DOCTYPE html>
     <html lang="es">
