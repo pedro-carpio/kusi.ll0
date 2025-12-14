@@ -51,8 +51,8 @@ app.get('/link/:id', (req, res) => {
   const description = data.description;
   const imageUrl = data.imageUrl; // Debe ser una URL absoluta (https://...)
   const current_url = req.protocol + '://' + req.get('host') + req.originalUrl;
-  const redirect_url = `https://eventa-invites--eventa-invites.us-east4.hosted.app/baby-shower/vinculo-natural`;
-
+  //const redirect_url = `https://eventa-invites--eventa-invites.us-east4.hosted.app/baby-shower/vinculo-natural`;
+  const redirect_url = current_url; // Temporalmente redirige a si mismo
   const html = `
     <!DOCTYPE html>
     <html lang="es">
@@ -173,7 +173,12 @@ app.get('/link/:id', (req, res) => {
         <div class="container">
             <script>
                 // Redirigir a los humanos al sitio real
-                window.location.href = "${redirect_url}";
+                const originUrl = "${current_url}";
+                const redirectUrl = "${redirect_url}";
+                
+                if (originUrl !== redirectUrl) {
+                  window.location.href = redirectUrl;
+                }
             </script>
             <h1>Redirigiendo...</h1>
             <p>Si no eres redirigido automáticamente, haz clic <a href="${redirect_url}">aquí</a>.</p>
